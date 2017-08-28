@@ -4,5 +4,4 @@ class Choice < ApplicationRecord
   belongs_to :question
 end
 
-
-has_many :bookings, through: :event_bookings, source: :events
+# has_many :bookings, through: :event_bookings, source: :events
