@@ -1,0 +1,34 @@
+.edit-photos {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px
+}
+
+.avatar {
+  background-image: url("https://pbs.twimg.com/media/C4oQs1rWcAAXYeS.jpg");
+  background-size: cover;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  position: relative;
+}
+
+.add-btn {
+  position: absolute;
+  bottom: 0px;
+  right: -7px;
+  img {
+    height: 30px;
+    width: 30px;
+  }
+}
+
+.attribute-body {
+  background: white;
+  padding: 10px;
+  border-radius: 2px;
+}
+
+.remove-profile {
+  margin-top: 20px;
+}
