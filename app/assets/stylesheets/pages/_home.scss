@@ -1,1 +1,44 @@
 // Specific CSS for your home-page
+.banner {
+  color: white;
+  text-align: center;
+  height: calc(100vh - 70px);
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main-name {
+  font-size: 75px;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  font-family: 'Shrikhand', cursive;
+}
+
+.meteor-name {
+  font-family: 'Shrikhand', cursive;
+}
+
+.banner p {
+  font-size: 40px;
+  font-weight: lighter;
+  color: rgb(255, 255, 255);
+  opacity: 0.6;
+  margin-bottom: 30px;
+}
+
+.banner-content {
+  margin-bottom: 240px;
+}
+
+
+.is-on {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+// media queries
+// desktop: @media (min-width: 1200px) (edited)
+// iPad: @media (min-width: 768px)
+
