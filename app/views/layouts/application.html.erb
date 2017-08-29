@@ -7,12 +7,16 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= favicon_link_tag %>
   </head>
   <body>
+  <% if params[:controller] == 'profiles' && params[:action] == 'edit' %>
+    <%= render 'shared/edit-navbar' %>
+  <% else %>
     <%= render 'shared/navbar' %>
+  <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
+    <%= yield(:after_js) %>
   </body>
 </html>

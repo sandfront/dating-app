@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  resources :profiles, only: [:show, :index, :edit]
+  resources :profiles, only: [:show, :index, :edit, :update]
   post 'users/:id/match', to: 'matches#create', as: :match
 end

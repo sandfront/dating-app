@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :answers
   has_many :facebook_likes
   has_many :choices, through: :answers
+  has_many :user_images
+  accepts_nested_attributes_for :user_images
 
   def likes # return only when YOUVE BEEN THE FIRST to like
     Match.where(first_user: self)
