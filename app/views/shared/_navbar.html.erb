@@ -45,30 +45,6 @@
     <% end %>
   </div>
 
-  <!-- NAVBAR ON PROFILE SETTINGS -->
-  <% if current_page?(profiles_path) %> <!-- LINK TO PROFILE SETTINGS PATH -->
-    <!-- Link to save RIGHT tick icon -->
-    <div class="navbar-meteor-right">
-      <% if user_signed_in? %>
-      <a href="#" class="navbar-meteor-item navbar-meteor-link"><i class="fa fa-check"></i></a>
-      <% else %>
-      <!-- Login link (when logged out) -->
-        <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-meteor-item navbar-meteor-link" %>
-      <% end %>
-    </div>
-    <!-- text CENTER -->
-    <p>Edit your profile</p>
-    <!-- Link back LEFT arrow icon -->
-    <div class="navbar-meteor-left">
-      <% if user_signed_in? %>
-      <a href="#" class="navbar-meteor-item navbar-meteor-link"><i class="fa fa-chevron-left"></i></a>
-      <% else %>
-      <!-- Login link (when logged out) -->
-        <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-meteor-item navbar-meteor-link" %>
-      <% end %>
-    </div>
-  <% end %>
-
   <!-- NAVBAR ON MESSAGE SHOW -->
 
 </div>
