@@ -1,0 +1,34 @@
+<div class="edit-photos">
+  <div class="avatar">
+    <div class="add-btn">
+      <%= image_tag 'no-btn.png' %>
+    </div>
+  </div>
+</div>
+
+<h2 class="text-center">Edit your profile</h2>
+
+
+<div class="container edit-attributes">
+
+  <div class="single-attribute">
+    <h4 class="attribute-title">What I'm into</h4>
+    <div class="attribute-body">
+      <p>
+        Currently studying History of Art, and looking for a serious relationship. My interests include History, Art, and relationships.
+
+        I like coming up with big ideas and then bring them to life. Love good music. I have a passion for architecture. Always eager to learn new things.
+
+        Free to chat and meet up on campus at any time!
+      </p>
+      <%= link_to do %>
+      <i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit
+      <% end %>
+    </div>
+  </div>
+
+</div>
+
+<div class="text-center remove-profile">
+  <%= link_to "Remove your profile" %>
+</div>
