@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20170829153246) do
     t.string "token"
     t.datetime "token_expiry"
     t.text "description"
+    t.string "course"
     t.string "gender"
     t.string "friends"
     t.string "birthday"
@@ -89,7 +90,6 @@ ActiveRecord::Schema.define(version: 20170829153246) do
     t.string "photos"
     t.string "work"
     t.string "subject"
-    t.string "course"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
