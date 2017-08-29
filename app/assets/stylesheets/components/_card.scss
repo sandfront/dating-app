@@ -1,0 +1,29 @@
+.card {
+  height: calc(100vh - 70px);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.card-content {
+  position: absolute;
+  bottom: 20px;
+  left: 10px;
+  h3 {
+    font-family: $body-font;
+    font-size: 35px;
+    color:white;
+  }
+  p {
+    margin-bottom: 0;
+    color:white;
+    font-family: $body-font;
+    font-weight: lighter;
+    font-size: 20px;
+  }
+}
+
+.card-interest {
+
+}
+

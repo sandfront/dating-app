@@ -1,14 +1,7 @@
 <div class="row">
   <div class="col-xs-12">
     <% @profiles.each do |profile| %>
-      <div class="card" style="background-image: url();">
-        <div class="content">
-
-        </div>
-        <div class="interest">
-
-        </div>
-      </div>
+      <%= render "shared/card", profile: profile %>
     <% end %>
   </div>
 </div>
