@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, omniauth_providers: [:facebook]
   has_many :answers
+  has_many :facebook_likes
   has_many :choices, through: :answers
   has_many :user_images
   accepts_nested_attributes_for :user_images
@@ -22,9 +23,19 @@ class User < ApplicationRecord
   end
 
   def self.find_for_facebook_oauth(auth)
+    raise
     user_params = auth.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)
     user_params[:facebook_picture_url] = auth.info.image
+
+    user_params[:gender] = auth.extra.raw_info.gender
+    user_params[:friends] = auth.extra.raw_info.friends
+    user_params[:birthday] = auth.extra.raw_info.birthday
+    user_params[:school] = auth.extra.raw_info.education.last.school.name
+    user_params[:subject] = auth.extra.raw_info.education.last.concentration.first.name
+    user_params[:work] = "needs coding"
+    user_params[:photos] = "needs coding"
+
     user_params[:token] = auth.credentials.token
     user_params[:token_expiry] = Time.at(auth.credentials.expires_at)
     user_params = user_params.to_h
@@ -38,7 +49,17 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0,20]  # Fake password for validation
       user.save
     end
-
+    user.persist_fblikes(auth)
     return user
   end
+
+  def persist_fblikes(auth)
+    likes_hashie = auth.extra.raw_info.likes.data
+    likes_hashie.each do |like|
+      fb_like = FacebookLike.new(like_id: like.id, name: like.name)
+      fb_like.user = self
+      fb_like.save
+    end
+  end
+
 end
