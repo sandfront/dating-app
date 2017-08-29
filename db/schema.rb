@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20170828171902) do
   end
 
   create_table "matches", force: :cascade do |t|
-    t.boolean "mutual"
+    t.boolean "mutual", default: false
     t.integer "first_user_id"
     t.integer "second_user_id"
   end
