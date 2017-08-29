@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170829104350) do
+ActiveRecord::Schema.define(version: 20170829153246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,15 @@ ActiveRecord::Schema.define(version: 20170829104350) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_choices_on_question_id"
+  end
+
+  create_table "facebook_likes", force: :cascade do |t|
+    t.bigint "like_id"
+    t.string "name"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_facebook_likes_on_user_id"
   end
 
   create_table "matches", force: :cascade do |t|
@@ -64,6 +73,14 @@ ActiveRecord::Schema.define(version: 20170829104350) do
     t.string "token"
     t.datetime "token_expiry"
     t.text "description"
+    t.string "gender"
+    t.string "friends"
+    t.string "birthday"
+    t.string "school"
+    t.string "events"
+    t.string "photos"
+    t.string "work"
+    t.string "subject"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -71,6 +88,7 @@ ActiveRecord::Schema.define(version: 20170829104350) do
   add_foreign_key "answers", "choices"
   add_foreign_key "answers", "users"
   add_foreign_key "choices", "questions"
+  add_foreign_key "facebook_likes", "users"
   add_foreign_key "matches", "users", column: "first_user_id"
   add_foreign_key "matches", "users", column: "second_user_id"
 end
