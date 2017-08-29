@@ -1,14 +1,14 @@
 .card {
-  height: calc(100vh - 70px);
+  height: 100vh;
   background-size: cover;
   background-position: center;
   position: relative;
 }
 
 .card-content {
-  position: absolute;
-  bottom: 20px;
-  left: 10px;
+  left: 5% !important;
+  right: auto !important;
+  text-align: left !important;
   h3 {
     font-family: $body-font;
     font-size: 35px;
@@ -23,7 +23,4 @@
   }
 }
 
-.card-interest {
-
-}
 
