@@ -12,10 +12,10 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    @user  = User.find(params[:id])
+    @user = User.find(params[:id])
     if @user.update(user_params)
       params[:user_images]['photo'].each do |p|
-        @user.user_images.create!(:photo => p)
+        @user.user_images.update(:photo => p)
       end
       redirect_to profile_path(@user)
     else
