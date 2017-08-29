@@ -1,7 +1,9 @@
-<div class="row">
-  <div class="col-xs-12">
-    <% @profiles.each do |profile| %>
-      <%= render "shared/card", profile: profile %>
-    <% end %>
+<div>
+  <div class="row">
+    <div class="col-xs-12">
+      <% @profiles.each do |profile| %>
+        <%= render "shared/card", profile: profile %>
+      <% end %>
+    </div>
   </div>
 </div>
