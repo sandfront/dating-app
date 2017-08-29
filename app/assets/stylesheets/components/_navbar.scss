@@ -8,6 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0;
 }
 
 /* Logo */
@@ -47,6 +48,7 @@
 .navbar-meteor-link {
   color: #2F4550;
   font-size: 14px;
+  font-size: 1em;
 }
 .navbar-meteor-link:hover {
   color: #D65768;
