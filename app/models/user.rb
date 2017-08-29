@@ -7,8 +7,12 @@ class User < ApplicationRecord
   has_many :answers
   has_many :choices, through: :answers
 
-  def likes
-    Match.where(first_user: self).or(Match.where(second_user: self))
+  def likes # return only when YOUVE BEEN THE FIRST to like
+    Match.where(first_user: self)
+  end
+
+  def been_liked # second_user denotes the person who HAS BEEN LIKED by the PERSON WHO LIKED FIRST
+    Match.where(second_user: self)
   end
 
   def matches
