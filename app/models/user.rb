@@ -6,6 +6,8 @@ class User < ApplicationRecord
   devise :omniauthable, omniauth_providers: [:facebook]
   has_many :answers
   has_many :choices, through: :answers
+  has_many :photo_images
+  accepts_nested_attributes_for :photo_images
 
   def likes # return only when YOUVE BEEN THE FIRST to like
     Match.where(first_user: self)
