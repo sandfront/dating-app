@@ -11,6 +11,7 @@ require 'faker'
   random_men = "https://randomuser.me/api/portraits/men/#{(1..100).to_a.sample}.jpg"
   random_women = "https://randomuser.me/api/portraits/men/#{(1..100).to_a.sample}.jpg"
   person.facebook_picture_url = random_men
+  person.save
   puts 'User created!'
 end
 
