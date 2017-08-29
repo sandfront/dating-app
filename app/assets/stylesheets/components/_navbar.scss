@@ -30,12 +30,12 @@
   border-radius: 50%;
 }
 
-/* RIGHT section */
-.navbar-meteor-center {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+// /* RIGHT section */
+// .navbar-meteor-center {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+// }
 
 /* Basic navbar item */
 .navbar-meteor-item {
@@ -86,4 +86,10 @@
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+}
+
+#edit-text-nav {
+  color: #2F4550;
+  opacity: 0.9;
+  margin-top: 18px;
 }
