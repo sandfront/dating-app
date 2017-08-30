@@ -12,7 +12,6 @@ class ProfilesController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    @photos_urls = find_user_fb_photos
   end
 
   def update
