@@ -3,7 +3,7 @@ require 'json'
 
 class ProfilesController < ApplicationController
   def index
-    @profiles = User.all
+    @users = User.all
   end
 
   def show

@@ -1,28 +1,28 @@
-<div id="carousel-<%= profile.id %>" class="carousel slide" data-ride="carousel">
+<div id="carousel-<%= user.id %>" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
-    <%# profile.images???.each_with_index |photo, n| %>
-      <!-- <li data-target="carousel-<%# profile.id %>" data-slide-to="#{n}" class="#{active if n == 0}"></li> -->
-    <%# end %>
+    <%= user.user_image.each_with_index |photo, n| do %>
+      <li data-target="carousel-<%= photo.id %>" data-slide-to="#{n}" class="#{active if n == 0}"></li>
+    <% end %>
   </ol>
 
       <!-- Put in item active -->
 
-      <%# profile.images???.each do |photo| %>
+      <%# user.images???.each do |photo| %>
        <!--  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%# image_path PHOTO?? %>);">  </div> -->
       <%# end %>
        <!-- <div class="carousel-caption card-content">
-        <h3> <%# profile.first_name |  %>,  profile.age?  19 </h3>
-        <p> <%# profile.course  %> </p>
+        <h3> <%# user.first_name |  %>,  user.age?  19 </h3>
+        <p> <%# user.course  %> </p>
       </div> -->
 
 
-      <%# profile.images??.drop(1).each do |photo|  %>
+      <%# user.images??.drop(1).each do |photo|  %>
         <!-- Start item div -->
          <!--  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%# image_path PHOTO?? %>);"> </div>
           <div class="carousel-caption card-content">
-            <h3> <%# profile.first_name   %>,  profile.age?  19 </h3>
-            <p> <%# profile.course  %> </p>
+            <h3> <%# user.first_name   %>,  user.age?  19 </h3>
+            <p> <%# user.course  %> </p>
           </div> -->
         <!-- End item div   -->
       <%# end %>
@@ -31,29 +31,30 @@
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "grill" %>);"> </div>
-      <div class="carousel-caption card-content">
-        <h3> <%= profile.first_name ||= "Veronica"  %>,  <!-- profile.age? -->  19 </h3>
-        <p> <%= profile.course ||= "Economics" %> </p>
-      </div>
+    <% user.user_image.each do |photo| %>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path photo.url %>);">  </div>
+    <% end %>
+    <div class="carousel-caption card-content">
+      <h3> <%= user.first_name |  %>,  19 </h3>
+      <p> <%= user.course  %> </p>
     </div>
+  </div>
 
     <div class="item">
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "grill" %>);"> </div>
       <div class="carousel-caption card-content">
-        <h3> <%= profile.first_name ||= "Veronica"  %>,  <!-- profile.age? -->  19 </h3>
-        <p> <%= profile.course ||= "Economics" %> </p>
+        <h3> <%= user.first_name ||= "Veronica"  %>,  <!-- user.age? -->  19 </h3>
+        <p> <%= user.course ||= "Economics" %> </p>
       </div>
     </div>
   </div>
 
   <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-<%= profile.id %>" role="button" data-slide="prev">
+  <a class="left carousel-control" href="#carousel-<%= user.id %>" role="button" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a class="right carousel-control" href="#carousel-<%= profile.id %>" role="button" data-slide="next">
+  <a class="right carousel-control" href="#carousel-<%= user.id %>" role="button" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
