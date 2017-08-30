@@ -1,5 +1,4 @@
 <% into = "Currently studying History of Art, and looking for a serious relationship. My interests include History, Art, and relationships. I like coming up with big ideas and then bring them to life. Love good music. I have a passion for architecture. Always eager to learn new things. Free to chat and meet up on campus at any time!"%>
-
 <% am = "Based in London town right now!!" %>
 
 <div class="edit-photos">
@@ -19,24 +18,24 @@
     <h4 class="attribute-title">What I'm into</h4>
     <div class="attribute-body">
       <p>
-        <%= into %>
+        <%= @user.desc_test1 %>
       </p>
-      <div data-toggle="modal" data-target="#formModal" data-content="<%= into %>">
+      <div data-toggle="modal" data-target="#desc_test1Modal" data-content="desc_test1">
         <a><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
       </div>
     </div>
   </div>
 
   <div class="single-attribute">
-  <h4 class="attribute-title">Where I am</h4>
-  <div class="attribute-body">
-    <p>
-      <%= am %>
-    </p>
-    <div data-toggle="modal" data-target="#formModal" data-content="<%= am %>">
-      <a><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
+    <h4 class="attribute-title">Where I am</h4>
+    <div class="attribute-body">
+      <p>
+        <%= @user.desc_test2 %>
+      </p>
+      <div data-toggle="modal" data-target="#desc_test2Modal" data-content="desc_test2">
+        <a><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
+      </div>
     </div>
-  </div>
   </div>
 
 </div>
@@ -47,7 +46,7 @@
 </div>
 
 <!-- Here be modals -->
-<div class="modal fade" id="formModal">
+<div class="modal fade" id="desc_test1Modal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -57,26 +56,38 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for @user do |f| %>
-        <%= f.input "#{attribute}".to_sym %>
+        <%= simple_form_for @user, :url => profile_path, :method => :patch do |f| %>
+        <%= f.input :desc_test1 %>
+        <%= f.button :submit, class: 'btn btn-primary', 'data-dismiss'.to_sym => "modal" %>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <% end %>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
 </div>
 
-<% content_for(:after_js) do %>
-  <script>
-    $('#formModal').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget) // Button that triggered the modal
-    var content = button.data('content') // Extract info from data-* attributes
-    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-    var modal = $(this)
-    modal.find('.modal-body').text(content)
-  })
-  </script>
-<% end %>
+<div class="modal fade" id="desc_test2Modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for @user, :url => profile_path, :method => :patch do |f| %>
+        <%= f.input :desc_test2 %>
+        <%= f.button :submit, class: 'btn btn-primary' %>
+      </div>
+      <div class="modal-footer">
+        <% end %>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
