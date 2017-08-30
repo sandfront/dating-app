@@ -50,7 +50,7 @@
   <div class="profile-gallery">
     <% @user.user_images.each_with_index do |photo, n| %>
 
-      <a href="<%= image_path photo.url %>" data-lightbox="image-<%= n %>" data-title="My caption">
+      <a href="<%= image_path photo.url %>" data-lightbox="image-profile" data-title="My caption">
         <div class="profile-gallery-img" style="background-image: url(<%= image_path photo.url %>);">
         </div>
       </a>
