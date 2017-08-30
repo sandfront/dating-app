@@ -2,7 +2,7 @@
   <!-- Indicators -->
   <ol class="carousel-indicators">
     <%= user.user_image.each_with_index |photo, n| do %>
-      <li data-target="carousel-<%= photo.id %>" data-slide-to="#{n}" class="#{active if n == 0}"></li>
+      <li data-target="carousel-<%= user.id %>" data-slide-to="#{n}" class="#{active if n == 0}"></li>
     <% end %>
   </ol>
 
@@ -35,16 +35,18 @@
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path photo.url %>);">  </div>
     <% end %>
     <div class="carousel-caption card-content">
-      <h3> <%= user.first_name |  %>,  19 </h3>
-      <p> <%= user.course  %> </p>
+      <h3> <%= user.first_name ||= "Veronica"  %>,  19 </h3>
+      <p> <%= "Economics"  %> </p>
     </div>
   </div>
 
     <div class="item">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "grill" %>);"> </div>
+      <%= user.user_image.drop(1).each do |image| %>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path image.url %>);"> </div>
+      <% end %>
       <div class="carousel-caption card-content">
         <h3> <%= user.first_name ||= "Veronica"  %>,  <!-- user.age? -->  19 </h3>
-        <p> <%= user.course ||= "Economics" %> </p>
+        <p> <%= "Economics" %> </p>
       </div>
     </div>
   </div>
