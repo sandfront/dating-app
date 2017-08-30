@@ -37,10 +37,12 @@ class User < ApplicationRecord
 
     user_params[:gender] = auth.extra.raw_info.gender
     user_params[:friends] = auth.extra.raw_info.friends
+
     user_params[:birthday] = Date.strptime(auth.extra.raw_info.birthday, '%m/%d/%Y')
     # user_params[:school] = auth.extra.raw_info.education.last.school.name
-    # user_params[:subject] = auth.extra.raw_info.education.last.concentration.first.name
+    user_params[:subject] = auth.extra.raw_info.education.last.concentration.first.name
     # user_params[:work] = "needs coding"
+
 
     user_params[:token] = auth.credentials.token
     user_params[:token_expiry] = Time.at(auth.credentials.expires_at)
