@@ -87,4 +87,8 @@ class User < ApplicationRecord
       fb_photo.save
     end
   end
+
+  def age
+    ((Date.today - self.birthday) / 365).round
+  end
 end
