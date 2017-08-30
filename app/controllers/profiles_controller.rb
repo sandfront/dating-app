@@ -37,6 +37,7 @@ class ProfilesController < ApplicationController
     url_one = "https://graph.facebook.com/#{current_user.uid}/albums?access_token=#{current_user.token}"
     albums_hashes = JSON.parse(open(url_one).read)["data"]
     photos = []
+    @albums_hashes
     albums_hashes.each do |album|
       url_two = "https://graph.facebook.com/#{album["id"]}/photos?access_token=#{current_user.token}"
       photos << JSON.parse(open(url_two).read)["data"] # puts the photos of each album into photos array
@@ -50,6 +51,7 @@ class ProfilesController < ApplicationController
     photos_array.flatten.each do |photo|
       photos_url << photo["source"]
     end
-    return photos_url
+    # return photos_url
+    return @albums_hashes
   end
 end
