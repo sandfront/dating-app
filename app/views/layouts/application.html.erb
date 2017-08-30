@@ -15,9 +15,13 @@
     <%= render 'shared/navbar' %>
   <% end %>
     <%= render 'shared/flashes' %>
+    <% if params[:controller] == 'pages' && params[:action] == 'home' %>
+      <%= yield %>
+    <% else %>
     <div class="fullpage">
       <%= yield %>
     </div>
+    <% end %>
     <%= javascript_include_tag 'application' %>
     <%= yield(:after_js) %>
   </body>
