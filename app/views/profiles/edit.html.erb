@@ -1,27 +1,19 @@
 <% into = "Currently studying History of Art, and looking for a serious relationship. My interests include History, Art, and relationships. I like coming up with big ideas and then bring them to life. Love good music. I have a passion for architecture. Always eager to learn new things. Free to chat and meet up on campus at any time!"%>
 <% am = "Based in London town right now!!" %>
 
-<!-- <div class="edit-photos">
-  <div class="avatar" style="background-image: url(<%# @user.user_images.first.url %>)">
-    <div class="add-btn">
-      <%# image_tag 'no-btn.png' %>
+<div class="edit-box-for-cards">
+  <div class="hidden-md hidden-lg">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+        <% @user.user_images.each do |photo| %>
+          <div class="swiper-slide avatar-photo" style="background-image: url(<%= photo.url %>)"> </div>
+        <% end %>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-scrollbar"></div>
     </div>
   </div>
-</div> -->
-
-<div class="hidden-md hidden-lg">
-<div class="swiper-container">
-    <div class="swiper-wrapper">
-    <% @user.user_images.each do |photo| %>
-
-      <div class="swiper-slide avatar-photo" style="background-image: url(<%= photo.url %>)"> </div>
-    <% end %>
-    </div>
-    <!-- Add Pagination -->
-    <div class="swiper-scrollbar"></div>
 </div>
- </div>
-
 <h2 class="text-center">Edit your profile</h2>
 
 
@@ -109,12 +101,11 @@
   <% content_for(:after_js) do %>
     <script>
     var swiper = new Swiper('.swiper-container', {
-        scrollbar: '.swiper-scrollbar',
-        scrollbarHide: true,
-        slidesPerView: 'auto',
-        centeredSlides: true,
+        pagination: '.swiper-pagination',
+        slidesPerView: 3,
+        paginationClickable: true,
         spaceBetween: 30,
-        grabCursor: true
+        freeMode: true
     });
     </script>
   <% end %>

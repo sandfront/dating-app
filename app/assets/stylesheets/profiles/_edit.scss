@@ -5,12 +5,17 @@
 }
 
 .avatar-photo {
-  height: 50vh;
-  width: 55%;
+  height: 25vh;
+  width: 20%;
   background-size: cover;
   background-position: center;
+  margin-right: 10px !important;
+  border-radius: 5px;
 }
-
+.edit-box-for-cards {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
 .avatar {
   background-size: cover;
   border-radius: 50%;
