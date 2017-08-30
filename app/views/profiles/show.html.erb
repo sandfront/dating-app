@@ -5,7 +5,7 @@
 <div class="container profile-content">
   <div class="profile-titles">
     <div class="user-title">
-      <p><%= @user.first_name %><p>
+      <p><%= @user.first_name %>, <%= @user.age %><p>
       <p><%= @user.subject %></p>
     </div>
     <div class="match-percentage">
@@ -16,7 +16,7 @@
   <div class="profile-attributes">
     <h3>What I'm into</h3>
     <p>
-    <%= @user.desc_test1 %>
+    <%= @user.description %>
       Currently studying History of Art, and looking for a serious relationship. My interests include History, Art, and relationships.
 
       I like coming up with big ideas and then bring them to life. Love good music. I have a passion for architecture. Always eager to learn new things.
