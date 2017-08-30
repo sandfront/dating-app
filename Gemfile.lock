@@ -202,6 +202,8 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    swiper-rails (1.0.4)
+      rails (>= 3.1)
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
@@ -249,6 +251,7 @@ DEPENDENCIES
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
+  swiper-rails
   uglifier
   web-console (>= 3.3.0)
 
