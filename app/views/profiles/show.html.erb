@@ -5,7 +5,8 @@
 <div class="container profile-content">
   <div class="profile-titles">
     <div class="user-title">
-      Lili, 21
+      <p><%= @user.first_name %><p>
+      <p><%= @user.subject %></p>
     </div>
     <div class="match-percentage">
       84% match
@@ -15,12 +16,27 @@
   <div class="profile-attributes">
     <h3>What I'm into</h3>
     <p>
+    <%= @user.desc_test1 %>
       Currently studying History of Art, and looking for a serious relationship. My interests include History, Art, and relationships.
 
       I like coming up with big ideas and then bring them to life. Love good music. I have a passion for architecture. Always eager to learn new things.
 
       Free to chat and meet up on campus at any time!
 
+    </p>
+  </div>
+
+  <div class="profile-attributes">
+    <h3>What I'm doing now</h3>
+    <p>
+    <%= @user.desc_test2 %>
+    </p>
+  </div>
+
+  <div class="profile-attributes">
+    <h3>What I'm looking for</h3>
+    <p>
+    <%= @user.desc_test3 %>
     </p>
   </div>
 </div>
