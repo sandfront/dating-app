@@ -2,7 +2,7 @@
   <!-- Indicators -->
   <ol class="carousel-indicators">
     <%= user.user_image.each_with_index |photo, n| do %>
-      <li data-target="carousel-<%= user.id %>" data-slide-to="#{n}" class="#{active if n == 0}"></li>
+      <li data-target="carousel-<%= photo.id %>" data-slide-to="#{n}" class="#{active if n == 0}"></li>
     <% end %>
   </ol>
 
