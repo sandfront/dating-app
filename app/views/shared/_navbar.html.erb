@@ -1,4 +1,4 @@
-<div class="navbar-meteor">
+<div class="navbar-meteor <%= 'navbar-transparent' if params[:controller] == 'pages' && params[:action] == 'home' %>">
   <!-- Dropdown list appearing on mobile only LEFT icon-->
   <% if user_signed_in? %>
   <div class="navbar-meteor-item hidden-md hidden-lg">

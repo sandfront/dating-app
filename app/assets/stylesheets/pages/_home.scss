@@ -2,8 +2,7 @@
 .banner {
   color: white;
   text-align: center;
-  height: calc(100vh - 70px);
-  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  height: 100vh;
   background-size: cover !important;
   display: flex;
   align-items: center;
@@ -12,11 +11,11 @@
 .main-name {
   font-size: 75px;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
-  font-family: 'Shrikhand', cursive;
+  font-family: $logo-font;
 }
 
 .meteor-name {
-  font-family: 'Shrikhand', cursive;
+  font-family: $logo-font;
 }
 
 .banner p {

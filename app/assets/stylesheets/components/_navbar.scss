@@ -11,8 +11,23 @@
   padding: 0;
 }
 
+.navbar-transparent {
+  background: transparent;
+  position: fixed;
+  width: 100%;
+  box-shadow: none;
+  color: white;
+    .navbar-brand {
+  color: white;
+  }
+    .navbar-meteor-link {
+  color: white;
+  }
+}
+
 /* Logo */
 .navbar-brand {
+  font-family: $logo-font;
   color: #2F4550;
   opacity: 0.9;
   &:hover {
