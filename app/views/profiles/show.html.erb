@@ -1,11 +1,67 @@
-<div class="banner-photos">
+<!-- <div class="banner-photos">
 
+</div> -->
+<div id="carousel-<%= @user.id %>" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <% @user.user_images.each_with_index do |photo, n| %>
+      <li data-target="carousel-<%= @user.id %>" data-slide-to="#{n}" class="#{active if n == 0}"></li>
+    <% end %>
+  </ol>
+
+<div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <div class="banner-photo-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path @user.user_images.first.url %>);">  </div>
+    </div>
+
+    <% @user.user_images.drop(1).each do |image| %>
+      <div class="item">
+        <div class="banner-photo-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path image.url %>);"> </div>
+      </div>
+    <% end %>
+  </div>
+ <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-<%= @user.id %>" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-<%= @user.id %>" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
 </div>
+
+<% content_for(:after_js) do %>
+  <script type="text/javascript">
+    $('.carousel').carousel({
+      interval: false
+    })
+  </script>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <div class="container profile-content">
   <div class="profile-titles">
     <div class="user-title">
-      Lili, 21
+      <p><%= @user.first_name %>, <%= @user.age %><p>
+      <p><%= @user.subject %></p>
     </div>
     <div class="match-percentage">
       84% match
@@ -15,12 +71,27 @@
   <div class="profile-attributes">
     <h3>What I'm into</h3>
     <p>
+    <%= @user.description %>
       Currently studying History of Art, and looking for a serious relationship. My interests include History, Art, and relationships.
 
       I like coming up with big ideas and then bring them to life. Love good music. I have a passion for architecture. Always eager to learn new things.
 
       Free to chat and meet up on campus at any time!
 
+    </p>
+  </div>
+
+  <div class="profile-attributes">
+    <h3>What I'm doing now</h3>
+    <p>
+    <%= @user.desc_test2 %>
+    </p>
+  </div>
+
+  <div class="profile-attributes">
+    <h3>What I'm looking for</h3>
+    <p>
+    <%= @user.desc_test3 %>
     </p>
   </div>
 </div>

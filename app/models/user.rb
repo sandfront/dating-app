@@ -1,3 +1,4 @@
+require 'date'
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -5,10 +6,17 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, omniauth_providers: [:facebook]
   has_many :answers
-  has_many :facebook_likes
+  has_many :facebook_likes, dependent: :destroy
   has_many :choices, through: :answers
-  has_many :user_images
+  has_many :user_images, dependent: :destroy
   accepts_nested_attributes_for :user_images
+
+  def age
+    unless birthday.nil?
+      difference = (Date.today - birthday).to_i
+      (difference/365.25).to_i
+    end
+  end
 
   def likes # return only when YOUVE BEEN THE FIRST to like
     Match.where(first_user: self)
@@ -29,11 +37,12 @@ class User < ApplicationRecord
 
     user_params[:gender] = auth.extra.raw_info.gender
     user_params[:friends] = auth.extra.raw_info.friends
-    user_params[:birthday] = auth.extra.raw_info.birthday
-    user_params[:school] = auth.extra.raw_info.education.last.school.name
-    # user_params[:subject] = auth.extra.raw_info.education.last.concentration.first.name
-    user_params[:work] = "needs coding"
-    user_params[:photos] = "needs coding"
+
+    user_params[:birthday] = Date.strptime(auth.extra.raw_info.birthday, '%m/%d/%Y')
+    # user_params[:school] = auth.extra.raw_info.education.last.school.name
+    user_params[:subject] = auth.extra.raw_info.education.last.concentration.first.name
+    # user_params[:work] = "needs coding"
+
 
     user_params[:token] = auth.credentials.token
     user_params[:token_expiry] = Time.at(auth.credentials.expires_at)
@@ -47,8 +56,9 @@ class User < ApplicationRecord
       user = User.new(user_params)
       user.password = Devise.friendly_token[0,20]  # Fake password for validation
       user.save
+      user.persist_fblikes(auth)
+      user.persist_user_fb_photos
     end
-    user.persist_fblikes(auth)
     return user
   end
 
@@ -58,6 +68,25 @@ class User < ApplicationRecord
       fb_like = FacebookLike.new(like_id: like.id, name: like.name)
       fb_like.user = self
       fb_like.save
+    end
+  end
+
+  def persist_user_fb_photos
+    url_one = "https://graph.facebook.com/#{self.uid}/albums?access_token=#{self.token}"
+    albums_hashes = JSON.parse(open(url_one).read)["data"]
+
+    profile_pictures = [] # list of photos within the profile pictures album
+    albums_hashes.each do |album|
+      if album["name"] == "Profile Pictures"
+        url_two = "https://graph.facebook.com/#{album["id"]}/photos?access_token=#{self.token}"
+        profile_pictures << JSON.parse(open(url_two).read)["data"] # puts the photos of each album into photos array
+      end
+    end
+
+    profile_pictures.flatten.each do |photo|
+      fb_photo = UserImage.new(photo: photo["id"]) # unique id from facebook for the photo
+      fb_photo.user = self
+      fb_photo.save
     end
   end
 

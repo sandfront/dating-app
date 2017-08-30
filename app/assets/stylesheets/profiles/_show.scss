@@ -5,11 +5,17 @@
 
 }
 
-.banner-photos {
-  background-image: url("https://pbs.twimg.com/media/C4oQs1rWcAAXYeS.jpg");
-  background-size: cover;
+// .banner-photos {
+//   background-image: url("https://pbs.twimg.com/media/C4oQs1rWcAAXYeS.jpg");
+//   background-size: cover;
+//   width: 100%;
+//   height: 200px;
+// }
+
+.banner-photo-show {
   width: 100%;
-  height: 200px;
+  height: 70vh;
+  background-size: cover;
 }
 
 .profile-titles {
