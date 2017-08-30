@@ -56,9 +56,9 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for @user, :url => profile_path, :method => :patch do |f| %>
-        <%= f.input :desc_test1 %>
-        <%= f.button :submit, class: 'btn btn-primary', 'data-dismiss'.to_sym => "modal" %>
+        <%= simple_form_for @user, :url => profile_path(@user), :method => :patch do |f| %>
+        <%= f.input :desc_test1, input_html: { rows: '10', class: "input-no-resize"} %>
+        <%= f.button :submit, class: 'btn btn-primary' %>
       </div>
       <div class="modal-footer">
         <% end %>
@@ -79,7 +79,7 @@
       </div>
       <div class="modal-body">
         <%= simple_form_for @user, :url => profile_path, :method => :patch do |f| %>
-        <%= f.input :desc_test2 %>
+        <%= f.input :desc_test2, input_html: { rows: '5', class: "input-no-resize"} %>
         <%= f.button :submit, class: 'btn btn-primary' %>
       </div>
       <div class="modal-footer">
