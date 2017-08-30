@@ -2,7 +2,7 @@
 <% am = "Based in London town right now!!" %>
 
 <div class="edit-photos">
-  <div class="avatar">
+  <div class="avatar" style="background-image: url(<%= @user.user_images.first.url %>)">
     <div class="add-btn">
       <%= image_tag 'no-btn.png' %>
     </div>
