@@ -29,6 +29,12 @@
 
 </div>
 
+
+photos
+<% @photos_urls.each do |url| %>
+<%= image_tag url %>
+<% end %>
+
 <div class="text-center remove-profile">
   <%= link_to "Remove your profile" %>
 </div>
