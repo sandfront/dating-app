@@ -30,6 +30,10 @@ class User < ApplicationRecord
     Match.where(first_user: self).or(Match.where(second_user: self)).where(mutual: true)
   end
 
+  def likes_user(target)
+    Match.where(first_user: self, second_user: target)
+  end
+
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)

@@ -11,7 +11,7 @@
 
 <div class="carousel-inner" role="listbox">
     <div class="item active">
-      <div class="banner-photo-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path @user.user_images.first.url %>);">  </div>
+      <div class="banner-photo-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path (@user.user_images.first&.url || "http://www.clker.com/cliparts/3/X/C/D/x/n/smiley-face.svg")%>);">  </div>
     </div>
 
     <% @user.user_images.drop(1).each do |image| %>
@@ -100,7 +100,9 @@
   <div class="no">
     <%= image_tag("no-btn.png") %>
   </div>
+<%= link_to match_path, method: :post do %>
   <div class="like">
     <%= image_tag("like-btn.png") %>
   </div>
+<% end %>
 </div>
