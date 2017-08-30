@@ -1,31 +1,30 @@
 <div id="carousel-<%= user.id %>" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
-    <%= user.user_images.each_with_index do |photo, n| %>
+    <% user.user_images.each_with_index do |photo, n| %>
       <li data-target="carousel-<%= user.id %>" data-slide-to="#{n}" class="#{active if n == 0}"></li>
     <% end %>
   </ol>
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
-    <% user.user_images.each do |photo| %>
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path photo.url %>);">  </div>
-    <% end %>
-    <div class="carousel-caption card-content">
-      <h3> <%= user.first_name ||= "Veronica"  %>,  19 </h3>
-      <p> <%= "Economics"  %> </p>
-    </div>
-  </div>
-
-    <div class="item">
-      <%= user.user_images.drop(1).each do |image| %>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path image.url %>);"> </div>
-      <% end %>
+    <div class="item active">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path user.user_images.first.url %>);">  </div>
       <div class="carousel-caption card-content">
-        <h3> <%= user.first_name ||= "Veronica"  %>,  <!-- user.age? -->  19 </h3>
-        <p> <%= "Economics" %> </p>
+        <h3> <%= user.first_name ||= "Veronica"  %>,  19 </h3>
+        <p> <%= "Economics"  %> </p>
       </div>
     </div>
+
+    <% user.user_images.drop(1).each do |image| %>
+      <div class="item">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path image.url %>);"> </div>
+        <div class="carousel-caption card-content">
+          <h3> <%= user.first_name ||= "Veronica"  %>,  <!-- user.age? -->  19 </h3>
+          <p> <%= "Economics" %> </p>
+        </div>
+      </div>
+    <% end %>
   </div>
 
   <!-- Controls -->
