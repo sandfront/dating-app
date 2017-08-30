@@ -60,3 +60,25 @@ abbr[title="required"] {
   text-align: center;
   margin-top: 10px;
 }
+
+.alert {
+  border-style: none;
+  // position: fixed;
+  position: absolute;
+    top: 70px;
+    z-index: 1000000000000;
+  width: 100%;
+  margin-top: 70px;
+}
+
+// .alert-home {
+//   margin-top: 100px;
+// }
+
+
+
+
+
+
+
+

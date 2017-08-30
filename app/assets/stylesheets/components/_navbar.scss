@@ -13,7 +13,7 @@
 
 .navbar-transparent {
   background: transparent;
-  position: fixed;
+  position: fixed; //otherwise background is pushed down
   width: 100%;
   box-shadow: none;
   color: white;
@@ -46,12 +46,12 @@
   border-radius: 50%;
 }
 
-// /* RIGHT section */
-// .navbar-meteor-center {
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-// }
+/* RIGHT section */
+.navbar-meteor-center {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
 /* Basic navbar item */
 .navbar-meteor-item {
@@ -110,3 +110,17 @@
   opacity: 0.9;
   margin-top: 18px;
 }
+
+
+// @media(min-width: 768px) {
+//   .navbar-meteor {
+//     height: 70px;
+//   }
+
+
+// }
+
+
+
+
+
