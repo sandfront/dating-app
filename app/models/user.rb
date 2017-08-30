@@ -11,6 +11,13 @@ class User < ApplicationRecord
   has_many :user_images, dependent: :destroy
   accepts_nested_attributes_for :user_images
 
+  def age
+    unless birthday.nil?
+      difference = (Date.today - birthday).to_i
+      (difference/365.25).to_i
+    end
+  end
+
   def likes # return only when YOUVE BEEN THE FIRST to like
     Match.where(first_user: self)
   end
