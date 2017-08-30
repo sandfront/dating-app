@@ -1,22 +1,24 @@
 <div class="navbar-meteor">
 <!-- NAVBAR ON PROFILE SETTINGS -->
-    <!-- Link to save RIGHT tick icon -->
+    <!-- Link to save LEFT icon -->
     <div class="navbar-meteor-left">
       <% if user_signed_in? %>
-      <a href="#" class="navbar-meteor-item navbar-meteor-link"><i class="fa fa-chevron-left"></i></a>
-      <% else %>
-      <!-- Login link (when logged out) -->
-        <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-meteor-item navbar-meteor-link" %>
+        <%= link_to profiles_path, class: "navbar-meteor-item navbar-meteor-link" do %>
+          <i class="material-icons">keyboard_arrow_left</i>
+        <% end %>
+        <% else %>
+        <!-- Login link (when logged out) -->
+          <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-meteor-item navbar-meteor-link" %>
       <% end %>
     </div>
     <!-- text CENTER -->
     <div id="edit-text-nav">
       <p>Edit your profile</p>
     </div>
-    <!-- Link back LEFT arrow icon -->
+    <!-- Link back RIGHT icon -->
     <div class="navbar-meteor-right">
       <% if user_signed_in? %>
-      <a href="#" class="navbar-meteor-item navbar-meteor-link"><i class="fa fa-check"></i></a>
+      <a href="#" class="navbar-meteor-item navbar-meteor-link"><i class="material-icons">done</i></a>
       <% else %>
       <!-- Login link (when logged out) -->
         <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-meteor-item navbar-meteor-link" %>
