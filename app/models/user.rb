@@ -40,7 +40,7 @@ class User < ApplicationRecord
 
     user_params[:birthday] = Date.strptime(auth.extra.raw_info.birthday, '%m/%d/%Y')
     # user_params[:school] = auth.extra.raw_info.education.last.school.name
-    user_params[:subject] = auth.extra.raw_info.education.last.concentration.first.name
+    # user_params[:subject] = auth.extra.raw_info.education.last.concentration.first.name
     # user_params[:work] = "needs coding"
 
 
