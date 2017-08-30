@@ -1,3 +1,4 @@
+require 'date'
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -5,10 +6,17 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, omniauth_providers: [:facebook]
   has_many :answers
-  has_many :facebook_likes
+  has_many :facebook_likes, dependent: :destroy
   has_many :choices, through: :answers
-  has_many :user_images
+  has_many :user_images, dependent: :destroy
   accepts_nested_attributes_for :user_images
+
+  def age
+    unless birthday.nil?
+      difference = (Date.today - birthday).to_i
+      (difference/365.25).to_i
+    end
+  end
 
   def likes # return only when YOUVE BEEN THE FIRST to like
     Match.where(first_user: self)
@@ -29,7 +37,7 @@ class User < ApplicationRecord
 
     user_params[:gender] = auth.extra.raw_info.gender
     user_params[:friends] = auth.extra.raw_info.friends
-    # user_params[:birthday] = Date.parse(auth.extra.raw_info.birthday)
+    user_params[:birthday] = Date.strptime(auth.extra.raw_info.birthday, '%m/%d/%Y')
     # user_params[:school] = auth.extra.raw_info.education.last.school.name
     # user_params[:subject] = auth.extra.raw_info.education.last.concentration.first.name
     # user_params[:work] = "needs coding"
@@ -78,5 +86,9 @@ class User < ApplicationRecord
       fb_photo.user = self
       fb_photo.save
     end
+  end
+
+  def age
+    ((Date.today - self.birthday) / 365).round
   end
 end

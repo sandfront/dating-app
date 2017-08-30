@@ -12,25 +12,30 @@ class ProfilesController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    @photos_urls = find_user_fb_photos
   end
 
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params)
-      params[:user_images]['photo'].each do |p|
-        @user.user_images.update(photo: p)
-      end
-      redirect_to profile_path(@user)
-    else
+    # if @user.update(user_params)
+    #   params[:user_images]['photo'].each do |p|
+    #     @user.user_images.update(photo: p)
+    #   end
+    #   redirect_to profile_path(@user)
+    # else
 
+    # end
+    @user.update(user_params)
+    if @user.save
+      redirect_to edit_profile_path(@user)
+    else
+      puts "you fucked up"
     end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :course, user_images: [:id, :user_id, :photo])
+    params.require(:user).permit(:first_name, :last_name, :desc_test1, :desc_test2, user_images: [:id, :user_id, :photo])
   end
 
   # def get_urls_from_user_images
