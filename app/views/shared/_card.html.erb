@@ -11,7 +11,7 @@
     <div class="item active">
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path user.user_images.first.url %>);">  </div>
       <div class="carousel-caption card-content">
-        <h3> <%= user.first_name ||= "Veronica"  %>,  19 </h3>
+        <h3> <%= user.first_name %>,  19 </h3>
         <p> <%= "Economics"  %> </p>
       </div>
     </div>
@@ -20,7 +20,7 @@
       <div class="item">
         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path image.url %>);"> </div>
         <div class="carousel-caption card-content">
-          <h3> <%= user.first_name ||= "Veronica"  %>,  <!-- user.age? -->  19 </h3>
+          <h3> <%= user.first_name %>,  <!-- user.age? -->  19 </h3>
           <p> <%= "Economics" %> </p>
         </div>
       </div>
