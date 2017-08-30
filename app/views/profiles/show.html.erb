@@ -115,10 +115,14 @@
 </div>
 
 <div class="buttons">
-  <div class="no">
-    <%= image_tag("no-btn.png") %>
-  </div>
+  <%= link_to profiles_path do %>
+    <div class="no">
+      <%= image_tag("no-btn.png") %>
+    </div>
+  <% end %>
+
   <div class="like">
     <%= image_tag("like-btn.png") %>
   </div>
+
 </div>
