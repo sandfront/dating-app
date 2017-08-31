@@ -50,7 +50,7 @@
 </div>
 
 <!-- Here be modals -->
-<div class="modal fade" id="desc_test1Modal">
+<div class="modal fade model-test" id="desc_test1Modal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -62,17 +62,16 @@
       <div class="modal-body">
         <%= simple_form_for @user, :url => profile_path(@user), :method => :patch do |f| %>
         <%= f.input :desc_test1, input_html: { rows: '10', class: "input-no-resize"} %>
-        <%= f.button :submit, class: 'btn btn-primary' %>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer footer-flexbox">
+        <%= f.button :submit, class: 'btn btn-primary' %>
         <% end %>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
 </div>
 
-<div class="modal fade" id="desc_test2Modal">
+<div class="modal fade model-test" id="desc_test2Modal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -84,11 +83,10 @@
       <div class="modal-body">
         <%= simple_form_for @user, :url => profile_path, :method => :patch do |f| %>
         <%= f.input :desc_test2, input_html: { rows: '5', class: "input-no-resize"} %>
-        <%= f.button :submit, class: 'btn btn-primary' %>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer footer-flexbox">
+        <%= f.button :submit, class: 'btn btn-primary' %>
         <% end %>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
