@@ -15,9 +15,9 @@
   <!-- Dropdown list appearing on desktop only LEFT avatar-->
   <div class="navbar-meteor-item hidden-xs hidden-sm">
     <div class="dropdown">
-     <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" data-toggle="dropdown">
+     <div class="avatar dropdown-toggle" data-toggle="dropdown" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path @user.user_images.first.url %>);"> </div>
       <ul class="dropdown-menu dropdown-menu-left navbar-meteor-dropdown-menu">
-        <li><%= link_to "Profile", edit_profile_path(current_user.id) %> </li>
+        <li><%= link_to " Edit profile", edit_profile_path(current_user.id) %> </li>
         <li><%= link_to destroy_user_session_path, method: :delete do %>
           <%= t(".sign_out", default: "Log out") %>
         <% end %></li>

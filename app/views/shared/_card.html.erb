@@ -1,5 +1,7 @@
-<%= link_to profile_path(user) do %>
+<div class="card">
+
   <div id="carousel-<%= user.id %>" class="carousel slide" data-ride="carousel">
+
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <% user.user_images.each_with_index do |photo, n| %>
@@ -7,26 +9,30 @@
       <% end %>
     </ol>
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path user.user_images.first&.url || "http://www.clker.com/cliparts/3/X/C/D/x/n/smiley-face.svg" %>);">  </div>
-      <div class="carousel-caption card-content">
-        <h3> <%= user.first_name %>,  <%= user.age %> </h3>
-        <p> <%= user.subject  %> </p>
-      </div>
-    </div>
+    <!-- Wrapper for slides -->
+    <%= link_to profile_path(user) do %>
+      <div class="carousel-inner" role="listbox">
 
-    <% user.user_images.drop(1).each do |image| %>
-      <div class="item">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path image.url %>);"> </div>
+
+        <div class="item active">
+          <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path user.user_images.first&.url || "http://www.clker.com/cliparts/3/X/C/D/x/n/smiley-face.svg" %>);"> </div>
           <div class="carousel-caption card-content">
-            <h3> <%= user.first_name %>,  <%= user.age %>  </h3>
-            <p> <%= user.subject %> </p>
+            <h3> <%= user.first_name %>,  <%= user.age %> </h3>
+            <p> <%= user.subject  %> </p>
           </div>
         </div>
-      <% end %>
-    </div>
+
+        <% user.user_images.drop(1).each do |image| %>
+          <div class="item">
+            <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path image.url %>);"></div>
+            <div class="carousel-caption card-content">
+              <h3> <%= user.first_name %>,  <%= user.age %>  </h3>
+              <p> <%= user.subject %> </p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
 
     <!-- Controls -->
     <a class="left carousel-control" href="#carousel-<%= user.id %>" role="button" data-slide="prev">
@@ -37,8 +43,15 @@
       <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
+
   </div>
-<% end %>
+
+</div>
+
+
+
+
+
 
 <% content_for(:after_js) do %>
   <script type="text/javascript">
