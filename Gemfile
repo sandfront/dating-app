@@ -23,6 +23,8 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'lightbox2-rails'
 gem 'material_icons'
+gem 'sprockets', '>= 3.0.0'
+gem 'sprockets-es6'
 
 
 group :development, :test do
