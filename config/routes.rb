@@ -9,4 +9,6 @@ Rails.application.routes.draw do
     resources :matches, only: [:create]
   end
   post 'users/:id/match', to: 'matches#create', as: :match
+  mount ActionCable.server => "/cable"
 end
+
