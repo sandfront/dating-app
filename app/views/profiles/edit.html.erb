@@ -46,7 +46,7 @@
 
 
 <div class="text-center remove-profile">
-  <%= link_to "Remove your profile" %>
+  <%= link_to "Remove your profile", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
 </div>
 
 <!-- Here be modals -->
