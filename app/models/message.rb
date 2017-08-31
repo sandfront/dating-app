@@ -10,7 +10,7 @@ class Message < ApplicationRecord
 
   def broadcast_message
     ActionCable.server.broadcast("conversation_#{conversation.id}", {
-      message_partial: ApplicationController.renderer.render(partial: "shared/message", local: { message: self, user_is_messages_author: false }),
+      message_partial: ApplicationController.renderer.render(partial: "shared/message", locals: { message: self, user_is_messages_author: false }),
       current_user_id: user.id
     })
   end
