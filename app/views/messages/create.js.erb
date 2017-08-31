@@ -1,0 +1,10 @@
+<% if @message.errors.any? %>
+
+<% else %>
+  const messagesContainer = document.querySelector('.messages');
+  messagesContainer.insertAdjacentHTML('beforeend', '<%= j render "shared/message", message: @message, user_is_messages_author: true %>');
+  const input = document.querySelector('#message_content');
+  input.value = '';
+  input.blur();
+  scrollLastMessageIntoView();
+<% end %>

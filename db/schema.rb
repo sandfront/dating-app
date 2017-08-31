@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170830112133) do
+ActiveRecord::Schema.define(version: 20170831140854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,13 @@ ActiveRecord::Schema.define(version: 20170830112133) do
     t.index ["question_id"], name: "index_choices_on_question_id"
   end
 
+  create_table "conversations", force: :cascade do |t|
+    t.bigint "match_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["match_id"], name: "index_conversations_on_match_id"
+  end
+
   create_table "facebook_likes", force: :cascade do |t|
     t.bigint "like_id"
     t.string "name"
@@ -44,6 +51,16 @@ ActiveRecord::Schema.define(version: 20170830112133) do
     t.boolean "mutual", default: false
     t.integer "first_user_id"
     t.integer "second_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.bigint "conversation_id"
+    t.bigint "user_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -89,10 +106,10 @@ ActiveRecord::Schema.define(version: 20170830112133) do
     t.string "photos"
     t.string "work"
     t.string "subject"
+    t.date "birthday"
     t.text "desc_test1"
     t.text "desc_test2"
     t.text "desc_test3"
-    t.date "birthday"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -100,8 +117,11 @@ ActiveRecord::Schema.define(version: 20170830112133) do
   add_foreign_key "answers", "choices"
   add_foreign_key "answers", "users"
   add_foreign_key "choices", "questions"
+  add_foreign_key "conversations", "matches"
   add_foreign_key "facebook_likes", "users"
   add_foreign_key "matches", "users", column: "first_user_id"
   add_foreign_key "matches", "users", column: "second_user_id"
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "users"
   add_foreign_key "user_images", "users"
 end

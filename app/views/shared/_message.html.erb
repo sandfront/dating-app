@@ -1,0 +1,4 @@
+<div class="message <%= user_is_messages_author ? "right" : "" %>">
+  <%= image_tag message.user.user_images.first&.small_url || "grill.jpg", class: "avatar" %>
+  <div class="message-content"><%= message.content %></div>
+</div>
