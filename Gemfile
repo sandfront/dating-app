@@ -21,6 +21,9 @@ gem 'jquery-rails'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
+gem 'lightbox2-rails'
+gem 'material_icons'
+
 
 group :development, :test do
   gem 'pry-byebug'

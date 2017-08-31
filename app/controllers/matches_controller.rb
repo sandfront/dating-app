@@ -1,6 +1,15 @@
 class MatchesController < ApplicationController
   def create
-    # if it exist we change mutual to true
-    # if doesnt exist create new match
+    @liker = current_user
+    @likee = User.find(params[:id])
+    if @likee.likes_user(@liker) != []
+      preexisting_match = @likee.likes_user(@liker).first
+      preexisting_match.mutual = true
+      preexisting_match.save
+      redirect_to profiles_path, alert: 'Congratulations its a match!'
+    else
+      Match.create(first_user: @liker, second_user: @likee)
+      redirect_to profiles_path, alert: 'You liked that person!'
+    end
   end
 end

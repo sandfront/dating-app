@@ -30,6 +30,10 @@ class User < ApplicationRecord
     Match.where(first_user: self).or(Match.where(second_user: self)).where(mutual: true)
   end
 
+  def likes_user(target)
+    Match.where(first_user: self, second_user: target)
+  end
+
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)
@@ -37,10 +41,12 @@ class User < ApplicationRecord
 
     user_params[:gender] = auth.extra.raw_info.gender
     user_params[:friends] = auth.extra.raw_info.friends
+
     user_params[:birthday] = Date.strptime(auth.extra.raw_info.birthday, '%m/%d/%Y')
     # user_params[:school] = auth.extra.raw_info.education.last.school.name
     # user_params[:subject] = auth.extra.raw_info.education.last.concentration.first.name
     # user_params[:work] = "needs coding"
+
 
     user_params[:token] = auth.credentials.token
     user_params[:token_expiry] = Time.at(auth.credentials.expires_at)

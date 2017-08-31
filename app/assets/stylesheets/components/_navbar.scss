@@ -2,17 +2,37 @@
 .navbar-meteor {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   background: #FFE270;
-  transition: all 0.3s ease;
-  height: 70px;
-  padding: 0px 30px;
+  transition: all 0.6s ease;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0;
+  padding: 0 13px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10000000000;
+
+}
+
+.navbar-transparent {
+  background: transparent;
+  position: fixed; //otherwise background is pushed down
+  width: 100%;
+  box-shadow: none;
+  color: white;
+    .navbar-brand {
+  color: white;
+  }
+    .navbar-meteor-link {
+  color: white;
+  }
 }
 
 /* Logo */
 .navbar-brand {
+  font-family: $logo-font;
   color: #2F4550;
   opacity: 0.9;
   &:hover {
@@ -21,6 +41,7 @@
   }
   img {
   height: 22px;
+  margin-bottom: 5px;
   }
 }
 
@@ -31,28 +52,37 @@
   border-radius: 50%;
 }
 
-// /* RIGHT section */
-// .navbar-meteor-center {
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-// }
+/* RIGHT section */
+.navbar-meteor-center {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
 /* Basic navbar item */
 .navbar-meteor-item {
   cursor: pointer;
-  padding: 0 20px;
 }
 
 /* Navbar link */
 .navbar-meteor-link {
   color: #2F4550;
-  font-size: 14px;
-  font-size: 1em;
 }
 .navbar-meteor-link:hover {
   color: #D65768;
   text-decoration: none;
+}
+
+i.material-icons {
+  font-size: 1.4em;
+  vertical-align: middle;
+}
+
+#edit-text-nav {
+  color: #2F4550;
+  p {
+    margin: 0;
+  }
 }
 
 /* Dropdown menu */
@@ -90,8 +120,10 @@
   border-top: 1px solid #E6E6E6;
 }
 
-#edit-text-nav {
-  color: #2F4550;
-  opacity: 0.9;
-  margin-top: 18px;
+/* Hiding the navbar*/
+.navbar-meteor.off-canvas { top: -89px; }
+
+.navbar-meteor.fixed {
+  top: 0;
+  z-index: 9999;
 }

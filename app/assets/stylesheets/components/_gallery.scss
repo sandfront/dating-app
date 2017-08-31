@@ -1,0 +1,12 @@
+.profile-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.profile-gallery-img {
+  width: 150px;
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+}
