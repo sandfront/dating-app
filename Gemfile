@@ -1,13 +1,14 @@
 source 'https://rubygems.org'
 ruby '2.3.4'
 
+gem 'redis'
+
 gem 'devise'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'pg'
 gem 'puma'
 gem 'rails', '5.1.3'
-gem 'redis'
 
 gem 'omniauth-facebook'
 gem 'faker'
@@ -26,7 +27,6 @@ gem 'lightbox2-rails'
 gem 'material_icons'
 gem 'sprockets', '>= 3.0.0'
 gem 'sprockets-es6'
-
 
 group :development, :test do
   gem 'pry-byebug'
