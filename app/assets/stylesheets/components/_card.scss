@@ -8,7 +8,7 @@
 }
 
 .card, .card-image {
-  height: 100vh;
+  height: calc(100vh - 44px);
 }
 
 .card-content {
