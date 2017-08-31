@@ -1,8 +1,14 @@
 .card {
-  height: 100vh;
+  position: relative;
+}
+
+.card-image {
   background-size: cover;
   background-position: center;
-  position: relative;
+}
+
+.card, .card-image {
+  height: 100vh;
 }
 
 .card-content {
@@ -22,5 +28,26 @@
     font-size: 20px;
   }
 }
+
+h2.profiles-title {
+  padding-top: 20px;
+}
+
+@media (min-width: $screen-sm-min) {
+  .card, .card-image {
+    height: 350px;
+    width: 250px;
+  }
+
+  .card {
+    margin: 10px 0px;
+  }
+
+  .not-for-mobile-container {
+    width: 790px;
+    margin: auto;
+  }
+}
+
 
 
