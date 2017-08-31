@@ -1,9 +1,10 @@
-<div>
+<h2 class="profiles-title text-center hidden-xs">Your top profiles for today</h2>
+<div class="not-for-mobile-container">
   <div class="row">
-    <div class="col-xs-12">
       <% @users.each do |user| %>
-        <%= render "shared/card", user: user %>
+        <div class="col-xs-12 col-sm-4" align="center">
+          <%= render "shared/card", user: user %>
+        </div>
       <% end %>
-    </div>
   </div>
 </div>
