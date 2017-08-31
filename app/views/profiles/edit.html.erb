@@ -23,7 +23,7 @@
         <%= @user.desc_test1 %>
       </p>
       <div data-toggle="modal" data-target="#desc_test1Modal" data-content="desc_test1">
-        <a><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
+        <a class="edit-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
       </div>
     </div>
   </div>
@@ -35,7 +35,7 @@
         <%= @user.desc_test2 %>
       </p>
       <div data-toggle="modal" data-target="#desc_test2Modal" data-content="desc_test2">
-        <a><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
+        <a class="edit-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
       </div>
     </div>
   </div>
@@ -48,45 +48,43 @@
 </div>
 
 <!-- Here be modals -->
-<div class="modal fade" id="desc_test1Modal">
+<div class="modal fade modal-edit" id="desc_test1Modal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Edit</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+          <span aria-hidden="true" class="show-navbar">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <%= simple_form_for @user, :url => profile_path(@user), :method => :patch do |f| %>
         <%= f.input :desc_test1, input_html: { rows: '10', class: "input-no-resize"} %>
-        <%= f.button :submit, class: 'btn btn-primary' %>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer footer-flexbox">
+        <%= f.button :submit, class: 'btn btn-primary show-navbar' %>
         <% end %>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
 </div>
 
-<div class="modal fade" id="desc_test2Modal">
+<div class="modal fade modal-edit" id="desc_test2Modal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Edit</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close show-navbar" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <%= simple_form_for @user, :url => profile_path, :method => :patch do |f| %>
         <%= f.input :desc_test2, input_html: { rows: '5', class: "input-no-resize"} %>
-        <%= f.button :submit, class: 'btn btn-primary' %>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer footer-flexbox">
+        <%= f.button :submit, class: 'btn btn-primary show-navbar' %>
         <% end %>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
@@ -104,5 +102,15 @@
         spaceBetween: 30,
         freeMode: true
     });
+
+    $(document).ready(function(){
+      $(".edit-button").click(function(e) {
+        $(".navbar-meteor").addClass("hidden");
+    });
+
+      $(".show-navbar").click(function(e) {
+        $(".navbar-meteor").removeClass("hidden");
+     })
+})
     </script>
   <% end %>
