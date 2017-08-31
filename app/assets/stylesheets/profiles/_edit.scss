@@ -4,8 +4,19 @@
   padding-top: 10px
 }
 
+.avatar-photo {
+  height: 25vh;
+  width: 20%;
+  background-size: cover;
+  background-position: center;
+  margin-right: 10px !important;
+  border-radius: 5px;
+}
+.edit-box-for-cards {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
 .avatar {
-  background-image: url("https://pbs.twimg.com/media/C4oQs1rWcAAXYeS.jpg");
   background-size: cover;
   border-radius: 50%;
   height: 100px;
@@ -31,4 +42,8 @@
 
 .remove-profile {
   margin-top: 20px;
+}
+
+.input-no-resize {
+  resize: none;
 }

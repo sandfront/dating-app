@@ -12,6 +12,7 @@ gem 'omniauth-facebook'
 gem 'faker'
 gem 'cloudinary'
 gem 'carrierwave'
+gem 'swiper-rails'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'

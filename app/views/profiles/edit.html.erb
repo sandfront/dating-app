@@ -1,14 +1,18 @@
 <% into = "Currently studying History of Art, and looking for a serious relationship. My interests include History, Art, and relationships. I like coming up with big ideas and then bring them to life. Love good music. I have a passion for architecture. Always eager to learn new things. Free to chat and meet up on campus at any time!"%>
 <% am = "Based in London town right now!!" %>
-
-<div class="edit-photos">
-  <div class="avatar">
-    <div class="add-btn">
-      <%= image_tag 'plus-btn.png' %>
+<div class="edit-box-for-cards">
+  <div class="hidden-md hidden-lg">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+        <% @user.user_images.each do |photo| %>
+          <div class="swiper-slide avatar-photo" style="background-image: url(<%= photo.url %>)"> </div>
+        <% end %>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-scrollbar"></div>
     </div>
   </div>
 </div>
-
 <h2 class="text-center">Edit your profile</h2>
 
 
@@ -56,9 +60,9 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for @user, :url => profile_path, :method => :patch do |f| %>
-        <%= f.input :desc_test1 %>
-        <%= f.button :submit, class: 'btn btn-primary', 'data-dismiss'.to_sym => "modal" %>
+        <%= simple_form_for @user, :url => profile_path(@user), :method => :patch do |f| %>
+        <%= f.input :desc_test1, input_html: { rows: '10', class: "input-no-resize"} %>
+        <%= f.button :submit, class: 'btn btn-primary' %>
       </div>
       <div class="modal-footer">
         <% end %>
@@ -79,7 +83,7 @@
       </div>
       <div class="modal-body">
         <%= simple_form_for @user, :url => profile_path, :method => :patch do |f| %>
-        <%= f.input :desc_test2 %>
+        <%= f.input :desc_test2, input_html: { rows: '5', class: "input-no-resize"} %>
         <%= f.button :submit, class: 'btn btn-primary' %>
       </div>
       <div class="modal-footer">
@@ -91,3 +95,16 @@
 </div>
 
 
+
+    <!-- Initialize Swiper -->
+  <% content_for(:after_js) do %>
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        slidesPerView: 3,
+        paginationClickable: true,
+        spaceBetween: 30,
+        freeMode: true
+    });
+    </script>
+  <% end %>
