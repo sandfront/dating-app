@@ -7,7 +7,7 @@
           <%= render "shared/message", message: message, user_is_messages_author: (message.user == current_user) %>
         <% end %>
       </div>
-      <div id="create-message">
+      <div id="create-message" class="text-center">
         <%= simple_form_for [ @conversation, Message.new ], remote: true do |f| %>
           <%= f.input :content, label: false %>
           <%= f.submit %>
