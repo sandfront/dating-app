@@ -8,10 +8,11 @@
         <% end %>
       </div>
       <div id="create-message" class="text-center">
-        <%= simple_form_for [ @conversation, Message.new ], remote: true do |f| %>
-          <%= f.input :content, label: false %>
-          <%= f.submit %>
-        <% end %>
+        <form novalidate="novalidate" class="simple_form new_message" id="new_message" action="/conversations/1/messages" accept-charset="UTF-8" data-remote="true" method="post">
+        <input name="utf8" type="hidden" value="✓">
+        <div class="form-group text required message_content"><textarea class="form-control text required" name="message[content]" id="message_content"></textarea></div>
+        <input type="submit" name="commit" value="Send" data-disable-with="Send">
+        </form>
       </div>
     </div>
   </div>
