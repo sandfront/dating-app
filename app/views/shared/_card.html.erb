@@ -22,7 +22,7 @@
           </div>
         </div>
 
-        <% user.user_images.drop(1).each do |image| %>
+        <% user.user_images.drop(1).take(5).each do |image| %>
           <div class="item">
             <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path image.medium_url %>);"></div>
             <div class="carousel-caption card-content">
