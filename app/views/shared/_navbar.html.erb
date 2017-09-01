@@ -1,7 +1,7 @@
 <div class="navbar-meteor <%= 'navbar-transparent' if params[:controller] == 'pages' && params[:action] == 'home' %>">
   <!-- Dropdown list appearing on mobile only LEFT icon-->
   <% if user_signed_in? %>
-  <div class="navbar-meteor-item hidden-md hidden-lg">
+  <div class="navbar-meteor-item hidden-sm hidden-md hidden-lg">
     <div class="dropdown">
       <i class="material-icons" data-toggle="dropdown">menu</i>
       <ul class="dropdown-menu dropdown-menu-left navbar-meteor-dropdown-menu">
@@ -13,7 +13,7 @@
     </div>
   </div>
   <!-- Dropdown list appearing on desktop only LEFT avatar-->
-  <div class="navbar-meteor-item hidden-xs hidden-sm">
+  <div class="navbar-meteor-item hidden-xs">
     <div class="dropdown">
      <div class="avatar dropdown-toggle" data-toggle="dropdown" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path current_user.user_images.first&.url || "http://www.clker.com/cliparts/3/X/C/D/x/n/smiley-face.svg" %>);"> </div>
       <ul class="dropdown-menu dropdown-menu-left navbar-meteor-dropdown-menu">
@@ -32,7 +32,7 @@
   <% end %>
 
   <!-- Links when logged in to messages desktop RIGHT text -->
-  <div class="navbar-meteor-center hidden-xs hidden-sm">
+  <div class="navbar-meteor-center hidden-xs">
     <% if user_signed_in? %>
       <%= link_to "messages", "#", class: "navbar-meteor-item navbar-meteor-link" %>
     <% else %>
@@ -45,9 +45,11 @@
     </div>
 
   <!-- Links when logged in to messages mobile RIGHT icon -->
-  <div class="navbar-meteor-right hidden-md hidden-lg">
+  <div class="navbar-meteor-right hidden-sm hidden-md hidden-lg">
     <% if user_signed_in? %>
-    <a href="#" class="navbar-meteor-item navbar-meteor-link"><i class="material-icons">chat</i></a>
+      <%= link_to conversations_path, class: "navbar-meteor-item navbar-meteor-link" do %>
+        <i class="material-icons">chat</i>
+      <% end %>
     <% else %>
     <!-- Login link (when logged out) -->
 
