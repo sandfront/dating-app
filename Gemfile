@@ -8,7 +8,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'pg'
 gem 'puma'
 gem 'rails', '5.1.3'
-gem 'redis'
+gem 'redis', '< 4'
 
 gem 'omniauth-facebook'
 gem 'faker'
