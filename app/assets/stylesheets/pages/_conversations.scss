@@ -56,20 +56,32 @@
   overflow-x: scroll;
   overflow-y: hidden;
   white-space:nowrap;
+  display: flex;
 }
-.imageDiv img {
-  box-shadow: 1px 1px 10px #999;
-  margin: 2px;
-  max-height: 50px;
-  cursor: pointer;
 
-}
+// .imageDiv img {
+//   box-shadow: 1px 1px 10px #999;
+//   margin: 2px;
+//   max-height: 50px;
+//   cursor: pointer;
+// }
+
+
 .avatar-top {
-  width: 90px;
+  flex: 0 0 90px;
   height: 90px;
   border-radius: 50%;
   margin: 7px;
   margin-bottom: 5px;
+  position: relative;
+  .avatar-link {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
 }
 
 
