@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.3.4'
 
-gem 'redis', "~> 3.0"
 
 gem 'devise'
 gem 'figaro'
@@ -9,6 +8,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'pg'
 gem 'puma'
 gem 'rails', '5.1.3'
+gem 'redis'
 
 gem 'omniauth-facebook'
 gem 'faker'
