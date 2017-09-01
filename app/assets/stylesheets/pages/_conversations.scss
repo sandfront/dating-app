@@ -1,0 +1,83 @@
+.messages {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid rgba(220,224,244,0.4);
+  background-color: white;
+  margin-bottom: 2px;
+}
+.messages:last-child {
+  border-bottom: none;
+}
+.messages-body {
+  flex-grow: 1;
+}
+.messages-name {
+  padding-left: 10px;
+  min-width: 100px;
+}
+.messages-body {
+  padding-left: 10px;
+  font-size: 15px;
+  color: rgba(0,0,0,0.7);
+}
+.messages-body {
+  padding-left: 20px;
+  color: rgba(0,0,0,0.4);
+}
+.messages-body strong{
+  color: rgba(0,0,0,0.9);
+  color: rgba(0,0,0,0.9);
+}
+.messages-body p {
+  margin: 1px 0;
+}
+.messages-status {
+  font-size: 14px;
+  font-weight: bold;
+}
+.avatars {
+  width: 47px;
+  height: 47px;
+  border-radius: 50%;
+}
+
+.wrapper1 {
+  margin: auto;
+  text-align: center;
+  position: relative;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  width: auto;
+  height: 100px;
+}
+.scrolls1 {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space:nowrap;
+}
+.imageDiv img {
+  box-shadow: 1px 1px 10px #999;
+  margin: 2px;
+  max-height: 50px;
+  cursor: pointer;
+
+}
+.avatar-top {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin: 7px;
+  margin-bottom: 5px;
+}
+
+
+
+
+
+
+
+
+
+
