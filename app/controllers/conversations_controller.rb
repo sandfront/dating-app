@@ -1,10 +1,7 @@
 class ConversationsController < ApplicationController
 
+<<<<<<< HEAD
   def create
-
-  end
-
-  def index
 
   end
 

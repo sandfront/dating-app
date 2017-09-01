@@ -1,10 +1,8 @@
-<% into = "Currently studying History of Art, and looking for a serious relationship. My interests include History, Art, and relationships. I like coming up with big ideas and then bring them to life. Love good music. I have a passion for architecture. Always eager to learn new things. Free to chat and meet up on campus at any time!"%>
-<% am = "Based in London town right now!!" %>
 <div class="edit-box-for-cards">
   <div class="hidden-md hidden-lg">
     <div class="swiper-container">
         <div class="swiper-wrapper">
-        <% @user.user_images.each do |photo| %>
+        <% @user.user_images.take(6).each do |photo| %>
           <div class="swiper-slide avatar-photo" style="background-image: url(<%= photo.small_url %>)"> </div>
         <% end %>
         </div>
@@ -51,18 +49,15 @@
 <div class="modal fade modal-edit" id="desc_test1Modal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Edit</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" class="show-navbar">&times;</span>
-        </button>
-      </div>
       <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
         <%= simple_form_for @user, :url => profile_path(@user), :method => :patch do |f| %>
         <%= f.input :desc_test1, input_html: { rows: '10', class: "input-no-resize"} %>
       </div>
       <div class="modal-footer footer-flexbox">
-        <%= f.button :submit, class: 'btn btn-primary show-navbar' %>
+        <%= f.button :submit, "Save", class: 'btn btn-success show-navbar' %>
         <% end %>
       </div>
     </div>
@@ -72,18 +67,15 @@
 <div class="modal fade modal-edit" id="desc_test2Modal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Edit</h5>
-        <button type="button" class="close show-navbar" data-dismiss="modal" aria-label="Close">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-      </div>
-      <div class="modal-body">
         <%= simple_form_for @user, :url => profile_path, :method => :patch do |f| %>
         <%= f.input :desc_test2, input_html: { rows: '5', class: "input-no-resize"} %>
       </div>
       <div class="modal-footer footer-flexbox">
-        <%= f.button :submit, class: 'btn btn-primary show-navbar' %>
+        <%= f.button :submit, "Save", class: 'btn btn-success show-navbar' %>
         <% end %>
       </div>
     </div>
@@ -103,14 +95,14 @@
         freeMode: true
     });
 
-    $(document).ready(function(){
-      $(".edit-button").click(function(e) {
-        $(".navbar-meteor").addClass("hidden");
-    });
+    // $(document).ready(function(){
+    //   $(".edit-button").click(function(e) {
+    //     $(".navbar-meteor").addClass("hidden");
+    //   });
 
-      $(".show-navbar").click(function(e) {
-        $(".navbar-meteor").removeClass("hidden");
-     })
-})
+    //   $(".show-navbar").click(function(e) {
+    //     $(".navbar-meteor").removeClass("hidden");
+    //   })
+    // })
     </script>
   <% end %>
