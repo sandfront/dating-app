@@ -4,8 +4,8 @@ class ConversationsController < ApplicationController
   end
 
   def index
-    @other_user_with_no_chat = current_user.unstarted_users
-    @other_user_with_chat = current_user.started_users
-
+    @other_users_with_no_chat = current_user.unstarted_users #this is user_ids array
+    @other_users_with_chat = current_user.started_users #this is user_ids array
+    @sorted_convo = current_user.conversations_sorted_by_date
   end
 end

@@ -57,6 +57,15 @@ class User < ApplicationRecord
     other_users
   end
 
+  def conversations_sorted_by_date
+    convos = []
+    started_chats.each do |match|
+      convos << match.conversation
+    end
+    sorted_convos = convos.sort_by { |convo| convo }
+    sorted_convos.reverse
+  end
+
   def likes # return only when YOUVE BEEN THE FIRST to like
     Match.where(first_user: self)
   end
