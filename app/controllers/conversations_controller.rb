@@ -4,20 +4,8 @@ class ConversationsController < ApplicationController
   end
 
   def index
-    @matches_with_no_chat = current_user.unstarted_chats
-    @other_users = @matches_with_no_chat.map do |match|
-      [match.first_user, match.second_user].each do |user|
-        if user != current_user
-          return user
-        end
-      end
-    end
-  end
-end
+    @other_user_with_no_chat = current_user.unstarted_users
+    @other_user_with_chat = current_user.started_users
 
-
-[first_user, second_user].each do |user|
-  if user != current_user
-    return user
   end
 end

@@ -21,13 +21,13 @@ class User < ApplicationRecord
     unstarted_chats
   end
 
-  def stared_chats
+  def started_chats
     full_matches = self.full_matches
-    stared_chats = []
+    started_chats = []
     full_matches.each do |match|
-      stared_chats << match unless match.conversation.nil?
+      started_chats << match unless match.conversation.nil?
     end
-    stared_chats
+    started_chats
   end
 
   def age
@@ -35,6 +35,26 @@ class User < ApplicationRecord
       difference = (Date.today - birthday).to_i
       (difference/365.25).to_i
     end
+  end
+
+  def unstarted_users
+    other_users = []
+    unstarted_chats.each do |match|
+      [match.first_user_id, match.second_user_id].each do |user|
+        other_users << user if user != id
+      end
+    end
+    other_users
+  end
+
+  def started_users
+    other_users = []
+    started_chats.each do |match|
+      [match.first_user_id, match.second_user_id].each do |user|
+        other_users << user if user != id
+      end
+    end
+    other_users
   end
 
   def likes # return only when YOUVE BEEN THE FIRST to like
