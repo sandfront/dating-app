@@ -88,7 +88,7 @@ class User < ApplicationRecord
       end
     end
 
-    profile_pictures.flatten.each do |photo|
+    profile_pictures.flatten.first(6).each do |photo|
       fb_photo = UserImage.new(photo: photo["id"]) # unique id from facebook for the photo
       fb_photo.user = self
       fb_photo.save
