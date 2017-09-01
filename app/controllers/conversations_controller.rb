@@ -1,6 +1,5 @@
 class ConversationsController < ApplicationController
 
-<<<<<<< HEAD
   def create
 
   end
