@@ -10,6 +10,7 @@ gem 'puma'
 gem 'rails', '5.1.3'
 gem 'redis', '< 4'
 
+
 gem 'omniauth-facebook'
 gem 'faker'
 gem 'cloudinary'
@@ -29,6 +30,7 @@ gem 'sprockets', '>= 3.0.0'
 gem 'sprockets-es6'
 
 group :development, :test do
+  gem 'rack-mini-profiler'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'web-console', '>= 3.3.0'

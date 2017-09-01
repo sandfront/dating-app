@@ -1,7 +1,7 @@
 <h2 class="profiles-title text-center hidden-xs">Your top profiles for today</h2>
 <div class="not-for-mobile-container">
   <div class="row">
-      <% @users.each do |user| %>
+      <% @users.take(3).each do |user| %>
         <div class="col-xs-12 col-sm-4" align="center">
           <%= render "shared/card", user: user %>
         </div>
