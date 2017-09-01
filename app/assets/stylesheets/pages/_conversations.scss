@@ -1,4 +1,4 @@
-.messages {
+.messagess {
   display: flex;
   align-items: center;
   padding: 10px;
@@ -6,37 +6,33 @@
   background-color: white;
   margin-bottom: 2px;
 }
-.messages:last-child {
+.messagess:last-child {
   border-bottom: none;
 }
-.messages-body {
+.messagess-body {
   flex-grow: 1;
 }
-.messages-name {
+.messagess-name {
   padding-left: 10px;
   min-width: 100px;
 }
-.messages-body {
+.messagess-body {
   padding-left: 10px;
   font-size: 15px;
   color: rgba(0,0,0,0.7);
 }
-.messages-body {
+.messagess-body {
   padding-left: 20px;
   color: rgba(0,0,0,0.4);
 }
-.messages-body strong{
+.messagess-body strong{
   color: rgba(0,0,0,0.9);
   color: rgba(0,0,0,0.9);
 }
-.messages-body p {
+.messagess-body p {
   margin: 1px 0;
 }
-.messages-status {
-  font-size: 14px;
-  font-weight: bold;
-}
-.avatars {
+.avatarss {
   width: 47px;
   height: 47px;
   border-radius: 50%;

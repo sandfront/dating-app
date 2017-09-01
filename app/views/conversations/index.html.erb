@@ -1,26 +1,21 @@
 <div class="wrapper1">
   <div class="scrolls1">
-
-    <% 5.times do |index| %>
-
-      <div class="avatar-top" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path current_user.user_images.first&.url || "http://www.clker.com/cliparts/3/X/C/D/x/n/smiley-face.svg" %>);">
+    <% @other_users_with_no_chat.each do |user_id| %>
+      <div class="avatar-top" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path User.find(user_id).user_images.first&.url || "http://www.clker.com/cliparts/3/X/C/D/x/n/smiley-face.svg" %>);">
         <%= link_to "", "TODO path", class: "avatar-link"  %>
       </div>
-
     <% end %>
-
   </div>
 </div>
 
-
-
-
-<div class="messages">
-  <img class="avatars"  src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
-  <div class="messages-body">
-    <p><strong><h5>Gab Dehan</h5></strong></p>
-    <p class="convo-text"> Hey how's things? Will you marry me? </p>
-  </div>
+<div class="messagess">
+  <% @other_users_with_chat.each do |user_id| %>
+    <img class="avatarss"  src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+    <div class="messagess-body">
+      <p><strong><h5> <%= User.find(user_id).first_name %> </h5></strong></p>
+      <p class="convo-text"> Hey how's things? Will you marry me? </p>
+    </div>
+  <% end %>
 </div>
 
 
