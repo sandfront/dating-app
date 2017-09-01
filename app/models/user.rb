@@ -62,7 +62,7 @@ class User < ApplicationRecord
     started_chats.each do |match|
       convos << match.conversation
     end
-    sorted_convos = convos.sort_by { |convo| convo }
+    sorted_convos = convos.sort { |convo| convo }
     sorted_convos.reverse
   end
 
