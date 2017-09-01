@@ -12,6 +12,24 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   accepts_nested_attributes_for :user_images
 
+  def unstarted_chats
+    full_matches = self.full_matches
+    unstarted_chats = []
+    full_matches.each do |match|
+      unstarted_chats << match if match.conversation.nil?
+    end
+    unstarted_chats
+  end
+
+  def stared_chats
+    full_matches = self.full_matches
+    stared_chats = []
+    full_matches.each do |match|
+      stared_chats << match unless match.conversation.nil?
+    end
+    stared_chats
+  end
+
   def age
     unless birthday.nil?
       difference = (Date.today - birthday).to_i
@@ -27,7 +45,7 @@ class User < ApplicationRecord
     Match.where(second_user: self)
   end
 
-  def matches
+  def full_matches
     Match.where(first_user: self).or(Match.where(second_user: self)).where(mutual: true)
   end
 
