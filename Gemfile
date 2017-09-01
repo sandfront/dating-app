@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.4'
 
-gem 'redis'
+gem 'redis', "~> 3.0"
 
 gem 'devise'
 gem 'figaro'
