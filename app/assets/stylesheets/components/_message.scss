@@ -16,19 +16,27 @@
   &.right {
     flex-direction: row-reverse;
     .message-content {
-      background-color: #F2F9FC;
+      // background-color: #F2F9FC;
+      background-color: #5EA5E0; // sent msg background
+      color: white;
+      opacity: 1;
+      border-radius: 10px;
     }
   }
 }
 .message-content {
-  background-color: #F7F7F7;
-  border-radius: 3px;
+  // background-color: #F7F7F7;
+  background-color: white; //received msg background
+  box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 0.1);
+  color: #2F4550;
+  opacity: 0.8;
+  border-radius: 10px;
   margin: 0 10px;
   padding: 11px 10px 8px 10px;
 }
-.avatar {
-  width: 42px;
-  height: 42px;
+img.avatar {
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
 }
 
@@ -41,23 +49,64 @@
 .message_content {
   margin-bottom: 0;
 }
+input {
+  background-color: #54E5C6;
+  color: white;
+  // padding: 10px 15px;
+  height: 64px;
+  border: 0;
+  border-radius: 40px;
+  // margin-top: 10px;
+  opacity: 0.9;
+  flex: 1 1 auto;
+  margin-left: 10px;
+  &:hover {
+    opacity: 1;
+  }
+}
 input.form-control {
   border: 1px solid #ECECEC;
   box-shadow: none;
   font-size: 14px;
-  color: #868686;
+  color: #2F4550;
   &:focus {
     outline: none;
-    border: 1px solid blue;
+    border: 1px solid #FFE270 !important;
     box-shadow: none;
   }
 }
+textarea {
+  // background-color: white !important;
+  // background-color: #54E5C6 !important;
+  background-color: white !important;
+  border-radius: 15px !important;
+  // color: #2F4550 !important;
+  color: #5EA5E0 !important;
+  // flex: 1 1 auto;
+  // width: 400px;
+}
+.form-group {
+  flex: 1 1 auto;
+}
+// .send-text-input-chat {
+//   flex: 1 1 auto;
+// }
+// .send-btn-chat {
+//   flex: 1 1 auto;
+// }
 .chat-header {
-  background-color: #4F2F4C;
-  color: white;
+  background-color: #ECECEC;
+  border-bottom: 1px solid lightgrey;
+  color: #2F4550;
   padding: 10px 20px;
   margin-top: 10px;
   h4 {
     margin: 0;
   }
+}
+
+#new_message {
+  display: flex;
+  margin: 0;
+  justify-content: space-between;
 }
