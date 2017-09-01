@@ -12,11 +12,58 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   accepts_nested_attributes_for :user_images
 
+  def unstarted_chats
+    full_matches = self.full_matches
+    unstarted_chats = []
+    full_matches.each do |match|
+      unstarted_chats << match if match.conversation.nil?
+    end
+    unstarted_chats
+  end
+
+  def started_chats
+    full_matches = self.full_matches
+    started_chats = []
+    full_matches.each do |match|
+      started_chats << match unless match.conversation.nil?
+    end
+    started_chats
+  end
+
   def age
     unless birthday.nil?
       difference = (Date.today - birthday).to_i
       (difference/365.25).to_i
     end
+  end
+
+  def unstarted_users
+    other_users = []
+    unstarted_chats.each do |match|
+      [match.first_user_id, match.second_user_id].each do |user|
+        other_users << user if user != id
+      end
+    end
+    other_users
+  end
+
+  def started_users
+    other_users = []
+    started_chats.each do |match|
+      [match.first_user_id, match.second_user_id].each do |user|
+        other_users << user if user != id
+      end
+    end
+    other_users
+  end
+
+  def conversations_sorted_by_date
+    convos = []
+    started_chats.each do |match|
+      convos << match.conversation
+    end
+    sorted_convos = convos.sort_by { |convo| convo }
+    sorted_convos.reverse
   end
 
   def likes # return only when YOUVE BEEN THE FIRST to like
@@ -27,7 +74,7 @@ class User < ApplicationRecord
     Match.where(second_user: self)
   end
 
-  def matches
+  def full_matches
     Match.where(first_user: self).or(Match.where(second_user: self)).where(mutual: true)
   end
 
