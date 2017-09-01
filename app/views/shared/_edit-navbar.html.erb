@@ -18,7 +18,9 @@
     <!-- Link back RIGHT icon -->
     <div class="navbar-meteor-right">
       <% if user_signed_in? %>
-      <a href="#" class="navbar-meteor-item navbar-meteor-link"><i class="material-icons">done</i></a>
+      <%= link_to profiles_path, class: "navbar-meteor-item navbar-meteor-link" do  %>
+        <i class="material-icons">done</i>
+      <% end %>
       <% else %>
       <!-- Login link (when logged out) -->
         <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-meteor-item navbar-meteor-link" %>
