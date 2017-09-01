@@ -1,13 +1,12 @@
 require 'faker'
-20.times do
+Seed users
+5.times do
   person = User.new()
   person.first_name = Faker::Name.first_name
   person.last_name = Faker::Name.last_name
   person.email = Faker::Internet.email(person.first_name)
   person.password = '123456'
   person.description = Faker::Lorem.paragraphs(2..10)
-  # random_men = "https://randomuser.me/api/portraits/men/#{(1..100).to_a.sample}.jpg"
-  # random_women = "https://randomuser.me/api/portraits/men/#{(1..100).to_a.sample}.jpg"
   person.facebook_picture_url = "https://source.unsplash.com/collection/302501/"
   person.save
   puts 'User created!'
@@ -15,13 +14,42 @@ require 'faker'
 end
 
 # Seeding matches
+p 'Removing all old matches'
+Message.destroy_all
+Conversation.destroy_all
 Match.destroy_all
-10.times do
+5.times do
   offset = rand(1..10)
-  match = Match.create(first_user: User.offset(offset).first, second_user: User.offset(offset).last)
-  p match
+  user_1 = User.offset(offset).first
+  match = Match.create(first_user: user_1, second_user: User.first)
+  p "Created match"
+  p "#{match.first_user} likes #{match.second_user}"
 end
 
+# Seeding a few mutuals
+p "Making some matches mutual"
+3.times do
+  match = Match.all.sample
+  match.mutual = true
+  match.save
+  p match
+  p match.mutual
+end
 
+# Creating a few conversations
+p "Creating some conversations"
+mutuals = Match.where(mutual: true)
+convo_1 = Conversation.create(match: mutuals.first)
+convo_2 = Conversation.create(match: mutuals.second)
+p convo_1
+p convo_2
 
-
+# Seeding messages
+# For convo_1
+p "Seeding messages in convo 1"
+convo_users = [convo_1.match.first_user, convo_1.match.second_user]
+10.times do
+  Message.create(conversation: convo_1, content: Faker::Lorem.sentence, user: convo_users.sample)
+  p "Created message"
+end
+p convo_1.messages
