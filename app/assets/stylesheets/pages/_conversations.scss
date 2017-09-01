@@ -1,6 +1,7 @@
 .messagess {
-  display: flex;
+  // display: flex;
   align-items: center;
+  // flex-direction: column;
   padding: 10px;
   border-bottom: 1px solid rgba(220,224,244,0.4);
   background-color: white;
@@ -36,6 +37,7 @@
   width: 47px;
   height: 47px;
   border-radius: 50%;
+  background-size: cover;
 }
 
 .wrapper1 {
@@ -70,6 +72,7 @@
   margin: 7px;
   margin-bottom: 5px;
   position: relative;
+  background-size: cover;
   .avatar-link {
     position: absolute;
     z-index: 2;
@@ -78,6 +81,9 @@
     left: 0;
     right: 0;
   }
+}
+.single-message {
+  display: flex;
 }
 
 

@@ -1,23 +1,34 @@
+
+
 <div class="wrapper1">
   <div class="scrolls1">
-    <% @other_users_with_no_chat.each do |user_id| %>
-      <%= link_to conversations_path, class: "avatar-link", method: :post do %>
-        <div class="avatar-top" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path User.find(user_id).user_images.first&.small_url || "http://www.clker.com/cliparts/3/X/C/D/x/n/smiley-face.svg" %>);">
-        </div>
-      <% end %>
+    <% @unstarted.each do |convo| %>
+
+      <div class="avatar-top" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path convo.match.other_user(current_user).user_images.first&.small_url || "http://www.clker.com/cliparts/3/X/C/D/x/n/smiley-face.svg" %>);">
+      <%= link_to "", conversation_path(convo), class: "avatar-link" %>
+      </div>
     <% end %>
   </div>
 </div>
 
 <div class="messagess">
-  <% @other_users_with_chat.each do |user_id| %>
-    <img class="avatarss"  src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
-    <div class="messagess-body">
-      <p><strong><h5> <%= User.find(user_id).first_name %> </h5></strong></p>
-      <p class="convo-text"> Hey how's things? Will you marry me? </p>
+  <% @started.each do |convo| %>
+    <div class="single-message">
+      <div class="avatar-top" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path convo.match.other_user(current_user).user_images.first&.small_url || "http://www.clker.com/cliparts/3/X/C/D/x/n/smiley-face.svg" %>);">
+      <%= link_to "", conversation_path(convo), class: "avatar-link" %>
+      </div>
+      <div class="messagess-body">
+        <p><strong><h5> <%= convo.match.other_user(current_user).first_name %> </h5></strong></p>
+        <p class="convo-text"> <%= convo.messages.last.content %> </p>
+      </div>
     </div>
   <% end %>
 </div>
+
+
+
+
+
 
 
 

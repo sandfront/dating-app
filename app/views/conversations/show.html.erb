@@ -12,7 +12,7 @@
         <% end %>
       </div>
       <div id="create-message" class="text-center">
-        <form novalidate="novalidate" class="simple_form new_message" id="new_message" action="/conversations/1/messages" accept-charset="UTF-8" data-remote="true" method="post">
+        <form novalidate="novalidate" class="simple_form new_message" id="new_message" action="/conversations/<%= @conversation.id %>/messages" accept-charset="UTF-8" data-remote="true" method="post">
         <input name="utf8" type="hidden" value="✓">
         <div class="form-group text required message_content"><textarea class="form-control text required" name="message[content]" id="message_content"></textarea></div>
         <div class="send-btn-chat">
