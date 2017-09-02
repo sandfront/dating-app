@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/landing', to: 'pages#landing', as: :landing
   root to: 'pages#home'
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }

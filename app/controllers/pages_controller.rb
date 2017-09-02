@@ -6,4 +6,7 @@ class PagesController < ApplicationController
       redirect_to profiles_path
     end
   end
+
+  def landing
+  end
 end
