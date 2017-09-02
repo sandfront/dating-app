@@ -33,11 +33,6 @@ class ProfilesController < ApplicationController
     end
   end
 
-  def edit_photo
-    @user = current_user
-    @photo = UserImage.find(params[:photo_id])
-  end
-
   private
 
   def user_params
