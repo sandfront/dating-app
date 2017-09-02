@@ -1,0 +1,13 @@
+<div class="wrapper-black">
+  <div class="edit-photo-image" style="background-image: url( <%= @photo.url %> )">
+  </div>
+  <div class="edit-dropdown-content">
+    <div class="dropdown edit-dropdown dropup">
+      <i class="fa fa-pencil-square-o dropdown-toggle" data-toggle="dropdown"></i>
+      <ul class="dropdown-menu dropdown-menu-right">
+        <li ><%= link_to "Default photo", "#" %></li>
+        <li><%= link_to "Delete photo", "#" %></li>
+      </ul>
+    </div>
+  </div>
+</div>
