@@ -15,7 +15,7 @@
 
 
         <div class="item active">
-          <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path user.user_images.first&.medium_url || "http://www.clker.com/cliparts/3/X/C/D/x/n/smiley-face.svg" %>);"> </div>
+          <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path user.user_images.first&.medium_url || "http://res.cloudinary.com/dvojg9owe/image/upload/v1504357136/grill_siomai.jpg" %>);"> </div>
           <div class="carousel-caption card-content">
             <h3> <%= user.first_name %>,  <%= user.age %> </h3>
             <p> <%= user.subject  %> </p>
