@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :profiles, only: [:show, :index, :edit, :update] do
     resources :matches, only: [:create]
   end
+
+  get 'profiles/21/edit/photo/:photo_id', to: 'profiles#edit_photo', as: :edit_photo
   post 'users/:id/match', to: 'matches#create', as: :match
   mount ActionCable.server => "/cable"
 end

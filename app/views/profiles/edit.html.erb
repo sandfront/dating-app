@@ -3,7 +3,9 @@
     <div class="swiper-container swiper-cont">
         <div class="swiper-wrapper">
         <% @user.user_images.take(6).each do |photo| %>
-          <div class="swiper-slide avatar-photo" style="background-image: url(<%= photo.small_url %>)"> </div>
+          <%= link_to edit_photo_path(photo) do %>
+            <div class="swiper-slide avatar-photo" style="background-image: url(<%= photo.small_url %>)"> </div>
+          <% end %>
         <% end %>
         </div>
         <!-- Add Pagination -->
