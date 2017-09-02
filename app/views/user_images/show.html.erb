@@ -5,8 +5,8 @@
     <div class="dropdown edit-dropdown dropup">
       <i class="fa fa-pencil-square-o dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right">
-        <li ><%= link_to "Default photo", "#" %></li>
-        <li><%= link_to "Delete photo", "#" %></li>
+        <li ><%= link_to "Default photo", profile_user_image_path(@user, @photo), method: :patch %></li>
+        <li><%= link_to "Delete photo",  profile_user_image_path(@user, @photo), method: :delete %></li>
       </ul>
     </div>
   </div>

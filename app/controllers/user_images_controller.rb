@@ -1,8 +1,9 @@
 class UserImagesController < ApplicationController
 
   def show
-    @user = current_user
-    @photo = UserImage.find(params[:id])
+    @user = User.find(params[:profile_id])
+    @photo = @user.user_images.find(params[:id])
+
   end
 
   def update
@@ -10,6 +11,12 @@ class UserImagesController < ApplicationController
   end
 
   def destroy
+    @photo = UserImage.find(params[:id])
+    if @photo.delete
+      redirect_to edit_profile_path(current_user)
+    else
+      render :show
+    end
   end
 
 end
