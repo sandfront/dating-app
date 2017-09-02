@@ -12,6 +12,16 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   accepts_nested_attributes_for :user_images
 
+  def matches
+    likes + been_liked
+  end
+
+  def conversations
+    full_matches.map do |match|
+      match.conversation
+    end
+  end
+
   def unstarted_chats
     full_matches = self.full_matches
     unstarted_chats = []
@@ -77,6 +87,7 @@ class User < ApplicationRecord
   def full_matches
     Match.where(first_user: self).or(Match.where(second_user: self)).where(mutual: true)
   end
+
 
   def likes_user(target)
     Match.where(first_user: self, second_user: target)
