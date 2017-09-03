@@ -4,7 +4,7 @@ var singleCardSwiper = new Swiper ('.swiper-container.swiper-single-card', {
   loop: true,
 
   // If we need pagination
-  pagination: '.swiper-pagination.swiper-single-card',
+  pagination: '.swiper-pagination-white.swiper-single-card',
 
   // Navigation arrows
   nextButton: '.swiper-button-next.swiper-single-card',
