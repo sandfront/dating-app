@@ -1,3 +1,11 @@
+const isMobile = () => {
+  var width = window.innerWidth;
+  if (width >= 768) {
+    return true
+  }
+}
+
+
 var singleCardSwiper = new Swiper ('.swiper-container.swiper-single-card', {
   // Optional parameters
   direction: 'vertical',
@@ -20,7 +28,9 @@ var allCardsSwiper = new Swiper ('.swiper-container.swiper-all-cards', {
   loop: false,
   preventClicks: true,
   keyboardControl: true,
-
+  slidesPerView: 3,
+  slidesPerColumn: 2,
   // If we need pagination
   pagination: '.swiper-pagination.swiper-all-cards',
 })
+
