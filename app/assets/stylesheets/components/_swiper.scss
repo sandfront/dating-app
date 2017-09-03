@@ -205,11 +205,12 @@
   border-radius: 100%;
   background: #000;
   opacity: 0.2;
-  .swiper-all-cards {
-    width: 30px;
-    height: 2px;
-    border-radius: 20px;
-  }
+}
+// custom long bullets for all cards swiper
+.swiper-all-cards .swiper-pagination-bullet {
+  width: 30px;
+  height: 2px;
+  border-radius: 20px;
 }
 
 button.swiper-pagination-bullet {

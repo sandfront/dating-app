@@ -20,8 +20,6 @@ var allCardsSwiper = new Swiper ('.swiper-container.swiper-all-cards', {
   loop: false,
   preventClicks: true,
   keyboardControl: true,
-  mousewheelControl: true,
-  longSwipes: false,
 
   // If we need pagination
   pagination: '.swiper-pagination.swiper-all-cards',
