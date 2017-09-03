@@ -16,6 +16,8 @@ gem 'faker'
 gem 'cloudinary'
 gem 'carrierwave'
 gem 'swiper-rails'
+gem 'activeadmin', github: 'activeadmin/activeadmin'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
