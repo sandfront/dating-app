@@ -34,6 +34,8 @@
   font-family: $logo-font;
   color: #2F4550;
   opacity: 0.9;
+  // padding left kills bootstrap default padding
+  padding-left: 0;
   &:hover {
     color: #2F4550;
     opacity: 1;
