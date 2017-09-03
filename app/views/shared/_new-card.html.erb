@@ -8,17 +8,19 @@
           <!-- Additional required wrapper -->
           <div class="swiper-wrapper">
               <!-- Slides -->
-              <div class="swiper-slide">Slide 1</div>
-              <div class="swiper-slide">Slide 2</div>
-              <div class="swiper-slide">Slide 3</div>
-              ...
+              <!-- test slide below -->
+              <div class="swiper-slide" style="background-image: url('http://res.cloudinary.com/dvojg9owe/image/upload/v1504357136/grill_siomai.jpg');" ></div>
+              <!-- end of test slide -->
+              <% user.user_images.take(5).each do |image| %>
+                <div class="swiper-slide" style="background-image: url( <%= image_path image.medium_url %>);" ></div>
+              <% end %>
           </div>
           <!-- If we need pagination -->
           <div class="swiper-pagination"></div>
 
           <!-- If we need navigation buttons -->
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
+          <!-- <div class="swiper-button-prev"></div> -->
+          <!-- <div class="swiper-button-next"></div> -->
 
           <!-- If we need scrollbar -->
           <div class="swiper-scrollbar"></div>

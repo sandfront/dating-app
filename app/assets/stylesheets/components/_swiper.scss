@@ -13,6 +13,8 @@
  * Released on: February 7, 2016
  */
 .swiper-container {
+  width: 100%;
+  height: 100%;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
@@ -78,6 +80,11 @@
   width: 100%;
   height: 100%;
   position: relative;
+  // Meteor custom CSS below
+  height: 100%;
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  background-size: cover;
 }
 /* Auto Height */
 .swiper-container-autoheight,
