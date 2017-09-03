@@ -28,8 +28,8 @@ var allCardsSwiper = new Swiper ('.swiper-container.swiper-all-cards', {
   loop: false,
   preventClicks: true,
   keyboardControl: true,
-  slidesPerView: 3,
-  slidesPerColumn: 2,
+  slidesPerView: 1,
+  slidesPerColumn: 1,
   // If we need pagination
   pagination: '.swiper-pagination.swiper-all-cards',
 })
