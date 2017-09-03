@@ -5,12 +5,12 @@
       <div class="new-card-photo">
 
         <!-- Slider main container -->
-        <div class="swiper-container">
+        <div class="swiper-container-single-card">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Slides -->
                 <!-- test slide below -->
-                <div class="swiper-slide" style="background-image: url('http://res.cloudinary.com/dvojg9owe/image/upload/v1504357136/grill_siomai.jpg');" ></div>
+                <div class="swiper-slide profile-photo" style="background-image: url('http://res.cloudinary.com/dvojg9owe/image/upload/v1504357136/grill_siomai.jpg');" ></div>
                 <!-- end of test slide -->
                 <% user.user_images.take(5).each do |image| %>
                   <div class="swiper-slide" style="background-image: url( <%= image_path image.medium_url %>);" ></div>
