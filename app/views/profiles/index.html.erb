@@ -2,14 +2,14 @@
 <div class="not-for-mobile-container">
 
   <div class="profile-cards">
-    <div class="swiper-container-all-cards">
+    <div class="swiper-container swiper-all-cards">
         <div class="swiper-wrapper">
-          <%= @users.take(5).each do |user| %>
+          <% @users.take(5).each do |user| %>
             <div class="swiper-slide"><%= render "shared/new-card", user: user %></div>
           <% end %>
         </div>
         <!-- Add Pagination -->
-        <div class="swiper-pagination"></div>
+        <div class="swiper-pagination swiper-all-cards"></div>
     </div>
   </div>
 

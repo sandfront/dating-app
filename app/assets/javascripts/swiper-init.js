@@ -1,28 +1,28 @@
-var singleCardSwiper = new Swiper ('.swiper-container-single-card', {
+var singleCardSwiper = new Swiper ('.swiper-container.swiper-single-card', {
   // Optional parameters
   direction: 'vertical',
   loop: true,
 
   // If we need pagination
-  pagination: '.swiper-pagination',
+  pagination: '.swiper-pagination.swiper-single-card',
 
   // Navigation arrows
-  nextButton: '.swiper-button-next',
-  prevButton: '.swiper-button-prev',
+  nextButton: '.swiper-button-next.swiper-single-card',
+  prevButton: '.swiper-button-prev.swiper-single-card',
 
   // And if we need scrollbar
-  scrollbar: '.swiper-scrollbar',
+  scrollbar: '.swiper-scrollbar.swiper-single-card',
 })
 
-var allCardsSwiper = new Swiper ('.swiper-container-all-card', {
+var allCardsSwiper = new Swiper ('.swiper-container.swiper-all-cards', {
   // Optional parameters
   direction: 'horizontal',
-  loop: true,
+  loop: false,
+  preventClicks: true,
+  keyboardControl: true,
+  mousewheelControl: true,
+  longSwipes: false,
 
   // If we need pagination
-  pagination: '.swiper-pagination',
-
-  // Navigation arrows
-  nextButton: '.swiper-button-next',
-  prevButton: '.swiper-button-prev',
+  pagination: '.swiper-pagination.swiper-all-cards',
 })
