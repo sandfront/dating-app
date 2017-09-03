@@ -31,7 +31,7 @@
 .card-link {
   // kills blue of link
   color: inherit;
-  &:focus {
+  &:hover, &:active, &:visited, &:focus {
     text-decoration: none;
     color: inherit;
   }
