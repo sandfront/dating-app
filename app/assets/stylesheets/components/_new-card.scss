@@ -21,6 +21,7 @@
 
 .new-card-footer {
   border-radius: 0 0 10px 10px;
+  background-color: white;
   height: 20%;
   display: flex;
   align-items: center;
@@ -30,4 +31,20 @@
 .card-link {
   // kills blue of link
   color: inherit;
+  &:focus {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  .new-card-container {
+    height: 370px;
+    width: 250px;
+  }
+
+  .not-for-mobile-container {
+    width: 790px;
+    margin: autoå;
+  }
 }
