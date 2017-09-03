@@ -26,3 +26,8 @@
   align-items: center;
   padding: 25px;
 }
+
+.card-link {
+  // kills blue of link
+  color: inherit;
+}
