@@ -31,9 +31,9 @@
     <h4 class="attribute-title">College</h4>
     <div class="attribute-body">
       <p>
-        <%= @user.desc_test2 %>
+        <%= @user.college %>
       </p>
-      <div data-toggle="modal" data-target="#desc_test2Modal" data-content="desc_test2Modal">
+      <div data-toggle="modal" data-target="#collegeModal" data-content="collegeModal">
         <a class="edit-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
       </div>
     </div>
@@ -43,9 +43,9 @@
     <h4 class="attribute-title">What I'm into</h4>
     <div class="attribute-body">
       <p>
-        <%= @user.description %>
+        <%= @user.what_im_into %>
       </p>
-      <div data-toggle="modal" data-target="#descriptionModal" data-content="descriptionModal">
+      <div data-toggle="modal" data-target="#what_im_intoModal" data-content="what_im_intoModal">
         <a class="edit-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
       </div>
     </div>
@@ -55,33 +55,9 @@
     <h4 class="attribute-title">What I'm looking for</h4>
     <div class="attribute-body">
       <p>
-        <%= @user.desc_test3 %>
+        <%= @user.looking_for %>
       </p>
-      <div data-toggle="modal" data-target="#desc_test3Modal" data-content="desc_test3">
-        <a class="edit-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="single-attribute">
-    <h4 class="attribute-title">What I'm into</h4>
-    <div class="attribute-body">
-      <p>
-        <%= @user.description %>
-      </p>
-      <div data-toggle="modal" data-target="#descriptionModal" data-content="descriptionModal">
-        <a class="edit-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="single-attribute">
-    <h4 class="attribute-title">What I'm looking for</h4>
-    <div class="attribute-body">
-      <p>
-        <%= @user.desc_test3 %>
-      </p>
-      <div data-toggle="modal" data-target="#desc_test3Modal" data-content="desc_test3">
+      <div data-toggle="modal" data-target="#looking_forModal" data-content="looking_forModal">
         <a class="edit-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
       </div>
     </div>
@@ -113,7 +89,7 @@
   </div>
 </div>
 
-<div class="modal fade modal-edit" id="desc_test2Modal">
+<div class="modal fade modal-edit" id="collegeModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
@@ -131,7 +107,7 @@
   </div>
 </div>
 
-<div class="modal fade modal-edit" id="desc_test3Modal">
+<div class="modal fade modal-edit" id="looking_forModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
@@ -149,7 +125,7 @@
   </div>
 </div>
 
-<div class="modal fade modal-edit" id="descriptionModal">
+<div class="modal fade modal-edit" id=what_im_intoModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
