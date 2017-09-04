@@ -4,7 +4,7 @@
   <div class="profile-cards">
     <div class="swiper-container swiper-all-cards">
         <div class="swiper-wrapper">
-          <% @users.take(5).each do |user| %>
+          <% @users.each do |user| %>
             <div class="swiper-slide"><%= render "shared/card", user: user %></div>
           <% end %>
         </div>

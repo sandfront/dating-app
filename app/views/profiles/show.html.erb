@@ -14,7 +14,7 @@
 
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <div class="banner-photo-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path (@user.user_images.first&.url || convo.match.other_user(current_user).facebook_picture_url) %>);">  </div>
+        <div class="banner-photo-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path (@user.user_images.first&.url || @user.facebook_picture_url) %>);">  </div>
       </div>
 
       <% @user.user_images.drop(1).each do |image| %>

@@ -6,6 +6,7 @@ Conversation.destroy_all
 Match.destroy_all
 User.destroy_all
 
+count = 1
 25.times do
   person = User.new()
   person.first_name = Faker::Name.first_name
@@ -14,9 +15,10 @@ User.destroy_all
   person.password = '123456'
   person.gender = ["male", "female", "non_binary"].sample
   person.description = Faker::Lorem.paragraphs(2..10)
-  person.facebook_picture_url = "https://source.unsplash.com/collection/302501/"
+  person.facebook_picture_url = "https://source.unsplash.com/collection/302501/#{count}"
   person.save
   puts 'User created!'
+  count += 1
   p person
 end
 
