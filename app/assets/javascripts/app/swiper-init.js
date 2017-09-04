@@ -54,5 +54,5 @@ var editSwiper = new Swiper('.swiper-container.swiper-edit', {
   slidesPerView: 3,
   paginationClickable: true,
   spaceBetween: 30,
-  freeMode: true
+  freeMode: true,
 });
