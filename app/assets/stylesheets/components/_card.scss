@@ -1,53 +1,50 @@
+.card-container {
+  height: calc(100vh - 44px);
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .card {
-  position: relative;
+  height: 80%;
+  width: 90%;
+  border-radius: 10px;
+  box-shadow: 0px 2px 6px 0px rgba(74,74,74,0.6);
 }
 
-.card-image {
-  background-size: cover;
-  background-position: center;
+.card-photo {
+  width: 100%;
+  height: 80%;
+  border-radius: 10px 10px 0 0;
 }
 
-.card, .card-image {
-  height: 100vh;
+.card-footer {
+  border-radius: 0 0 10px 10px;
+  background-color: white;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  padding: 25px;
 }
 
-.card-content {
-  left: 5% !important;
-  right: auto !important;
-  text-align: left !important;
-  h3 {
-    font-family: $body-font;
-    font-size: 35px;
-    color:white;
+.card-link {
+  // kills blue of link
+  color: inherit;
+  &:hover, &:active, &:visited, &:focus {
+    text-decoration: none;
+    color: inherit;
   }
-  p {
-    margin-bottom: 0;
-    color:white;
-    font-family: $body-font;
-    font-weight: lighter;
-    font-size: 20px;
-  }
-}
-
-h2.profiles-title {
-  padding-top: 20px;
 }
 
 @media (min-width: $screen-sm-min) {
-  .card, .card-image {
-    height: 350px;
-    width: 250px;
+  .card, .card-container {
+    height: 300px;
+    width: 210px;
   }
 
-  .card-container {
-    margin: 10px 0px;
-  }
-
-  .not-for-mobile-container {
-    width: 790px;
-    margin: auto;
+  .card {
+    transition: all .2s ease-in-out;
+    &:hover { transform: scale(1.02); }
   }
 }
-
-
-
