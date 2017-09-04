@@ -1,0 +1,25 @@
+.wrapper-black {
+  background-color: #393E46;
+  height: calc(100vh - 44px);
+}
+
+.edit-photo-image {
+  background-size: cover;
+  background-position: center;
+  height: calc(90vh - 44px);
+  flex-grow: 1;
+}
+
+.edit-dropdown-content {
+  position: relative;
+  height: 10vh;
+  width: 100%;
+}
+
+.edit-dropdown {
+  position: absolute;
+  bottom: 0px;
+  right: 10px;
+  color: white;
+  font-size: 50px;
+}
