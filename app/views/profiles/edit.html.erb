@@ -63,6 +63,30 @@
     </div>
   </div>
 
+  <div class="single-attribute">
+    <h4 class="attribute-title">What I'm into</h4>
+    <div class="attribute-body">
+      <p>
+        <%= @user.description %>
+      </p>
+      <div data-toggle="modal" data-target="#descriptionModal" data-content="descriptionModal">
+        <a class="edit-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="single-attribute">
+    <h4 class="attribute-title">What I'm looking for</h4>
+    <div class="attribute-body">
+      <p>
+        <%= @user.desc_test3 %>
+      </p>
+      <div data-toggle="modal" data-target="#desc_test3Modal" data-content="desc_test3">
+        <a class="edit-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 
