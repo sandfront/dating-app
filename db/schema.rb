@@ -120,10 +120,10 @@ ActiveRecord::Schema.define(version: 20170903154154) do
     t.string "photos"
     t.string "work"
     t.string "subject"
+    t.date "birthday"
     t.text "desc_test1"
     t.text "desc_test2"
     t.text "desc_test3"
-    t.date "birthday"
     t.boolean "admin", default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

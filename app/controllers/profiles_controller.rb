@@ -39,7 +39,7 @@ class ProfilesController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :desc_test1, :desc_test2, user_images: [:id, :user_id, :photo])
+    params.require(:user).permit(:first_name, :last_name, :desc_test1, :desc_test2, :description, :desc_test3, user_images: [:id, :user_id, :photo])
   end
 
   # def get_urls_from_user_images

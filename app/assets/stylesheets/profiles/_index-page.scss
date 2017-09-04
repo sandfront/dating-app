@@ -1,4 +1,22 @@
 .profile-cards {
-  height: calc(100vh - 44px);
   width: 100%;
+}
+
+@media (min-width: $screen-sm-min) {
+  .swiper-all-cards {
+    height: auto;
+    width: auto;
+  }
+
+  .swiper-slide {
+    justify-content: center;
+    display: flex;
+  }
+
+  .not-for-mobile-container {
+    width: 790px;
+    height: calc(100vh - 44px);
+    margin: auto;
+  }
+
 }
