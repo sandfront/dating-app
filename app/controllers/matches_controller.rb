@@ -1,4 +1,5 @@
 class MatchesController < ApplicationController
+
   def create
     @liker = current_user
     @likee = User.find(params[:id])
