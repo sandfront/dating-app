@@ -103,11 +103,7 @@ class User < ApplicationRecord
 
     user_params[:gender] = auth.extra.raw_info.gender
     user_params[:friends] = auth.extra.raw_info.friends
-
     user_params[:birthday] = Date.strptime(auth.extra.raw_info.birthday, '%m/%d/%Y')
-    # user_params[:school] = auth.extra.raw_info.education.last.school.name
-    # user_params[:subject] = auth.extra.raw_info.education.last.concentration.first.name
-    # user_params[:work] = "needs coding"
 
 
     user_params[:token] = auth.credentials.token
@@ -122,20 +118,20 @@ class User < ApplicationRecord
       user = User.new(user_params)
       user.password = Devise.friendly_token[0,20]  # Fake password for validation
       user.save
-      user.persist_fblikes(auth)
+      # user.persist_fblikes(auth)
       user.persist_user_fb_photos
     end
     return user
   end
 
-  def persist_fblikes(auth)
-    likes_hashie = auth.extra.raw_info.likes.data
-    likes_hashie.each do |like|
-      fb_like = FacebookLike.new(like_id: like.id, name: like.name)
-      fb_like.user = self
-      fb_like.save
-    end
-  end
+  # def persist_fblikes(auth)
+  #   likes_hashie = auth.extra.raw_info.likes.data
+  #   likes_hashie.each do |like|
+  #     fb_like = FacebookLike.new(like_id: like.id, name: like.name)
+  #     fb_like.user = self
+  #     fb_like.save
+  #   end
+  # end
 
   def persist_user_fb_photos
     url_one = "https://graph.facebook.com/#{self.uid}/albums?access_token=#{self.token}"
