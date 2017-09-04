@@ -14,7 +14,6 @@ count = 1
   person.email = Faker::Internet.email(person.first_name)
   person.password = '123456'
   person.gender = ["male", "female", "non_binary"].sample
-  person.description = Faker::Lorem.paragraphs(2..10)
   person.facebook_picture_url = "https://source.unsplash.com/collection/302501/#{count}"
   person.save
   puts 'User created!'
