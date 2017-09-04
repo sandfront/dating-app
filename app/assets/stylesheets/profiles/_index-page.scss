@@ -1,22 +1,24 @@
 .profile-cards {
   width: 100%;
+  height: 100%;
 }
 
 @media (min-width: $screen-sm-min) {
-  .swiper-all-cards {
-    height: auto;
-    width: auto;
-  }
 
-  .swiper-slide {
+  .swiper-all-cards .swiper-slide {
     justify-content: center;
     display: flex;
+    height: 300px;
   }
 
   .not-for-mobile-container {
     width: 790px;
     height: calc(100vh - 44px);
     margin: auto;
+  }
+
+  .profile-cards {
+    padding-top: 30px;
   }
 
 }
