@@ -19,9 +19,9 @@
     <h4 class="attribute-title">Course</h4>
     <div class="attribute-body">
       <p>
-        <%= @user.desc_test1 %>
+        <%= @user.course %>
       </p>
-      <div data-toggle="modal" data-target="#desc_test1Modal" data-content="desc_test1">
+      <div data-toggle="modal" data-target="#courseModal" data-content="courseModal">
         <a class="edit-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
       </div>
     </div>
@@ -103,7 +103,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
         <%= simple_form_for @user, :url => profile_path(@user), :method => :patch do |f| %>
-        <%= f.input :desc_test1, label: "Course", input_html: { rows: '10', class: "input-no-resize"} %>
+        <%= f.input :course, label: "Course", input_html: { rows: '10', class: "input-no-resize"} %>
       </div>
       <div class="modal-footer footer-flexbox">
         <%= f.button :submit, "Save", class: 'btn btn-success show-navbar' %>
