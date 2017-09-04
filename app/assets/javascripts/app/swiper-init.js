@@ -34,3 +34,10 @@ var allCardsSwiper = new Swiper ('.swiper-container.swiper-all-cards', {
   pagination: '.swiper-pagination.swiper-all-cards',
 })
 
+var editSwiper = new Swiper('.swiper-container.swiper-edit', {
+  pagination: '.swiper-pagination.swiper-edit',
+  slidesPerView: 3,
+  paginationClickable: true,
+  spaceBetween: 30,
+  freeMode: true
+});

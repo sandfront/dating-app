@@ -1,6 +1,6 @@
 <div class="edit-box-for-cards">
   <div class="hidden-md hidden-lg">
-    <div class="swiper-container swiper-cont">
+    <div class="swiper-container swiper-edit">
         <div class="swiper-wrapper">
         <% @user.user_images.take(6).each do |photo| %>
             <div class="swiper-slide avatar-photo" style="background-image: url(<%= photo.small_url %>)">
@@ -82,28 +82,3 @@
     </div>
   </div>
 </div>
-
-
-
-    <!-- Initialize Swiper -->
-  <% content_for(:after_js) do %>
-    <script>
-        var swiper = new Swiper('.swiper-container', {
-        pagination: '.swiper-pagination',
-        slidesPerView: 3,
-        paginationClickable: true,
-        spaceBetween: 30,
-        freeMode: true
-    });
-
-    // $(document).ready(function(){
-    //   $(".edit-button").click(function(e) {
-    //     $(".navbar-meteor").addClass("hidden");
-    //   });
-
-    //   $(".show-navbar").click(function(e) {
-    //     $(".navbar-meteor").removeClass("hidden");
-    //   })
-    // })
-    </script>
-  <% end %>
