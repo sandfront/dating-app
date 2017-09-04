@@ -7,13 +7,16 @@ const isMobile = () => {
 
 let slidesView;
 let slidesCol;
+let perView;
 
 if (isMobile()) {
   slidesView = 1;
   slidesCol = 1;
+  perView = 1;
 } else {
   slidesView = 3;
   slidesCol = 2;
+  perView = 6;
 }
 
 
@@ -41,8 +44,7 @@ var allCardsSwiper = new Swiper ('.swiper-container.swiper-all-cards', {
   keyboardControl: true,
   slidesPerView: slidesView,
   slidesPerColumn: slidesCol,
-  slidesPerGroup: 6,
-  centeredSlides: false,
+  slidesPerGroup: perView,
   // If we need pagination
   pagination: '.swiper-pagination.swiper-all-cards',
 })
