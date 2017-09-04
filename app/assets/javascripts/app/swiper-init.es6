@@ -1,9 +1,9 @@
 const isMobile = () => {
   var width = window.innerWidth;
   if (width <= 768) {
-    return true
+    return true;
   }
-}
+};
 
 let slidesView;
 let slidesCol;
