@@ -9,20 +9,23 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
   <body>
+
   <% if params[:controller] == 'profiles' && params[:action] == 'edit' %>
     <%= render 'shared/edit-navbar' %>
   <% else %>
     <%= render 'shared/navbar' %>
   <% end %>
-    <%= render 'shared/flashes' %>
-    <% if params[:controller] == 'pages' && params[:action] == 'home' %>
-      <%= yield %>
-    <% else %>
-    <div class="fullpage">
-      <%= yield %>
-    </div>
-    <% end %>
-    <%= javascript_include_tag 'application' %>
-    <%= yield(:after_js) %>
+
+  <%= render 'shared/flashes' %>
+
+  <% if params[:controller] == 'pages' %>
+    <%= yield %>
+  <% else %>
+  <div class="fullpage">
+    <%= yield %>
+  </div>
+  <% end %>
+  <%= javascript_include_tag 'application' %>
+  <%= yield(:after_js) %>
   </body>
 </html>
