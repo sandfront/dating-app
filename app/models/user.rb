@@ -12,6 +12,9 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   accepts_nested_attributes_for :user_images
 
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+
   def matches
     likes + been_liked
   end
