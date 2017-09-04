@@ -5,15 +5,17 @@ class ConversationsController < ApplicationController
 
   def show
     @conversation = Conversation.includes(messages: :user).find(params[:id])
+    authorize @conversation
   end
 
  def index
-    if current_user.conversations == []
+    conversations = policy_scope(Conversation)
+    if conversations == []
       redirect_to profiles_path, alert: 'You have to match with someone to start a conversation!'
     else
       @started = []
       @unstarted = []
-      current_user.conversations.each do |convo|
+      conversations.each do |convo|
           if convo.messages == []
             @unstarted << convo
           else

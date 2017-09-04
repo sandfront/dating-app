@@ -1,8 +1,19 @@
 const isMobile = () => {
   var width = window.innerWidth;
-  if (width >= 768) {
+  if (width <= 768) {
     return true
   }
+}
+
+let slidesView;
+let slidesCol;
+
+if (isMobile()) {
+  slidesView = 1;
+  slidesCol = 1;
+} else {
+  slidesView = 3;
+  slidesCol = 2;
 }
 
 
@@ -28,9 +39,16 @@ var allCardsSwiper = new Swiper ('.swiper-container.swiper-all-cards', {
   loop: false,
   preventClicks: true,
   keyboardControl: true,
-  slidesPerView: 1,
-  slidesPerColumn: 1,
+  slidesPerView: slidesView,
+  slidesPerColumn: slidesCol,
   // If we need pagination
   pagination: '.swiper-pagination.swiper-all-cards',
 })
 
+var editSwiper = new Swiper('.swiper-container.swiper-edit', {
+  pagination: '.swiper-pagination.swiper-edit',
+  slidesPerView: 3,
+  paginationClickable: true,
+  spaceBetween: 30,
+  freeMode: true
+});

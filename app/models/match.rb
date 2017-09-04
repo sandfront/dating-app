@@ -11,4 +11,13 @@ class Match < ApplicationRecord
       end
     end
   end
+
+  def this_user(test_user)
+    [first_user, second_user].each do |user|
+      if user == test_user
+        return user
+      end
+    end
+  end
+
 end
