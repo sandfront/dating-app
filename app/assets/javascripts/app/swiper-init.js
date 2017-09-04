@@ -41,6 +41,8 @@ var allCardsSwiper = new Swiper ('.swiper-container.swiper-all-cards', {
   keyboardControl: true,
   slidesPerView: slidesView,
   slidesPerColumn: slidesCol,
+  slidesPerGroup: 6,
+  centeredSlides: false,
   // If we need pagination
   pagination: '.swiper-pagination.swiper-all-cards',
 })
