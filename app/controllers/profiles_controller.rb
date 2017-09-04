@@ -3,24 +3,24 @@ require 'json'
 
 class ProfilesController < ApplicationController
   def index
-    users = []
-    # does the user have expressed preferences?
-    if current_user.gender_preferences
-      if current_user.gender_preferences.include?("male")
-        users << User.where(gender: "male")
-      end
-      if current_user.gender_preferences.include?("female")
-        users << User.where(gender: "female")
-      end
-      if current_user.gender_preferences.include?("non-binary")
-        users << User.where(gender: "non_binary")
-      end
-    else
-      # if no expressed preferences, give all
-      @users = User.all
-    end
+    # users = []
 
-    @users = users.sample(12)
+    # # does the user have expressed preferences?
+    # if current_user.gender_preferences
+    #   if current_user.gender_preferences.include?("male")
+    #     users << User.where(gender: "male")
+    #   end
+    #   if current_user.gender_preferences.include?("female")
+    #     users << User.where(gender: "female")
+    #   end
+    #   if current_user.gender_preferences.include?("non-binary")
+    #     users << User.where(gender: "non_binary")
+    #   end
+    # else
+    #   # if no expressed preferences, give all
+    #   @users = User.all
+
+    @users = policy_scope(User).sample(12)
     @user = current_user
   end
 
