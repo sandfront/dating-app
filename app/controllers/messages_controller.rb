@@ -3,6 +3,7 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     @conversation = Conversation.find(params[:conversation_id])
+    authorize @message
     @message.conversation = @conversation
     @message.user = current_user
     if @message.save

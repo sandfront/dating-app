@@ -17,7 +17,7 @@ class ProfilesController < ApplicationController
       end
     else
       # if no expressed preferences, give all
-      users = User.all
+      @users = User.all
     end
 
     @users = users.sample(12)
@@ -26,14 +26,17 @@ class ProfilesController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    authorize @user
   end
 
   def edit
     @user = User.find(params[:id])
+    authorize @user
   end
 
   def update
     @user = User.find(params[:id])
+    authorize @user
     # if @user.update(user_params)
     #   params[:user_images]['photo'].each do |p|
     #     @user.user_images.update(photo: p)
@@ -53,7 +56,7 @@ class ProfilesController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :desc_test1, :desc_test2, user_images: [:id, :user_id, :photo])
+    params.require(:user).permit(:first_name, :last_name, :desc_test1, :desc_test2, :description, :desc_test3, user_images: [:id, :user_id, :photo])
   end
 
   # def get_urls_from_user_images
