@@ -1,6 +1,6 @@
 <div class="edit-box-for-cards">
   <div class="hidden-md hidden-lg">
-    <div class="swiper-container swiper-cont swiper-edit">
+    <div class="swiper-container swiper-edit">
         <div class="swiper-wrapper">
         <% @user.user_images.take(6).each do |photo| %>
             <div class="swiper-slide avatar-photo" style="background-image: url(<%= photo.small_url %>)">
