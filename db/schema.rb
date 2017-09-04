@@ -111,7 +111,6 @@ ActiveRecord::Schema.define(version: 20170904164946) do
     t.string "facebook_picture_url"
     t.string "token"
     t.datetime "token_expiry"
-    t.text "description"
     t.string "course"
     t.string "gender"
     t.string "friends"
@@ -120,12 +119,12 @@ ActiveRecord::Schema.define(version: 20170904164946) do
     t.string "photos"
     t.string "work"
     t.string "subject"
-    t.text "desc_test1"
-    t.text "desc_test2"
-    t.text "desc_test3"
     t.date "birthday"
     t.boolean "admin", default: false, null: false
     t.string "gender_preferences", default: [], array: true
+    t.string "college"
+    t.text "what_im_into"
+    t.text "looking_for"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
