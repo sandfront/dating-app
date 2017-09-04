@@ -1,5 +1,5 @@
 require 'faker'
-Seed users
+
 5.times do
   person = User.new()
   person.first_name = Faker::Name.first_name
