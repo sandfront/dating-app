@@ -23,7 +23,7 @@ class ApplicationPolicy
   end
 
   def update?
-    record == user
+    false
   end
 
   def edit?
