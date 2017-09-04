@@ -1,4 +1,5 @@
 require 'faker'
+
 # Seed users
 5.times do
   person = User.new()

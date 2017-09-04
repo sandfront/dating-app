@@ -33,7 +33,31 @@
       <p>
         <%= @user.desc_test2 %>
       </p>
-      <div data-toggle="modal" data-target="#desc_test2Modal" data-content="desc_test2">
+      <div data-toggle="modal" data-target="#desc_test2Modal" data-content="desc_test2Modal">
+        <a class="edit-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="single-attribute">
+    <h4 class="attribute-title">What I'm into</h4>
+    <div class="attribute-body">
+      <p>
+        <%= @user.description %>
+      </p>
+      <div data-toggle="modal" data-target="#descriptionModal" data-content="descriptionModal">
+        <a class="edit-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="single-attribute">
+    <h4 class="attribute-title">What I'm looking for</h4>
+    <div class="attribute-body">
+      <p>
+        <%= @user.desc_test3 %>
+      </p>
+      <div data-toggle="modal" data-target="#desc_test3Modal" data-content="desc_test3">
         <a class="edit-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
       </div>
     </div>
@@ -79,7 +103,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
         <%= simple_form_for @user, :url => profile_path(@user), :method => :patch do |f| %>
-        <%= f.input :desc_test1, input_html: { rows: '10', class: "input-no-resize"} %>
+        <%= f.input :desc_test1, label: "Course", input_html: { rows: '10', class: "input-no-resize"} %>
       </div>
       <div class="modal-footer footer-flexbox">
         <%= f.button :submit, "Save", class: 'btn btn-success show-navbar' %>
@@ -97,7 +121,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
         <%= simple_form_for @user, :url => profile_path, :method => :patch do |f| %>
-        <%= f.input :desc_test2, input_html: { rows: '5', class: "input-no-resize"} %>
+        <%= f.input :desc_test2, label: "College", input_html: { rows: '5', class: "input-no-resize"} %>
       </div>
       <div class="modal-footer footer-flexbox">
         <%= f.button :submit, "Save", class: 'btn btn-success show-navbar' %>
@@ -115,7 +139,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
         <%= simple_form_for @user, :url => profile_path(@user), :method => :patch do |f| %>
-        <%= f.input :desc_test3, input_html: { rows: '10', class: "input-no-resize"} %>
+        <%= f.input :desc_test3, label: "What I'm looking for", input_html: { rows: '10', class: "input-no-resize"} %>
       </div>
       <div class="modal-footer footer-flexbox">
         <%= f.button :submit, "Save", class: 'btn btn-success show-navbar' %>
@@ -133,7 +157,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
         <%= simple_form_for @user, :url => profile_path(@user), :method => :patch do |f| %>
-        <%= f.input :description, input_html: { rows: '10', class: "input-no-resize"} %>
+        <%= f.input :description, label: "What I'm into", input_html: { rows: '10', class: "input-no-resize"} %>
       </div>
       <div class="modal-footer footer-flexbox">
         <%= f.button :submit, "Save", class: 'btn btn-success show-navbar' %>
