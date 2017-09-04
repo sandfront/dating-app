@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170904163504) do
+ActiveRecord::Schema.define(version: 20170904164946) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -121,7 +121,7 @@ ActiveRecord::Schema.define(version: 20170904163504) do
     t.string "subject"
     t.date "birthday"
     t.boolean "admin", default: false, null: false
-    t.string "gender_preferences"
+    t.string "gender_preferences", default: [], array: true
     t.string "college"
     t.text "what_im_into"
     t.text "looking_for"
