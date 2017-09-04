@@ -124,14 +124,14 @@ class User < ApplicationRecord
     return user
   end
 
-  def persist_fblikes(auth)
-    likes_hashie = auth.extra.raw_info.likes.data
-    likes_hashie.each do |like|
-      fb_like = FacebookLike.new(like_id: like.id, name: like.name)
-      fb_like.user = self
-      fb_like.save
-    end
-  end
+  # def persist_fblikes(auth)
+  #   likes_hashie = auth.extra.raw_info.likes.data
+  #   likes_hashie.each do |like|
+  #     fb_like = FacebookLike.new(like_id: like.id, name: like.name)
+  #     fb_like.user = self
+  #     fb_like.save
+  #   end
+  # end
 
   def persist_user_fb_photos
     url_one = "https://graph.facebook.com/#{self.uid}/albums?access_token=#{self.token}"
