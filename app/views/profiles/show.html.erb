@@ -63,8 +63,9 @@
     <div class="user-title">
       <p><%= @user.first_name %>, <%= @user.age %><p>
 <!--       <p><%= @user.subject %></p> -->
-      <p><%= @user.desc_test1 %></p>
-      <p><%= @user.desc_test2 %></p>
+      <div class="user-course-col">
+        <p><%= @user.desc_test1 %>, <%= @user.desc_test2 %></p>
+      </div>
     </div>
     <div class="match-percentage">
       84% match
