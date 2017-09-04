@@ -38,21 +38,12 @@
 }
 
 @media (min-width: $screen-sm-min) {
-  .card-container {
-    height: 370px;
-    width: 250px;
+  .card, .card-container {
+    height: 300px;
+    width: 210px;
   }
 
-  .not-for-mobile-container {
-    width: 790px;
-    margin: auto;
-  }
-
-  .swiper-all-cards .swiper-slide {
-    height: auto;
-  }
-
-  .card-container {
+  .card {
     transition: all .2s ease-in-out;
     &:hover { transform: scale(1.02); }
   }
