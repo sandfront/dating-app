@@ -5,10 +5,12 @@ class ConversationsController < ApplicationController
 
   def show
     @conversation = Conversation.includes(messages: :user).find(params[:id])
+    authorize @conversation
   end
 
   def index
-    conversations = current_user.conversations
+    conversations = policy_scope(Conversation)
+    # conversations = current_user.conversations
     @started = []
     @unstarted = []
     conversations.each do |convo|

@@ -3,20 +3,23 @@ require 'json'
 
 class ProfilesController < ApplicationController
   def index
-    @users = User.all
+    @users = policy_scope(User).order(created_at: :desc)
     @user = current_user
   end
 
   def show
     @user = User.find(params[:id])
+    authorize @user
   end
 
   def edit
     @user = User.find(params[:id])
+    authorize @user
   end
 
   def update
     @user = User.find(params[:id])
+    authorize @user
     # if @user.update(user_params)
     #   params[:user_images]['photo'].each do |p|
     #     @user.user_images.update(photo: p)
