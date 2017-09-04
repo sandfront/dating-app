@@ -8,6 +8,7 @@ class ConversationsController < ApplicationController
   end
 
   def index
+
     conversations = current_user.conversations
     @started = []
     @unstarted = []
