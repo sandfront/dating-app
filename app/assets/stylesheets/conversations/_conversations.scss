@@ -74,8 +74,12 @@
 }
 .single-message {
   display: flex;
-  border-bottom: 2px solid #e8e8e8;
 }
+
+.single-message:not(:last-child) {
+  border-bottom: 2px solid #f4f4f4;
+}
+
 .avatarss {
   width: 47px;
   height: 47px;
