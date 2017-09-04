@@ -14,6 +14,10 @@
   font-family: $logo-font;
 }
 
+.brand-title {
+  padding: 10px;
+}
+
 .meteor-name {
   font-family: $logo-font;
 }
@@ -23,10 +27,6 @@
   font-weight: lighter;
   color: rgb(255, 255, 255);
   opacity: 0.6;
-}
-
-.banner-content {
-  margin-bottom: 240px;
 }
 
 @media(min-width: 768px) {

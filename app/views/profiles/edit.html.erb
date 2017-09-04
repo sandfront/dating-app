@@ -1,9 +1,10 @@
 <div class="edit-box-for-cards">
   <div class="hidden-md hidden-lg">
-    <div class="swiper-container">
+    <div class="swiper-container swiper-cont">
         <div class="swiper-wrapper">
         <% @user.user_images.take(6).each do |photo| %>
-          <div class="swiper-slide avatar-photo" style="background-image: url(<%= photo.small_url %>)"> </div>
+            <div class="swiper-slide avatar-photo" style="background-image: url(<%= photo.small_url %>)">
+             <%= link_to "", profile_user_image_path(@user,photo), class: "link-image-edit" %> </div>
         <% end %>
         </div>
         <!-- Add Pagination -->
@@ -87,7 +88,7 @@
     <!-- Initialize Swiper -->
   <% content_for(:after_js) do %>
     <script>
-    var swiper = new Swiper('.swiper-container', {
+        var swiper = new Swiper('.swiper-container', {
         pagination: '.swiper-pagination',
         slidesPerView: 3,
         paginationClickable: true,
