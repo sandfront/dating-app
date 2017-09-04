@@ -1,4 +1,4 @@
 <div class="message <%= user_is_messages_author ? "right" : "" %>">
-  <%= image_tag message.user.user_images.first&.small_url || "grill.jpg", class: "avatar" %>
+  <%= image_tag message.user.user_images.first&.small_url || message.user.facebook_picture_url, class: "avatar" %>
   <div class="message-content"><%= message.content %></div>
 </div>
