@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   protected
   # Overrides default authenticate user method, setting custom redirect to root
-  def authenticate_user!
-    redirect_to root_path, notice: "Continue with Facebook to get started" unless user_signed_in?
-  end
+  # def authenticate_user!
+  #   redirect_to root_path, notice: "Continue with Facebook to get started" unless user_signed_in?
+  # end
 end

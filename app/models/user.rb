@@ -97,17 +97,14 @@ class User < ApplicationRecord
   end
 
   def self.find_for_facebook_oauth(auth)
+    raise
     user_params = auth.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)
     user_params[:facebook_picture_url] = auth.info.image
 
     user_params[:gender] = auth.extra.raw_info.gender
     user_params[:friends] = auth.extra.raw_info.friends
-
     user_params[:birthday] = Date.strptime(auth.extra.raw_info.birthday, '%m/%d/%Y')
-    # user_params[:school] = auth.extra.raw_info.education.last.school.name
-    # user_params[:subject] = auth.extra.raw_info.education.last.concentration.first.name
-    # user_params[:work] = "needs coding"
 
 
     user_params[:token] = auth.credentials.token
