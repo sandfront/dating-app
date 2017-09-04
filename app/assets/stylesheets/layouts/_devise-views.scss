@@ -4,7 +4,6 @@
   margin: 0.2em;
   padding: 5px 15px 5px 46px;
   border-radius: 0.2em;
-  font-size: 16px;
   color: #FFF;
 }
 .social-login:before {
@@ -28,7 +27,7 @@
 .facebook {
   background-color: #4C69BA;
   background-image: linear-gradient(#4C69BA, #3B55A0);
-  /*font-family: "Helvetica neue", Helvetica Neue, Helvetica, Arial, sans-serif;*/
+  font-family: "Helvetica neue", Helvetica Neue, Helvetica, Arial, sans-serif;
   text-shadow: 0 -1px 0 #354C8C;
 }
 .facebook:before {

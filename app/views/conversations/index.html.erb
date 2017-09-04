@@ -4,7 +4,7 @@
   <div class="scrolls1">
     <% @unstarted.each do |convo| %>
 
-      <div class="avatar-top" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path convo.match.other_user(current_user).user_images.first&.small_url || "http://www.clker.com/cliparts/3/X/C/D/x/n/smiley-face.svg" %>);">
+      <div class="avatar-top" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path convo.match.other_user(current_user).user_images.first&.small_url || "http://res.cloudinary.com/dvojg9owe/image/upload/v1504357136/grill_siomai.jpg" %>);">
       <%= link_to "", conversation_path(convo), class: "avatar-link" %>
       </div>
     <% end %>
@@ -14,7 +14,7 @@
 <div class="messagess">
   <% @started.each do |convo| %>
     <div class="single-message">
-      <div class="avatar-top" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path convo.match.other_user(current_user).user_images.first&.small_url || "http://www.clker.com/cliparts/3/X/C/D/x/n/smiley-face.svg" %>);">
+      <div class="avatar-top" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path convo.match.other_user(current_user).user_images.first&.small_url || "http://res.cloudinary.com/dvojg9owe/image/upload/v1504357136/grill_siomai.jpg" %>);">
       <%= link_to "", conversation_path(convo), class: "avatar-link" %>
       </div>
       <div class="messagess-body">

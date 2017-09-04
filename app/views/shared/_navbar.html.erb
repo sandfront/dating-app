@@ -1,4 +1,4 @@
-<div class="navbar-meteor <%= 'navbar-transparent' if params[:controller] == 'pages' && params[:action] == 'home' %>">
+<div class="navbar-meteor <%= 'navbar-transparent' if params[:controller] == 'pages' %>">
   <!-- Dropdown list appearing on mobile only LEFT icon-->
   <% if user_signed_in? %>
   <div class="navbar-meteor-item hidden-sm hidden-md hidden-lg">
@@ -15,7 +15,7 @@
   <!-- Dropdown list appearing on desktop only LEFT avatar-->
   <div class="navbar-meteor-item hidden-xs">
     <div class="dropdown">
-     <div class="avatar dropdown-toggle" data-toggle="dropdown" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path current_user.user_images.first&.small_url || "http://www.clker.com/cliparts/3/X/C/D/x/n/smiley-face.svg" %>);"> </div>
+     <div class="avatar dropdown-toggle" data-toggle="dropdown" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path current_user.user_images.first&.small_url || "http://res.cloudinary.com/dvojg9owe/image/upload/v1504357136/grill_siomai.jpg" %>);"> </div>
       <ul class="dropdown-menu dropdown-menu-left navbar-meteor-dropdown-menu">
         <li><%= link_to "Edit profile", edit_profile_path(current_user.id) %> </li>
         <li><%= link_to destroy_user_session_path, method: :delete do %>
@@ -28,7 +28,7 @@
 
   <!-- Logo and name CENTER -->
   <%= link_to root_path, class: "navbar-brand" do %>
-    <p><%= image_tag "comet.png" %> Meteor</p>
+    <p><%= cl_image_tag "meteor-icon_mtg2vp", height: 32 %> Meteor</p>
   <% end %>
 
   <!-- Links when logged in to messages desktop RIGHT text -->
