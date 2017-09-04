@@ -71,7 +71,7 @@
 </div>
 
 <!-- Here be modals -->
-<div class="modal fade modal-edit" id="desc_test1Modal">
+<div class="modal fade modal-edit" id="courseModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
@@ -97,7 +97,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
         <%= simple_form_for @user, :url => profile_path, :method => :patch do |f| %>
-        <%= f.input :desc_test2, label: "College", input_html: { rows: '5', class: "input-no-resize"} %>
+        <%= f.input :college, label: "College", input_html: { rows: '5', class: "input-no-resize"} %>
       </div>
       <div class="modal-footer footer-flexbox">
         <%= f.button :submit, "Save", class: 'btn btn-success show-navbar' %>
@@ -115,7 +115,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
         <%= simple_form_for @user, :url => profile_path(@user), :method => :patch do |f| %>
-        <%= f.input :desc_test3, label: "What I'm looking for", input_html: { rows: '10', class: "input-no-resize"} %>
+        <%= f.input :looking_for, label: "What I'm looking for", input_html: { rows: '10', class: "input-no-resize"} %>
       </div>
       <div class="modal-footer footer-flexbox">
         <%= f.button :submit, "Save", class: 'btn btn-success show-navbar' %>
@@ -125,7 +125,7 @@
   </div>
 </div>
 
-<div class="modal fade modal-edit" id=what_im_intoModal">
+<div class="modal fade modal-edit" id="what_im_intoModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
@@ -133,7 +133,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
         <%= simple_form_for @user, :url => profile_path(@user), :method => :patch do |f| %>
-        <%= f.input :description, label: "What I'm into", input_html: { rows: '10', class: "input-no-resize"} %>
+        <%= f.input :what_im_into, label: "What I'm into", input_html: { rows: '10', class: "input-no-resize"} %>
       </div>
       <div class="modal-footer footer-flexbox">
         <%= f.button :submit, "Save", class: 'btn btn-success show-navbar' %>
