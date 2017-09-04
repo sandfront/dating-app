@@ -9,7 +9,7 @@ class ConversationsController < ApplicationController
 
  def index
     if current_user.conversations == []
-      redirect_to root_path, alert: 'You have to match with someone to start a conversation!'
+      redirect_to profiles_path, alert: 'You have to match with someone to start a conversation!'
     else
       @started = []
       @unstarted = []
