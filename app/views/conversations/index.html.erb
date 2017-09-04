@@ -1,7 +1,7 @@
 
 
 <div class="wrapper1">
-  <div class="scrolls1">
+  <div class="top-scroll">
     <% @unstarted.each do |convo| %>
 
       <div class="avatar-top" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path convo.match.other_user(current_user).user_images.first&.small_url || "http://res.cloudinary.com/dvojg9owe/image/upload/v1504357136/grill_siomai.jpg" %>);">
@@ -11,7 +11,7 @@
   </div>
 </div>
 
-<div class="messagess">
+<div class="messages-box">
   <% @started.each do |convo| %>
     <div class="single-message">
       <div class="avatar-top" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path convo.match.other_user(current_user).user_images.first&.small_url || "http://res.cloudinary.com/dvojg9owe/image/upload/v1504357136/grill_siomai.jpg" %>);">
