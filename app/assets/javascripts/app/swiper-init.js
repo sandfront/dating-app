@@ -34,7 +34,7 @@ var singleCardSwiper = new Swiper ('.swiper-container.swiper-single-card', {
 
   // And if we need scrollbar
   scrollbar: '.swiper-scrollbar.swiper-single-card',
-})
+});
 
 var allCardsSwiper = new Swiper ('.swiper-container.swiper-all-cards', {
   // Optional parameters
@@ -47,7 +47,7 @@ var allCardsSwiper = new Swiper ('.swiper-container.swiper-all-cards', {
   slidesPerGroup: perView,
   // If we need pagination
   pagination: '.swiper-pagination.swiper-all-cards',
-})
+});
 
 var editSwiper = new Swiper('.swiper-container.swiper-edit', {
   pagination: '.swiper-pagination.swiper-edit',
