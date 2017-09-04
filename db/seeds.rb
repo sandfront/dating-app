@@ -1,11 +1,18 @@
 require 'faker'
-Seed users
-5.times do
+# Seed users
+p 'Removing all old stuff'
+Message.destroy_all
+Conversation.destroy_all
+Match.destroy_all
+User.destroy_all
+
+25.times do
   person = User.new()
   person.first_name = Faker::Name.first_name
   person.last_name = Faker::Name.last_name
   person.email = Faker::Internet.email(person.first_name)
   person.password = '123456'
+  person.gender = ["male", "female", "non_binary"].sample
   person.description = Faker::Lorem.paragraphs(2..10)
   person.facebook_picture_url = "https://source.unsplash.com/collection/302501/"
   person.save
@@ -14,10 +21,6 @@ Seed users
 end
 
 # Seeding matches
-p 'Removing all old matches'
-Message.destroy_all
-Conversation.destroy_all
-Match.destroy_all
 5.times do
   offset = rand(1..10)
   user_1 = User.offset(offset).first

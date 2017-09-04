@@ -3,7 +3,18 @@ require 'json'
 
 class ProfilesController < ApplicationController
   def index
-    @users = User.all
+    users = []
+    if current_user.gender_preferences.include?("male")
+      users << User.where(gender: "male")
+    end
+    if current_user.gender_preferences.include?("female")
+      users << User.where(gender: "female")
+    end
+    if current_user.gender_preferences.include?("non-binary")
+      users << User.where(gender: "non_binary")
+    end
+
+    @users = users.sample(12)
     @user = current_user
   end
 
