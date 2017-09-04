@@ -3,7 +3,13 @@ Rails.application.routes.draw do
   get '/landing', to: 'pages#landing', as: :landing
   root to: 'pages#home'
   devise_for :users,
+    skip: [ :sessions ],
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_scope :user do
+    delete "/users/sign_out", :to => "devise/sessions#destroy", as: :destroy_user_session
+  end
+
+
   resources :conversations, only: [:index, :show, :create] do
     resources :messages, only: [:create]
   end
