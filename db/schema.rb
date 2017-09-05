@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170904164946) do
+ActiveRecord::Schema.define(version: 20170905131725) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,13 @@ ActiveRecord::Schema.define(version: 20170904164946) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["match_id"], name: "index_conversations_on_match_id"
+  end
+
+  create_table "dislikes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "first_user_id"
+    t.integer "second_user_id"
   end
 
   create_table "facebook_likes", force: :cascade do |t|
@@ -133,6 +140,8 @@ ActiveRecord::Schema.define(version: 20170904164946) do
   add_foreign_key "answers", "users"
   add_foreign_key "choices", "questions"
   add_foreign_key "conversations", "matches"
+  add_foreign_key "dislikes", "users", column: "first_user_id"
+  add_foreign_key "dislikes", "users", column: "second_user_id"
   add_foreign_key "facebook_likes", "users"
   add_foreign_key "matches", "users", column: "first_user_id"
   add_foreign_key "matches", "users", column: "second_user_id"

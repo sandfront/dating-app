@@ -2,7 +2,7 @@ class MatchesController < ApplicationController
 
   def create
     @liker = current_user
-    @likee = User.find(params[:id])
+    @likee = User.find(params[:profile_id])
     if @likee.likes_user(@liker) != []
       preexisting_match = @likee.likes_user(@liker).first
       preexisting_match.mutual = true
@@ -16,7 +16,7 @@ class MatchesController < ApplicationController
       @match = Match.new(first_user: @liker, second_user: @likee)
       authorize @match
       @match.save
-      redirect_to profiles_path, alert: 'You liked that person!'
+      redirect_to profiles_path, notice: 'You liked that person!'
     end
   end
 end
