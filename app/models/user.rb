@@ -15,6 +15,11 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
 
+  def name
+    email
+  end
+
+
   def matches
     likes + been_liked
   end

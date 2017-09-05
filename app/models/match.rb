@@ -20,4 +20,8 @@ class Match < ApplicationRecord
     end
   end
 
+  def name
+    id
+  end
+
 end
