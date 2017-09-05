@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :choices, through: :answers
   has_many :user_images, dependent: :destroy
   has_many :messages, dependent: :destroy
+  belongs_to :community
   accepts_nested_attributes_for :user_images
 
   validates :first_name, presence: true
