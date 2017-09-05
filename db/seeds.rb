@@ -4,7 +4,15 @@ p 'Removing all old stuff'
 Message.destroy_all
 Conversation.destroy_all
 Match.destroy_all
+Community.destroy_all
 User.destroy_all
+
+Community.create(title: "Oxford", brand_color: "#002147")
+Community.create(title: "Manchester", brand_color: "#660099")
+Community.create(title: "Kent", brand_color: "#EFCB94")
+Community.create(title: "Queen Mary", brand_color: "#000066")
+
+communities = Community.all
 
 count = 1
 25.times do
@@ -15,6 +23,7 @@ count = 1
   person.password = '123456'
   person.gender = ["male", "female", "non_binary"].sample
   person.facebook_picture_url = "https://source.unsplash.com/collection/302501/#{count}"
+  person.community = communities.sample
   person.save
   puts 'User created!'
   count += 1
