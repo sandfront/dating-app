@@ -13,16 +13,15 @@
   <% @started.sort_by { |conv| conv.messages.last.created_at }.reverse.each do |convo| %>
     <div class="single-message">
       <div class="avatar-top" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path convo.match.other_user(current_user).user_images.first&.small_url || convo.match.other_user(current_user).facebook_picture_url %>);">
-      <%= link_to "", conversation_path(convo), class: "avatar-link" %>
       </div>
       <div class="messagess-body">
         <p><strong><h5> <%= convo.match.other_user(current_user).first_name %> </h5></strong></p>
         <p class="convo-text"> <%= convo.messages.last.content %> </p>
       </div>
+      <%= link_to "", conversation_path(convo), class: "message-link-new" %>
     </div>
   <% end %>
 </div>
-
 
 
 
