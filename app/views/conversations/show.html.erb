@@ -5,21 +5,28 @@
 <div class="chat-interface kill-padding kill-margin">
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
-      <div class="chat-header"><h4><%= @conversation.match.other_user(current_user).first_name %></h4></div>
+      <div class="chat-header">
+        <%= link_to conversations_path do %>
+          <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        <% end %>
+        <h4><%= @conversation.match.other_user(current_user).first_name %></h4>
+      </div>
       <div class="messages">
         <% @conversation.messages.each do |message| %>
           <%= render "shared/message", message: message, user_is_messages_author: (message.user == current_user) %>
         <% end %>
       </div>
-      <div id="create-message" class="text-center">
-        <form novalidate="novalidate" class="simple_form new_message" id="new_message" action="/conversations/<%= @conversation.id %>/messages" accept-charset="UTF-8" data-remote="true" method="post">
-        <input name="utf8" type="hidden" value="✓">
-        <div class="form-group text required message_content"><textarea class="form-control text required" name="message[content]" id="message_content"></textarea></div>
-        <div class="send-btn-chat">
-          <input type="submit" name="commit" value="Send" data-disable-with="Send">
+      <div class="bottom-message">
+        <div id="create-message">
+          <form novalidate="novalidate" class="simple_form new_message" id="new_message" action="/conversations/<%= @conversation.id %>/messages" accept-charset="UTF-8" data-remote="true" method="post">
+          <input name="utf8" type="hidden" value="✓">
+          <div class="form-group text required message_content"><textarea class="form-control text required" name="message[content]" id="message_content"></textarea></div>
+          <div class="send-btn-chat">
+            <input type="submit" name="commit" value="send" data-disable-with="Send">
+          </div>
+          </form>
         </div>
-        </form>
-      </div>
+      </div> <!-- bottom message -->
     </div>
   </div>
 </div>

@@ -128,10 +128,10 @@ ActiveRecord::Schema.define(version: 20170905131725) do
     t.string "subject"
     t.date "birthday"
     t.boolean "admin", default: false, null: false
-    t.string "gender_preferences", default: [], array: true
     t.string "college"
     t.text "what_im_into"
     t.text "looking_for"
+    t.string "gender_preferences", default: [], array: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
