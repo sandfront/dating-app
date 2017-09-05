@@ -36,6 +36,11 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def onboard
+    @user = User.find(params[:id])
+    authorize @user
+  end
+
   private
 
   def user_params
