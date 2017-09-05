@@ -19,7 +19,6 @@ if (isMobile()) {
   perView = 6;
 }
 
-
 var singleCardSwiper = new Swiper ('.swiper-container.swiper-single-card', {
   // Optional parameters
   direction: 'vertical',
@@ -49,10 +48,23 @@ var allCardsSwiper = new Swiper ('.swiper-container.swiper-all-cards', {
   pagination: '.swiper-pagination.swiper-all-cards',
 });
 
+
 var editSwiper = new Swiper('.swiper-container.swiper-edit', {
   pagination: '.swiper-pagination.swiper-edit',
   slidesPerView: 3,
   paginationClickable: true,
   spaceBetween: 30,
   freeMode: true,
+});
+
+var onboardSwiper = new Swiper('.swiper-container.swiper-onboard', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: false,
+
+  // If we need pagination
+  pagination: '.swiper-pagination',
+
+  // Navigation arrows
+  nextButton: '.swiper-button-next.onboard-next',
 });

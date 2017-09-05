@@ -14,6 +14,12 @@ class UserPolicy < ApplicationPolicy
     record == user
   end
 
+  def onboard?
+    # edit?
+    # temp!
+    true
+  end
+
   def show?
     !user.nil?
   end
