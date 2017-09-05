@@ -12,13 +12,13 @@ class ProfilesController < ApplicationController
         SELECT second_user_id FROM matches WHERE first_user_id = :current_user_id
         UNION
         SELECT first_user_id FROM matches WHERE second_user_id = :current_user_id AND mutual = TRUE
+        UNION
+        SELECT id FROM users WHERE gender NOT IN (:gender_preferences)
       )
       AND u.id != :current_user_id
-      # AND
-      # SELECT gender FROM users WHERE gender = :current_user.gender_preferences
     SQL
 
-    @users = User.find_by_sql([ query, { current_user_id: current_user.id }])
+    @users = User.find_by_sql([ query, { current_user_id: current_user.id, gender_preferences: current_user.gender_preferences }])
     @user = current_user
   end
 
