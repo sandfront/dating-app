@@ -20,6 +20,7 @@ form do |f|
 index do
     selectable_column
     column :id
+    column :community
     column :email
     column :first_name
     column :last_name
