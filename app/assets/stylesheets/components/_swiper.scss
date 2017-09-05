@@ -88,6 +88,11 @@
   background-size: cover;
   }
 }
+//Meteor custom CSS swiper-slide-active FIXES IMAGE POSITION
+// instead apply profile-photo class in card iteration
+// .swiper-slide-active {
+//   background-size: cover;
+// }
 /* Auto Height */
 .swiper-container-autoheight,
 .swiper-container-autoheight .swiper-slide {
