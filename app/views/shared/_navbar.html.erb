@@ -1,4 +1,4 @@
-<div class="navbar-meteor <%= 'navbar-transparent' if params[:controller] == 'pages' %>" style="background-color: <%= current_user&.community.brand_color || '#FFE270' %>;">
+<div class="navbar-meteor <%= 'navbar-transparent' if params[:controller] == 'pages' %>" style="background-color: <%= current_user&.community&.brand_color || '#FFE270' %>;">
   <!-- Dropdown list appearing on mobile only LEFT icon-->
   <% if user_signed_in? %>
   <div class="navbar-meteor-item hidden-sm hidden-md hidden-lg">
@@ -28,7 +28,7 @@
 
   <!-- Logo and name CENTER -->
   <%= link_to root_path, class: "navbar-brand" do %>
-    <p><%= cl_image_tag "meteor-icon_mtg2vp", height: 32 %><%= current_user&.community.title || "Meteor" %></p>
+    <p><%= cl_image_tag "meteor-icon_mtg2vp", height: 32 %><%= current_user&.community&.title || "Meteor" %></p>
   <% end %>
 
   <!-- Links when logged in to messages desktop RIGHT text -->
