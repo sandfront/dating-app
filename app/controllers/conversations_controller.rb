@@ -20,6 +20,7 @@ class ConversationsController < ApplicationController
             @unstarted << convo
           else
             @started << convo
+
           end
       end
     end
