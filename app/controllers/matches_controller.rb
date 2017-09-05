@@ -2,7 +2,7 @@ class MatchesController < ApplicationController
 
   def create
     @liker = current_user
-    @likee = User.find(params[:id])
+    @likee = User.find(params[:profile_id])
     if @likee.likes_user(@liker) != []
       preexisting_match = @likee.likes_user(@liker).first
       preexisting_match.mutual = true

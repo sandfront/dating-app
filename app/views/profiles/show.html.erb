@@ -98,13 +98,13 @@
 
   <div class="buttons">
 
-    <%= link_to profile_dislikes, method: :post do %>
+    <%=link_to profile_dislikes_path(@user), method: :post do %>
       <div class="no match-choice-btn">
         <%= image_tag("no-btn.png") %>
       </div>
     <% end %>
 
-    <%= link_to match_path, method: :post do %>
+    <%= link_to profile_matches_path(@user), method: :post do %>
       <div class="like match-choice-btn">
         <%= image_tag("like-btn.png") %>
       </div>

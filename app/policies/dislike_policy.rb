@@ -4,4 +4,8 @@ class DislikePolicy < ApplicationPolicy
       scope
     end
   end
+
+  def create?
+    true
+  end
 end

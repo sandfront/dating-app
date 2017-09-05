@@ -14,6 +14,8 @@ class ProfilesController < ApplicationController
         SELECT first_user_id FROM matches WHERE second_user_id = :current_user_id AND mutual = TRUE
         UNION
         SELECT id FROM users WHERE gender NOT IN (:gender_preferences)
+        UNION
+        SELECT second_user_id FROM dislikes WHERE first_user_id = :current_user_id
       )
       AND u.id != :current_user_id
     SQL
