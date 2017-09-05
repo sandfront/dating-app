@@ -19,4 +19,8 @@ class UserPolicy < ApplicationPolicy
     # temp!
     true
   end
+
+  def show?
+    !user.nil?
+  end
 end
