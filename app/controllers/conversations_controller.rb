@@ -4,7 +4,7 @@ class ConversationsController < ApplicationController
   end
 
   def show
-    @conversation = Conversation.includes(messages: :user).find(params[:id])
+    @conversation = Conversation.includes(messages: { user: :user_images }).find(params[:id])
     authorize @conversation
   end
 
