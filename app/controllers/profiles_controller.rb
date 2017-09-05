@@ -2,8 +2,23 @@ require 'open-uri'
 require 'json'
 
 class ProfilesController < ApplicationController
+  skip_after_action :verify_policy_scoped, only: :index
+
   def index
-    @users = policy_scope(User).includes(:user_images).sample(12)
+    query = <<-SQL
+      SELECT * FROM users u
+      WHERE id NOT IN
+      (
+        SELECT second_user_id FROM matches WHERE first_user_id = :current_user_id
+        UNION
+        SELECT first_user_id FROM matches WHERE second_user_id = :current_user_id AND mutual = TRUE
+      )
+      AND u.id != :current_user_id
+      # AND
+      # SELECT gender FROM users WHERE gender = :current_user.gender_preferences
+    SQL
+
+    @users = User.find_by_sql([ query, { current_user_id: current_user.id }])
     @user = current_user
   end
 

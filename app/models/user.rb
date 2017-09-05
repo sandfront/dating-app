@@ -96,7 +96,6 @@ class User < ApplicationRecord
     Match.where(first_user: self).or(Match.where(second_user: self)).where(mutual: true)
   end
 
-
   def likes_user(target)
     Match.where(first_user: self, second_user: target)
   end
