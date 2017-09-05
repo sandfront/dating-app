@@ -1,5 +1,6 @@
 .chat-interface {
   height: $full-screen-minus-header;
+  background-color: white;
 }
 
 #create-message {
@@ -56,6 +57,14 @@
   // flex: 1 1 auto;
   // width: 400px;
 }
+
+.bottom-message {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+
 .form-group {
   flex: 1 1 auto;
 }
