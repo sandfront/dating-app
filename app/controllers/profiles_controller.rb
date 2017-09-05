@@ -21,6 +21,7 @@ class ProfilesController < ApplicationController
     @user = User.find(params[:id])
     authorize @user
     if @user.update(user_params)
+      raise
       respond_to do |format|
         format.html { redirect_to edit_profile_path(@user) }
         format.js

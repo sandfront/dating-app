@@ -38,7 +38,7 @@
             <div class="card-container">
               <div class="card onboard-card">
                   <div class="card-body">
-                    <%= simple_form_for @user, remote: true, :url => profile_path(@user), :method => :patch do |f| %>
+                    <%= simple_form_for @user, :url => profile_path(@user), :method => :patch do |f| %>
                     <%= f.input :gender_preferences, as: :check_boxes, collection: ["male", "female", "non_binary"] %>
                   </div>
                   <div class="card-footer">
