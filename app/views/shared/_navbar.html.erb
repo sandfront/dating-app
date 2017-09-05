@@ -66,15 +66,41 @@
 
 <%= content_for(:after_js) do %>
   <script>
-    var bgColor = <%= current_user&.community.brand_color || '#FFE270' %>
+  <% if current_user %>
+    // get navbar barckground color in HEX
+    var bgColor = "<%= "#{current_user&.community.brand_color[1..-1]}" || 'FFE270' %>";
+
+    // change HEX to RGB
     function hexToRgb(hex) {
-        var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        var result = /^([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
         return result ? {
             r: parseInt(result[1], 16),
             g: parseInt(result[2], 16),
             b: parseInt(result[3], 16)
         } : null;
     }
-    console.log(hexToRgb(<%= current_user&.community.brand_color || '#FFE270' %>))
+
+    // define if background color is light or not
+    function colourIsLight(r, g, b) {
+      var a = 1 - (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+      console.log(a);
+      return (a < 0.5);
+    }
+
+    // select element (community name)
+    var communityName = document.querySelector('.navbar-brand p');
+    var messages = document.querySelector('.navbar-meteor-link');
+    var icon1 = document.querySelector('.navbar-meteor-item i ');
+    var icon2 = document.querySelector('.navbar-meteor-link i ');
+    // set the text colour
+    var textColour = colourIsLight(hexToRgb(bgColor).r, hexToRgb(bgColor).g, hexToRgb(bgColor).b) ? 'black' : 'white';
+
+    // change color accordingly
+    communityName.setAttribute('style', 'color: ' + textColour);
+    messages.setAttribute('style', 'color: ' + textColour);
+    icon1.setAttribute('style', 'color: ' + textColour);
+    icon2.setAttribute('style', 'color: ' + textColour);
+  <% end %>
+
   </script>
 <% end %>
