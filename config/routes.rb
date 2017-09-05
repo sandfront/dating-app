@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   resources :conversations, only: [:index, :show, :create] do
     resources :messages, only: [:create]
   end
-  resources :profiles, only: [:show, :index, :edit, :update, :onboard] do
+  get '/profiles/:user_id/onboard', to: 'profiles#onboard', as: :onboard
+  resources :profiles, only: [:show, :index, :edit, :update] do
     resources :user_images, only: [:show, :destroy, :update]
     resources :matches, only: [:create]
   end

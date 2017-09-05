@@ -14,7 +14,9 @@ class UserPolicy < ApplicationPolicy
     record == user
   end
 
-  def onbaord?
-    edit?
+  def onboard?
+    # edit?
+    # temp!
+    true
   end
 end
