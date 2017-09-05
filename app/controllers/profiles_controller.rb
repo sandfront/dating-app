@@ -16,11 +16,13 @@ class ProfilesController < ApplicationController
         SELECT id FROM users WHERE gender NOT IN (:gender_preferences)
         UNION
         SELECT second_user_id FROM dislikes WHERE first_user_id = :current_user_id
+        UNION
+        SELECT id FROM users WHERE community != current_user_community
       )
       AND u.id != :current_user_id
     SQL
 
-    @users = User.find_by_sql([ query, { current_user_id: current_user.id, gender_preferences: current_user.gender_preferences }])
+    @users = User.find_by_sql([ query, { current_user_id: current_user.id, gender_preferences: current_user.gender_preferences, current_user_community: current_user.community }])
     @user = current_user
   end
 
