@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :profiles, only: [:show, :index, :edit, :update] do
     resources :user_images, only: [:show, :destroy, :update]
     resources :matches, only: [:create]
+    resources :dislikes, only: [:create]
   end
   post 'users/:id/match', to: 'matches#create', as: :match
   mount ActionCable.server => "/cable"
