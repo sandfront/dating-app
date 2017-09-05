@@ -11,8 +11,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def update?
-    # record == user
-    true
+    record == user
   end
 
   def onboard?
