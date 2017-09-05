@@ -57,7 +57,6 @@ var editSwiper = new Swiper('.swiper-container.swiper-edit', {
   freeMode: true,
 });
 
-console.log('test2')
 var onboardSwiper = new Swiper('.swiper-container.swiper-onboard', {
   // Optional parameters
   direction: 'horizontal',
@@ -67,5 +66,5 @@ var onboardSwiper = new Swiper('.swiper-container.swiper-onboard', {
   pagination: '.swiper-pagination',
 
   // Navigation arrows
-  nextButton: '.onboard-card-next',
+  nextButton: '.swiper-button-next.onboard-next',
 });

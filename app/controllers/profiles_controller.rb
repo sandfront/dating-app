@@ -20,17 +20,13 @@ class ProfilesController < ApplicationController
   def update
     @user = User.find(params[:id])
     authorize @user
-    # if @user.update(user_params)
-    #   params[:user_images]['photo'].each do |p|
-    #     @user.user_images.update(photo: p)
-    #   end
-    #   redirect_to profile_path(@user)
-    # else
-
-    # end
-    @user.update(user_params)
-    if @user.save
-      redirect_to edit_profile_path(@user)
+    if @user.update(user_params)
+      puts "I updated the model"
+      p @user
+      respond_to do |format|
+        format.html { redirect_to edit_profile_path(@user) }
+        format.js
+      end
     else
       puts "you fucked up"
     end
@@ -44,7 +40,7 @@ class ProfilesController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :course, :college, :what_im_into, :looking_for, user_images: [:id, :user_id, :photo])
+    params.require(:user).permit(:gender, :first_name, :last_name, :course, :college, :what_im_into, :looking_for, {:gender_preferences => []}, user_images: [:id, :user_id, :photo])
   end
 
   # def get_urls_from_user_images
