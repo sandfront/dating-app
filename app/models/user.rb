@@ -122,6 +122,11 @@ class User < ApplicationRecord
     else
       user = User.new(user_params)
       user.password = Devise.friendly_token[0,20]  # Fake password for validation
+
+      # NEEDS CHANGING
+      user.community = Community.first
+
+
       user.save
       # user.persist_fblikes(auth)
       user.persist_user_fb_photos

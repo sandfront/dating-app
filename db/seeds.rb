@@ -4,8 +4,8 @@ p 'Removing all old stuff'
 Message.destroy_all
 Conversation.destroy_all
 Match.destroy_all
-Community.destroy_all
 User.destroy_all
+Community.destroy_all
 
 Community.create(title: "Oxford", brand_color: "#002147")
 Community.create(title: "Manchester", brand_color: "#660099")
