@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170905131725) do
+ActiveRecord::Schema.define(version: 20170905144211) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,14 @@ ActiveRecord::Schema.define(version: 20170905131725) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_choices_on_question_id"
+  end
+
+  create_table "communities", force: :cascade do |t|
+    t.string "title"
+    t.string "brand_color"
+    t.string "logo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "conversations", force: :cascade do |t|
@@ -128,10 +136,12 @@ ActiveRecord::Schema.define(version: 20170905131725) do
     t.string "subject"
     t.date "birthday"
     t.boolean "admin", default: false, null: false
+    t.string "gender_preferences", default: [], array: true
     t.string "college"
     t.text "what_im_into"
     t.text "looking_for"
-    t.string "gender_preferences", default: [], array: true
+    t.bigint "community_id"
+    t.index ["community_id"], name: "index_users_on_community_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -148,4 +158,5 @@ ActiveRecord::Schema.define(version: 20170905131725) do
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
   add_foreign_key "user_images", "users"
+  add_foreign_key "users", "communities"
 end
