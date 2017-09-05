@@ -54,6 +54,13 @@ class ProfilesController < ApplicationController
     authorize @user
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    authorize @user
+    @user.destroy
+    redirect_to root_path
+  end
+
   private
 
   def user_params

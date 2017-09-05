@@ -9,14 +9,14 @@ class User < ApplicationRecord
   has_many :facebook_likes, dependent: :destroy
   has_many :choices, through: :answers
   has_many :user_images, dependent: :destroy
-  # has_many :first_user_id, class_name: 'Match', dependent: :destroy
-  # has_many :second_user_id, class_name: 'Match', dependent: :destroy
   has_many :messages, dependent: :destroy
   belongs_to :community
   accepts_nested_attributes_for :user_images
 
   validates :first_name, presence: true
   validates :last_name, presence: true
+
+  before_destroy :destroy_matches
 
   def name
     email
@@ -162,6 +162,10 @@ class User < ApplicationRecord
       fb_photo.user = self
       fb_photo.save
     end
+  end
+
+  def destroy_matches
+    matches.each &:destroy
   end
 
 end

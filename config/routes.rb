@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
   end
   get '/profiles/:user_id/onboard', to: 'profiles#onboard', as: :onboard
-  resources :profiles, only: [:show, :index, :edit, :update] do
+  resources :profiles, only: [:show, :index, :edit, :update, :destroy] do
     resources :user_images, only: [:show, :destroy, :update]
     resources :matches, only: [:create]
     resources :dislikes, only: [:create]
