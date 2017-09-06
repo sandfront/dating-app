@@ -5,11 +5,16 @@
 <div class="chat-interface kill-padding kill-margin">
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
+
+    <div class="chat-container">
+
       <div class="chat-header">
         <%= link_to conversations_path do %>
           <i class="fa fa-arrow-left" aria-hidden="true"></i>
         <% end %>
-        <h4><%= @conversation.match.other_user(current_user).first_name %></h4>
+        <div class="match-name">
+          <h4><%= @conversation.match.other_user(current_user).first_name %></h4>
+        </div>
       </div>
       <div class="messages">
         <% @conversation.messages.each do |message| %>
@@ -27,6 +32,9 @@
           </form>
         </div>
       </div> <!-- bottom message -->
+
+</div>
+
     </div>
   </div>
 </div>
