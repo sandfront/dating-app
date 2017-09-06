@@ -33,8 +33,8 @@ class UserImage < ApplicationRecord
   private
 
   def facebook_images
-    Cache.instance.get(:facebook_images, user.id, photo) do
-      base_url = "https://graph.facebook.com/#{photo}?fields=images&access_token=#{user.token}" # passed in the id and foreign key
+    Cache.instance.get(:facebook_images, user.id, fb_photo_id) do
+      base_url = "https://graph.facebook.com/#{fb_photo_id}?fields=images&access_token=#{user.token}" # passed in the id and foreign key
       JSON.parse(open(base_url).read)["images"]
     end
   end

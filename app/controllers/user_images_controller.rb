@@ -37,7 +37,7 @@ class UserImagesController < ApplicationController
   private
 
   def photo_params
-    params.require(:fb_image).permit(:photo)
+    params.require(:fb_image).permit(:fb_photo_id)
   end
 
 end
