@@ -169,7 +169,7 @@ class User < ApplicationRecord
     photos_array = JSON.parse(open(url).read)["data"]
     tagged_photos = []
     photos_array.each do |photo|
-      tagged_photos << photo["picture"]
+      tagged_photos << {url: photo["picture"], fb_id: photo["id"]}
     end
     tagged_photos
   end

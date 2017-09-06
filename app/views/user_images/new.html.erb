@@ -1,9 +1,0 @@
-<div class="container">
-  <div class="row">
-    <% @user.all_fb_photos_page.each do |url| %>
-      <div class="col-xs-4 kill-padding ">
-        <div class="tagged-photo" style="background-image: url(<%= url %>);"></div>
-      </div>
-    <% end %>
-  </div>
-</div>

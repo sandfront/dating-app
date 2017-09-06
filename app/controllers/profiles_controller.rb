@@ -37,6 +37,7 @@ class ProfilesController < ApplicationController
   end
 
   def update
+    raise
     @user = User.find(params[:id])
     authorize @user
     if @user.update(user_params)

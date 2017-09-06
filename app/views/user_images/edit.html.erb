@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <% @user.all_fb_photos_page.each do |hash| %>
+      <div class="col-xs-4 kill-padding ">
+        <%= link_to profile_user_image_path(profile_id: @user.id, id: @photo.id, fb_id: hash[:fb_id]), :method => :patch do%>
+          <div class="tagged-photo" style="background-image: url(<%= hash[:url] %>);"></div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+

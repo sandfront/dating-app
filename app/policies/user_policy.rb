@@ -28,7 +28,7 @@ class UserPolicy < ApplicationPolicy
     update?
   end
 
-  def new_image?
+  def edit_image?
     true
   end
 end

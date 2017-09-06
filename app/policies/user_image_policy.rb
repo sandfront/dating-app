@@ -5,9 +5,10 @@ class UserImagePolicy < ApplicationPolicy
     end
   end
 
-  def new?
-    true
+  def edit?
+    show?
   end
+
 
   def show?
     record.user == user
