@@ -7,6 +7,7 @@ class Message < ApplicationRecord
   def from?(some_user)
     user == some_user
   end
+  # if some_user sent the message then returns true
 
   def broadcast_message
     ActionCable.server.broadcast("conversation_#{conversation.id}", {

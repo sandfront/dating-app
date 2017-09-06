@@ -1,31 +1,38 @@
-.chat-interface {
-  height: $full-screen-minus-header;
-  background-color: white;
+// .chat-interface {
+//   height: $full-screen-minus-header;
+//   background-color: white;
+// }
+.row {
+  padding-bottom: 0;
 }
-
-#create-message {
-  padding: 10px;
-  background-color: #ffffff;
-  border: 1px solid #ececec;
+.chat-container {
+  // display: flex;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  height: calc(100vh - 44px);
+  // flex-direction: column;
 }
 
 .messages {
   font-size: 14px;
+  // flex-grow: 1;
   color: #868686;
   background-color: #ffffff;
   padding: 20px;
   border: 1px solid #ececec;
   border-top: none;
   border-bottom-width: 0;
-  max-height: calc(100vh - 70px - 45px - 61px - 30px);
-  overflow: scroll;
+  height: calc(100vh - 44px - 46px - 86px);
+  // max-height: calc(100vh - 70px - 45px - 61px - 30px);
+  // overflow: scroll;
 }
-
 .send-btn-chat input {
   background-color: #54E5C6;
   color: white;
   // padding: 10px 15px;
   height: 64px;
+  width: 64px;
   border: 0;
   border-radius: 40px;
   // margin-top: 10px;
@@ -36,10 +43,21 @@
     opacity: 1;
   }
 }
+#create-message {
+  padding: 10px;
+  margin-bottom: 0;
+  margin-top: 0;
+  background-color: #ffffff;
+  border: 1px solid #ececec;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
 #create-message input.form-control {
   border: 1px solid #ECECEC;
   box-shadow: none;
   font-size: 14px;
+  background-color: white;
   color: #2F4550;
   &:focus {
     outline: none;
@@ -58,19 +76,20 @@
   // width: 400px;
 }
 
-.bottom-message {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-
+// .bottom-message {
+//   position: fixed;
+//   bottom: 0;
+//   width: 100%;
+// }
 
 .form-group {
   flex: 1 1 auto;
 }
 
 .chat-header {
-  display: flex;
+  // display: flex;
+  // flex-grow: 0;
+  position: relative;
   background-color: #ECECEC;
   border-bottom: 1px solid lightgrey;
   color: #2F4550;
@@ -92,3 +111,11 @@
   color: #2F4550;
   font-size: 18px;
 }
+.match-name {
+  position: absolute;
+  left: 0;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+}
+
