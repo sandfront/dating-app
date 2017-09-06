@@ -1,16 +1,9 @@
-<div class="tagged-photos-container">
+<div class="container">
   <div class="row">
-    <select>
-      <% @user.all_fb_photos_page.each do |url| %>
-        <option class="tagged-photo col-xs-4" style="background-image: url(<%= url %>);"></option>
-      <% end %>
-    </select>
+    <% @user.all_fb_photos_page.each do |url| %>
+      <div class="col-xs-4 kill-padding ">
+        <div class="tagged-photo" style="background-image: url(<%= url %>);"></div>
+      </div>
+    <% end %>
   </div>
 </div>
-
-<select>
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="opel">Opel</option>
-  <option value="audi">Audi</option>
-</select>

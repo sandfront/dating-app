@@ -1,16 +1,7 @@
-.tagged-photos-container {
-}
-
 .tagged-photo {
-  height: 100px;
-  width: 100px;
+  // padding top sets the height of the element to equal to width
+  padding-top: 100%;
+  width: 100%;
   background-size: cover;
-  margin: 2px;
-}
-
-@media (min-width: $screen-sm-min) {
-  .tagged-photo {
-    height: 125px;
-    width: 125px;
-  }
+  border: 2px white solid;
 }
