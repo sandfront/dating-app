@@ -2,10 +2,7 @@ class UserImage < ApplicationRecord
   belongs_to :user
 
   def url
-    base_url = "https://graph.facebook.com/#{self.photo}?fields=images&access_token=#{self.user.token}" # passed in the id and foreign key
-    Cache.instance.get(:api_user, self.user.id, self.id) do
-      JSON.parse(open(base_url).read)["images"].first["source"] # Expensive (long) call to cache
-    end
+    facebook_images.first["source"]
     # return JSON.parse(open(base_url).read)["images"].first["source"] # first picks largest size availble
   end
 
@@ -21,22 +18,24 @@ class UserImage < ApplicationRecord
   # end
 
   def small_url
-    base_url = "https://graph.facebook.com/#{self.photo}?fields=images&access_token=#{self.user.token}" # passed in the id and foreign key
-    Cache.instance.get(:api_user, self.user.id, self.id) do
-      JSON.parse(open(base_url).read)["images"].last["source"] # Expensive (long) call to cache
-    end
-    # return JSON.parse(open(base_url).read)["images"].last["source"] # last picks small size
-
+    facebook_images.last["source"]
   end
 
   def medium_url
-    base_url = "https://graph.facebook.com/#{self.photo}?fields=images&access_token=#{self.user.token}" # passed in the id and foreign key
-    Cache.instance.get(:api_user, user.id, id) do
-      if JSON.parse(open(base_url).read)["images"].third.nil?
-        JSON.parse(open(base_url).read)["images"].first["source"]
-      else
-        JSON.parse(open(base_url).read)["images"].third
-      end
+    images = facebook_images
+    if images.third.nil?
+      images.first["source"]
+    else
+      images.third["source"]
+    end
+  end
+
+  private
+
+  def facebook_images
+    Cache.instance.get(:facebook_images, user.id, photo) do
+      base_url = "https://graph.facebook.com/#{photo}?fields=images&access_token=#{user.token}" # passed in the id and foreign key
+      JSON.parse(open(base_url).read)["images"]
     end
   end
 end

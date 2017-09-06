@@ -1,6 +1,6 @@
 class Cache
   include Singleton
-  EXPIRE = 1.week
+  EXPIRE = 1.day
 
   def get(*args, &block)
     the_key = key(*args)
