@@ -18,6 +18,7 @@
 .unread {
   // background-color: black;
   background-color: rgba(94,165,224,0.5);
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar {
@@ -46,7 +47,8 @@
   // display: flex;
   align-items: center;
   // flex-direction: column;
-  padding: 10px;
+  // padding: 10px;
+  padding: 0;
   border-bottom: 1px solid rgba(220,224,244,0.4);
   background-color: white;
   margin-bottom: 2px;
