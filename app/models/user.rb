@@ -158,7 +158,7 @@ class User < ApplicationRecord
     end
 
     profile_pictures.flatten.first(6).each do |photo|
-      fb_photo = UserImage.new(photo: photo["id"]) # unique id from facebook for the photo
+      fb_photo = UserImage.new(fb_photo_id: photo["id"]) # unique id from facebook for the photo
       fb_photo.user = self
       fb_photo.save
     end
@@ -169,7 +169,7 @@ class User < ApplicationRecord
     photos_array = JSON.parse(open(url).read)["data"]
     tagged_photos = []
     photos_array.each do |photo|
-      tagged_photos << {url: photo["picture"], photo: photo["id"]}
+      tagged_photos << {url: photo["picture"], fb_photo_id: photo["id"]}
     end
     tagged_photos
   end

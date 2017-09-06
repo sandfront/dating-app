@@ -19,4 +19,19 @@ class Message < ApplicationRecord
       ActionCable.server.broadcast("user_#{the_user.id}", { "conversations_updated": true })
     end
   end
+
+  # def has_normal_sized_word?
+  #   content.split(" ").all? {|word| word < 30 }
+  # end
+
+  # def split_content
+  #   new_string = ""
+  #   old_words = content.split(" ")
+  #   old_words.each do |word|
+  #     if word > 30
+  #       word.split("")
+
+  #     end
+  #   end
+  # end
 end
