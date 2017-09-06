@@ -7,10 +7,8 @@ class UserImagesController < ApplicationController
   end
 
   def update
-    raise
     @user = User.find(params[:profile_id])
     @photo = UserImage.find(params[:id])
-    fb_id = params[:fb_id]
     authorize @photo
     authorize @user
     if @photo.update(photo_params)
@@ -39,7 +37,7 @@ class UserImagesController < ApplicationController
   private
 
   def photo_params
-    params.require(:photo).permit(:photo)
+    params.require(:fb_image).permit(:photo)
   end
 
 end
