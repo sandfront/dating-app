@@ -27,3 +27,43 @@
       <% end %>
     </div>
 </div>
+
+<%= content_for(:after_js) do %>
+  <script>
+  <% if current_user %>
+    // get navbar barckground color in HEX
+    var bgColor = "<%= "#{current_user&.community.brand_color[1..-1]}" || 'FFE270' %>";
+
+    // change HEX to RGB
+    function hexToRgb(hex) {
+        var result = /^([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        return result ? {
+            r: parseInt(result[1], 16),
+            g: parseInt(result[2], 16),
+            b: parseInt(result[3], 16)
+        } : null;
+    }
+
+    // define if background color is light or not
+    function colourIsLight(r, g, b) {
+      var a = 1 - (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+      return (a < 0.5);
+    }
+
+    // select element (community name)
+    var editProfileText = document.querySelector('#edit-text-nav');
+    var editIcon1 = document.querySelector('.navbar-meteor-right a ');
+    var editIcon2 = document.querySelector('.navbar-meteor-link');
+    // set the text colour
+    var textColour = colourIsLight(hexToRgb(bgColor).r, hexToRgb(bgColor).g, hexToRgb(bgColor).b) ? 'black' : 'white';
+
+    // change color accordingly
+    editProfileText.setAttribute('style', 'color: ' + textColour);
+    editIcon1.setAttribute('style', 'color: ' + textColour);
+    editIcon2.setAttribute('style', 'color: ' + textColour);
+
+  <% end %>
+
+  </script>
+<% end %>
+
