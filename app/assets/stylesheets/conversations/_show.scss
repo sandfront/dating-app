@@ -2,14 +2,19 @@
   height: $full-screen-minus-header;
   background-color: white;
 }
-
+// .row {
+  // margin: 0;
+  // padding: 0;
+// }
 .chat-container {
   // display: flex;
   position: relative;
+  padding: 0;
+  margin: 0;
   // height: calc(100vh - 44px);
   // flex-direction: column;
-
 }
+
 .messages {
   font-size: 14px;
   // flex-grow: 1;
@@ -20,8 +25,8 @@
   border-top: none;
   border-bottom-width: 0;
   height: calc(100vh - 44px - 46px - 86px);
-  // max-height: calc(100vh - 70px - 45px - 61px - 30px);
-  overflow: scroll;
+  max-height: calc(100vh - 70px - 45px - 61px - 30px);
+  // overflow: scroll;
 }
 .send-btn-chat input {
   background-color: #54E5C6;
@@ -49,6 +54,7 @@
   border: 1px solid #ECECEC;
   box-shadow: none;
   font-size: 14px;
+  background-color: white;
   color: #2F4550;
   &:focus {
     outline: none;
@@ -80,7 +86,6 @@
 .chat-header {
   display: flex;
   flex-grow: 0;
-  // justify-content: space-between;
   position: relative;
   background-color: #ECECEC;
   border-bottom: 1px solid lightgrey;
