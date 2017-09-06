@@ -23,4 +23,8 @@ class UserPolicy < ApplicationPolicy
   def show?
     !user.nil?
   end
+
+  def destroy?
+    update?
+  end
 end

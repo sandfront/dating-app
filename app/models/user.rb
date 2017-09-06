@@ -16,6 +16,8 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
 
+  before_destroy :destroy_matches
+
   def name
     email
   end
@@ -160,6 +162,10 @@ class User < ApplicationRecord
       fb_photo.user = self
       fb_photo.save
     end
+  end
+
+  def destroy_matches
+    matches.each &:destroy
   end
 
 end

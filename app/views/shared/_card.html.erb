@@ -12,7 +12,7 @@
                 <!-- test slide below -->
                 <div class="swiper-slide profile-photo" style="background-image: url(<%= image_path user.facebook_picture_url %>);" ></div>
                 <!-- end of test slide -->
-                <% user.user_images.each do |image| %>
+                <% user.user_images.drop(1).each do |image| %>
                   <div class="swiper-slide profile-photo" style="background-image: url( <%= image_path image.medium_url %>);" ></div>
                 <% end %>
             </div>
