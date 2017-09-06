@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170905144211) do
+ActiveRecord::Schema.define(version: 20170906161506) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20170905144211) do
     t.bigint "match_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "last_opened_id"
     t.index ["match_id"], name: "index_conversations_on_match_id"
   end
 
