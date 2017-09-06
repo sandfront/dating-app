@@ -17,7 +17,8 @@
       <div class="messagess-body">
         <p><strong><h5> <%= convo.match.other_user(current_user).first_name %> </h5></strong></p>
 
-        <p class="convo-text"> <%= convo.messages.last.content %> </p>
+        <p class=""> <%= convo.messages.last.content %> </p>
+
 
       </div>
       <%= link_to "", conversation_path(convo), class: "message-link-new" %>
@@ -32,17 +33,21 @@
       { channel: 'UsersChannel', user_id: <%= @user.id %> },
       {
         received: (data) => {
-          console.log(data)
+          console.log(data);
         if (data.current_user_id !== <%= current_user.id %>) {
-          const messagesContainer = document.querySelector('.messagess-body');
+          const messagesContainer = document.querySelector('.messagess-body.convo-text');
           messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
         }}})
-
-    // setTimeout(window.location.reload(), 5000);
   </script>
 <% end %>
 
 
+
+
+<!-- <script>
+  setTimeout(window.location.reload(), 5000);
+</script>
+ -->
 
 
 
