@@ -22,7 +22,9 @@ class ProfilesController < ApplicationController
       AND u.id != :current_user_id
     SQL
 
-    @users = User.find_by_sql([ query, { current_user_id: current_user.id, gender_preferences: current_user.gender_preferences, current_user_community_id: current_user.community.id }])
+    users_allowed = User.find_by_sql([ query, { current_user_id: current_user.id, gender_preferences: current_user.gender_preferences, current_user_community_id: current_user.community.id }])
+    number = Date.today.to_time.to_i + current_user.id.to_i
+    @users = users_allowed.sample(12, random: Random.new(number))
     @user = current_user
   end
 
