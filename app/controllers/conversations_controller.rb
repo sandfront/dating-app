@@ -11,6 +11,7 @@ class ConversationsController < ApplicationController
  def index
     # @conversation = Conversation.includes(messages: :user).find(params[:id])
     conversations = policy_scope(Conversation)
+    @user = current_user
     if conversations == []
 
       redirect_to profiles_path, alert: 'You have to match with someone to start a conversation!'
