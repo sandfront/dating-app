@@ -21,7 +21,7 @@
           <%= render "shared/message", message: message, user_is_messages_author: (message.user == current_user) %>
         <% end %>
       </div>
-      <div class="bottom-message">
+      <!-- <div class="bottom-message"> -->
         <div id="create-message">
           <form novalidate="novalidate" class="simple_form new_message" id="new_message" action="/conversations/<%= @conversation.id %>/messages" accept-charset="UTF-8" data-remote="true" method="post">
           <input name="utf8" type="hidden" value="✓">
@@ -31,7 +31,7 @@
           </div>
           </form>
         </div>
-      </div> <!-- bottom message -->
+      <!-- </div> --> <!-- bottom message -->
 
 </div>
 
