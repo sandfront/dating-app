@@ -22,9 +22,9 @@
   <% if params[:controller] == 'pages' %>
     <%= yield %>
   <% else %>
-<!--     <div class="fullpage"> -->
+    <div class="fullpage">
       <%= yield %>
-<!--     </div> -->
+    </div>
   <% end %>
   <%= javascript_include_tag 'application' %>
   <%= yield(:after_js) %>

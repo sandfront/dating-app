@@ -6,7 +6,7 @@
       <p><strong><h5> <%= convo.match.other_user(current_user).first_name %> </h5></strong></p>
 
       <div class="convo-text">
-        <%= convo.messages.last.content %>
+      <%= truncate(convo.messages.last.content, :length => 30) %>
       </div>
 
     </div>
