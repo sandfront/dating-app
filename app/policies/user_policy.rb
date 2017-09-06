@@ -27,4 +27,8 @@ class UserPolicy < ApplicationPolicy
   def destroy?
     update?
   end
+
+  def new_image?
+    true
+  end
 end
