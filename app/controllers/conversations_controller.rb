@@ -6,6 +6,7 @@ class ConversationsController < ApplicationController
   def show
     @conversation = Conversation.includes(messages: { user: :user_images }).find(params[:id])
     authorize @conversation
+    @conversation.update(last_opened_id: current_user.id)
   end
 
  def index
@@ -27,5 +28,9 @@ class ConversationsController < ApplicationController
           end
       end
     end
+  end
+
+  def conversation_params
+    params.require(:conversation).permit(:last_opened_id)
   end
 end
