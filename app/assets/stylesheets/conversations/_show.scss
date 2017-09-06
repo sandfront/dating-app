@@ -84,14 +84,13 @@
 }
 
 .chat-header {
-  // display: flex;
+  display: flex;
   // flex-grow: 0;
-  position: relative;
+  // position: relative;
   background-color: #ECECEC;
   border-bottom: 1px solid lightgrey;
   color: #2F4550;
   padding: 10px 20px;
-
   h4 {
     margin: 0;
   }
@@ -104,15 +103,19 @@
 }
 
 .fa-arrow-left {
-  margin-right: 125px;
+
   color: #2F4550;
   font-size: 18px;
 }
 .match-name {
-  position: absolute;
+  // position: fixed;
   left: 0;
-  top: 25%;
+
   width: 100%;
+  text-align: center;
+}
+
+h: 100%;
   text-align: center;
 }
 
