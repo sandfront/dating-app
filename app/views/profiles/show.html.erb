@@ -36,13 +36,6 @@
 
 </div>
 
-<% content_for(:after_js) do %>
-  <script type="text/javascript">
-    $('.carousel').carousel({
-      interval: false
-    })
-  </script>
-<% end %>
 
 <div class="hidden-sm hidden-xs">
   <!-- TODO lightbox2 gallery -->
@@ -68,7 +61,6 @@
       </div>
     </div>
     <div class="match-percentage">
-      84% match
     </div>
   </div>
 
@@ -111,4 +103,13 @@
     <% end %>
 
   </div>
+<% end %>
+
+
+<% content_for(:after_js) do %>
+  <script type="text/javascript">
+    $('.carousel').carousel({
+      interval: false
+    })
+  </script>
 <% end %>
