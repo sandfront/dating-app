@@ -13,7 +13,6 @@
   <%= render 'conversations', conversations: @started %>
 </div>
 
-
 <%= content_for(:after_js) do %>
   <script>
     App['user_<%= @user.id %>'] = App.cable.subscriptions.create(
