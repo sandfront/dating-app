@@ -1,6 +1,7 @@
 class UserImagesController < ApplicationController
 
   def new
+    @user = User.find(params[:profile_id])
   end
 
   def create
