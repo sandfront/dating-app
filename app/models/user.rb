@@ -22,6 +22,7 @@ class User < ApplicationRecord
     email
   end
 
+
   def matches
     likes + been_liked
   end
