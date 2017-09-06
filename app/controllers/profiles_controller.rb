@@ -23,6 +23,7 @@ class ProfilesController < ApplicationController
     SQL
 
     @users = User.find_by_sql([ query, { current_user_id: current_user.id, gender_preferences: current_user.gender_preferences, current_user_community_id: current_user.community.id }])
+    ActiveRecord::Associations::Preloader.new.preload(@users, :user_images)
     @user = current_user
   end
 
