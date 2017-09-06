@@ -164,6 +164,17 @@ class User < ApplicationRecord
     end
   end
 
+  def all_fb_photos_page
+    url = "https://graph.facebook.com/#{self.uid}/photos?fields=picture&access_token=#{self.token}"
+    photos_array = JSON.parse(open(url).read)["data"]
+    tagged_photos = []
+    photos_array.each do |photo|
+      tagged_photos << {url: photo["picture"], photo: photo["id"]}
+    end
+    tagged_photos
+  end
+
+
   def destroy_matches
     matches.each &:destroy
   end

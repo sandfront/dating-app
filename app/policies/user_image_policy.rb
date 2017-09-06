@@ -5,6 +5,14 @@ class UserImagePolicy < ApplicationPolicy
     end
   end
 
+  def edit?
+    show?
+  end
+
+  def update?
+    edit?
+  end
+
   def show?
     record.user == user
   end

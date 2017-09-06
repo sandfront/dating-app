@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
   get '/profiles/:user_id/onboard', to: 'profiles#onboard', as: :onboard
   resources :profiles, only: [:show, :index, :edit, :update, :destroy] do
-    resources :user_images, only: [:show, :destroy, :update]
+    resources :user_images, only: [:show, :destroy, :update, :edit]
     resources :matches, only: [:create]
     resources :dislikes, only: [:create]
   end
