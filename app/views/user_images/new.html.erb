@@ -1,4 +1,16 @@
-<h1>test</h1>
-<% @user.all_fb_photos_page.each do |url| %>
-<div style="height: 100px; background: url(<%= url %>); border: 2px solid black; width: 30px;"></div>
-<% end %>
+<div class="tagged-photos-container">
+  <div class="row">
+    <select>
+      <% @user.all_fb_photos_page.each do |url| %>
+        <option class="tagged-photo col-xs-4" style="background-image: url(<%= url %>);"></option>
+      <% end %>
+    </select>
+  </div>
+</div>
+
+<select>
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="opel">Opel</option>
+  <option value="audi">Audi</option>
+</select>
