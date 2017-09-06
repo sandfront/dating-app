@@ -10,7 +10,6 @@ gem 'puma'
 gem 'rails', '5.1.3'
 gem 'redis', '< 4'
 
-
 gem 'omniauth-facebook'
 gem 'faker'
 gem 'cloudinary'

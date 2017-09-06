@@ -164,6 +164,8 @@ class User < ApplicationRecord
     end
   end
 
+  def
+
   def destroy_matches
     matches.each &:destroy
   end
