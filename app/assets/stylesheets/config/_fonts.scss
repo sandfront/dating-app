@@ -1,14 +1,13 @@
 // Import Google fonts
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
 @import url('https://fonts.googleapis.com/css?family=Shrikhand');
-@import url('https://fonts.googleapis.com/css?family=Nunito:600');
+@import url('https://fonts.googleapis.com/css?family=Nunito:300,600');
+
 
 // Define fonts for body and headers
-// $body-font: 'Nunito', sans-serif;
-$body-font: 'Open Sans', sans-serif;
-$headers-font: "Raleway", "Helvetica", "sans-serif";
-// $logo-font: 'Shrikhand', cursive;
-$logo-font: 'Raleway', sans-serif;
+$body-font: 'Nunito', sans-serif;
+$headers-font: 'Nunito', sans-serif;
+$logo-font: 'Nunito', sans-serif;
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {

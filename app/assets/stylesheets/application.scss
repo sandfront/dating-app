@@ -20,3 +20,8 @@
 @import "user_images/index";
 
 @import "lightbox";
+
+body {
+  font-family: $body-font;
+  font-weight: 300;
+}
