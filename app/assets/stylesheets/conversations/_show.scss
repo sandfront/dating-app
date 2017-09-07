@@ -8,15 +8,14 @@
 
 .messages {
   font-size: 14px;
-  // flex-grow: 1;
   color: #868686;
   background-color: #ffffff;
   padding: 20px;
   border: 1px solid #ececec;
   border-top: none;
   border-bottom-width: 0;
-  height: calc(100vh - 44px - 46px - 86px);
-  // max-height: calc(100vh - 70px - 45px - 61px - 30px);
+  min-height: calc(100vh - 44px - 46px);
+  height: auto;
   overflow: scroll;
 }
 
@@ -28,12 +27,10 @@
 .send-btn-chat input {
   background-color: #54E5C6;
   color: white;
-  // padding: 10px 15px;
   height: 64px;
   width: 64px;
   border: 0;
   border-radius: 40px;
-  // margin-top: 10px;
   opacity: 0.9;
   flex: 1 1 auto;
   margin-left: 10px;
@@ -63,14 +60,9 @@
   }
 }
 #create-message textarea {
-  // background-color: white !important;
-  // background-color: #54E5C6 !important;
   background-color: white !important;
   border-radius: 15px !important;
-  // color: #2F4550 !important;
   color: #5EA5E0 !important;
-  // flex: 1 1 auto;
-  // width: 400px;
 }
 
 .bottom-message {
@@ -85,8 +77,6 @@
 
 .chat-header {
   display: flex;
-  // flex-grow: 0;
-  // position: relative;
   background-color: #ECECEC;
   border-bottom: 1px solid lightgrey;
   color: #2F4550;
@@ -108,9 +98,7 @@
   font-size: 18px;
 }
 .match-name {
-  // position: fixed;
   left: 0;
-
   width: 100%;
   text-align: center;
 }
