@@ -6,7 +6,7 @@
   <div class="hidden-md hidden-lg">
     <div class="swiper-container swiper-edit">
         <div class="swiper-wrapper">
-        <% @user.user_images.take(6).each do |photo| %>
+        <% @user.user_images.reverse.each do |photo| %>
             <div class="swiper-slide avatar-photo" style="background-image: url(<%= photo.small_url %>)">
              <%= link_to "", profile_user_image_path(@user,photo), class: "link-image-edit" %> </div>
         <% end %>
