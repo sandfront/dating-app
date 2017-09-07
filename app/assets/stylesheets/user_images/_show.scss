@@ -3,23 +3,37 @@
   height: calc(100vh - 44px);
 }
 
+.wrapper-black-empty {
+  height: calc(10vh)
+}
+
 .edit-photo-image {
   background-size: cover;
   background-position: center;
-  height: calc(90vh - 44px);
+  height: calc(60vh);
   flex-grow: 1;
 }
 
-.edit-dropdown-content {
-  position: relative;
-  height: 10vh;
-  width: 100%;
-}
+.edit-box-image {
+  display: flex;
+  height: 20vh;
+  align-items:center;
+  justify-content: flex-end;
 
+}
+.dropdown-thing {
+  display: flex;
+  align-items:center;
+  margin-right: 6px;
+}
 .edit-dropdown {
-  position: absolute;
-  bottom: 0px;
-  right: 10px;
+  p {
+    font-size: 20px;
+    margin-right: 10px;
+  }
   color: white;
-  font-size: 50px;
+  font-size: 40px;
+  .icon-edit-image {
+    font-size: 40px;
+  }
 }

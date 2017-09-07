@@ -15,8 +15,6 @@ class UserPolicy < ApplicationPolicy
   end
 
   def onboard?
-    # edit?
-    # temp!
     true
   end
 
