@@ -13,27 +13,25 @@
   </div>
 </div>
 
-<% if @started != [] %>
-  <% @started.each do |conversation| %>
+<%# if @started != [] %>
+  <%# @started.each do |conversation| %>
 
-    <% if (!conversation.messages.last.from?(current_user)) && conversation.last_opened_id != current_user.id %>
-      <% variable_to_know_if_unread = 'unread' %>
-    <% elsif (!conversation.messages.last.from?(current_user)) && conversation.last_opened_id == current_user.id %>
-      <% variable_to_know_if_unread = '' %>
-    <% else  %>
-      <% variable_to_know_if_unread = '' %>
-    <% end %>
+    <%# if (!conversation.messages.last.from?(current_user)) && conversation.last_opened_id != current_user.id %>
+      <%# variable_to_know_if_unread = 'unread' %>
+    <%# elsif (!conversation.messages.last.from?(current_user)) && conversation.last_opened_id == current_user.id %>
+      <%# variable_to_know_if_unread = '' %>
+    <%# else  %>
+      <%# variable_to_know_if_unread = '' %>
+    <%# end %>
 
   <div class="messages-box">
 
-    <div class=<%= "#{variable_to_know_if_unread}" %>>
       <%= render 'conversations', conversations: @started %>
-    </div>
 
   </div>
 
-  <% end %>
-<% end %>
+  <%# end %>
+<%# end %>
 
 
 
