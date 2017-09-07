@@ -12,6 +12,9 @@
     }
   }
 }
+.message:last-child {
+  padding-bottom: 66px;
+}
 .message-content {
   // background-color: #F7F7F7;
   background-color: white; //received msg background
