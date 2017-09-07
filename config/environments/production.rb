@@ -42,8 +42,8 @@ Rails.application.configure do
 
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
-  config.action_cable.url = "ws://dating-app-batch93.herokuapp.com/cable"
-  config.action_cable.allowed_request_origins = [ "http://dating-app-batch93.herokuapp.com", "https://dating-app-batch93.herokuapp.com" ]
+  config.action_cable.url = "ws://gometeor.me/cable"
+  config.action_cable.allowed_request_origins = [ "http://gometeor.me", "https://gometeor.me" ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
