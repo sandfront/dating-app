@@ -13,7 +13,7 @@
   </div>
 </div>
 
-<%= if @started != [] %>
+<% if @started != [] %>
   <% @started.each do |conversation| %>
 
     <% if (!conversation.messages.last.from?(current_user)) && conversation.last_opened_id != current_user.id %>
