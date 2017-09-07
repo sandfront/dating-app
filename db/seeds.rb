@@ -15,7 +15,7 @@ Community.create(title: "Queen Mary", brand_color: "#000066")
 communities = Community.all
 
 count = 1
-50.times do
+20.times do
   person = User.new()
   person.first_name = Faker::Name.first_name
   person.last_name = Faker::Name.last_name
