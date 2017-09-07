@@ -8,5 +8,6 @@ class PagesController < ApplicationController
   end
 
   def landing
+    @community = Community.new
   end
 end
