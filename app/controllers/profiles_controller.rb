@@ -36,6 +36,7 @@ class ProfilesController < ApplicationController
 
   def edit
     @user = User.includes(:user_images).find(params[:id])
+    @user_images = @user.user_images.order({id: :asc})
     authorize @user
   end
 
