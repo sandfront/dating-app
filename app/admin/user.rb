@@ -12,6 +12,7 @@ form do |f|
       f.input :college
       f.input :course
       f.input :birthday
+      f.input :gender_preferences
     end
     f.inputs "Admin" do
       f.input :admin
