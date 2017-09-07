@@ -1,4 +1,4 @@
-<div class="navbar-meteor <%= 'navbar-transparent' if params[:controller] == 'pages' %>" style="background-color: <%= current_user&.community&.brand_color || '#FFE270' %>;">
+<div class="navbar-meteor <%= 'navbar-transparent' if params[:controller] == 'pages' %>" style="background-color: <%= current_user&.community&.brand_color || '' %>;">
   <!-- Dropdown list appearing on mobile only LEFT icon-->
   <% if user_signed_in? %>
   <div class="navbar-meteor-item hidden-sm hidden-md hidden-lg">
