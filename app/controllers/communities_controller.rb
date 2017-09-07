@@ -1,4 +1,6 @@
 class CommunitiesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:create]
+
 
   def create
     @community = Community.new(community_params)
