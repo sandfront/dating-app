@@ -39,7 +39,17 @@
               <div class="card onboard-card">
                   <div class="card-body">
                     <%= simple_form_for @user, :url => profile_path(@user), :method => :patch do |f| %>
-                    <%= f.input :gender_preferences, label: "Show Me", as: :check_boxes, collection: ["male", "female", "non_binary"] %>
+                    <%
+                      genders = [
+                        [ 'male', 'Men' ],
+                        [ 'female', 'Women' ],
+                        [ 'non_binary', 'Other' ]
+                      ]
+                    %>
+                    <%= f.input :gender_preferences, label: "I'm interested in", as: :check_boxes,
+                          collection: genders,
+                          value_method: :first,
+                          label_method: :last %>
                   </div>
                   <div class="card-footer">
                     <%= f.button :submit, "Done", class: 'btn btn-primary btn-block' %>
