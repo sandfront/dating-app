@@ -137,10 +137,10 @@ ActiveRecord::Schema.define(version: 20170906162136) do
     t.string "subject"
     t.date "birthday"
     t.boolean "admin", default: false, null: false
-    t.string "gender_preferences", default: [], array: true
     t.string "college"
     t.text "what_im_into"
     t.text "looking_for"
+    t.string "gender_preferences", default: [], array: true
     t.bigint "community_id"
     t.index ["community_id"], name: "index_users_on_community_id"
     t.index ["email"], name: "index_users_on_email", unique: true
