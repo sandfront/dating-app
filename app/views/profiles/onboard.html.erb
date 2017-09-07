@@ -13,7 +13,7 @@
               <div class="card onboard-card">
                   <div class="card-body">
                   <%= simple_form_for @user, remote: true, :url => profile_path(@user), :method => :patch do |f| %>
-                  <%= f.input :course, label: "What are you working on right now?", placeholder: 'Studying philosophy at Oxford' %>
+                  <%= f.input :course, label: "What are you studying?", placeholder: 'Studying philosophy at Oxford' %>
                   </div>
                   <div class="card-footer">
                     <%= f.button :submit, "Next", class: 'btn btn-primary btn-block' %>
@@ -28,7 +28,7 @@
               <div class="card onboard-card">
                   <div class="card-body">
                   <%= simple_form_for @user, remote: true, :url => profile_path(@user), :method => :patch do |f| %>
-                  <%= f.input :what_im_into, label: "How would your friends describe you?", placeholder: 'Studying philosophy at Oxford andfdsajfkdsjafjdks fdsafjdsakfjkdsjafkj fdsfdsjfj d dsfkdjf dfdhfa jdsjf jf ffjfdsjaifj djfdsajf djs jijdsu dijidk dej dajifjdij' %>
+                  <%= f.input :what_im_into, label: "Add a Bio", placeholder: '' %>
                   </div>
                   <div class="card-footer">
                     <%= f.button :submit, "Next", class: 'btn btn-primary btn-block' %>
@@ -43,7 +43,17 @@
               <div class="card onboard-card">
                   <div class="card-body">
                     <%= simple_form_for @user, :url => profile_path(@user), :method => :patch do |f| %>
-                    <%= f.input :gender_preferences, as: :check_boxes, collection: ["male", "female", "non_binary"] %>
+                    <%
+                      genders = [
+                        [ 'male', 'Men' ],
+                        [ 'female', 'Women' ],
+                        [ 'non_binary', 'Other' ]
+                      ]
+                    %>
+                    <%= f.input :gender_preferences, label: "I'm interested in", as: :check_boxes,
+                          collection: genders,
+                          value_method: :first,
+                          label_method: :last %>
                   </div>
                   <div class="card-footer">
                     <%= f.button :submit, "Done", class: 'btn btn-primary btn-block' %>
