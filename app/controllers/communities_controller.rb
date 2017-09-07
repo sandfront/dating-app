@@ -6,7 +6,7 @@ class CommunitiesController < ApplicationController
     @community = Community.new(community_params)
     authorize @community
     if @community.save
-      redirect_to landing_path, alert: "Your community has been submitted for approval!"
+      redirect_to root_path, alert: "Your community has been submitted for approval!"
     else
       redirect_to landing_path, alert: "Something went wrong"
     end
