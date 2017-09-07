@@ -10,9 +10,10 @@
             <div class="swiper-wrapper">
                 <!-- Slides -->
                 <!-- test slide below -->
-                <div class="swiper-slide profile-photo" style="background-image: url(<%= image_path (user.user_images.first&.url || user.facebook_picture_url) %>);" ></div>
+                <% images = user.user_images.order({id: :asc}) %>
+                <div class="swiper-slide profile-photo" style="background-image: url(<%= image_path (images.first&.url || user.facebook_picture_url) %>);" ></div>
                 <!-- end of test slide -->
-                <% user.user_images.drop(1).each do |image| %>
+                <% images.drop(1).each do |image| %>
                   <div class="swiper-slide profile-photo" style="background-image: url( <%= image_path image.url %>);" ></div>
                 <% end %>
             </div>
