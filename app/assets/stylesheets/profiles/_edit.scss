@@ -4,6 +4,8 @@
   padding-top: 10px
 }
 
+
+
 .swiper-edit .swiper-slide{
   position: relative;
   /* Center slide text vertically */
@@ -64,8 +66,13 @@
   border-radius: 2px;
 }
 
+.attribute-title {
+  font-family: "Open Sans", sans-serif;
+}
+
 .remove-profile {
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .input-no-resize {

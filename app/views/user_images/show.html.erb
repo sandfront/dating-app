@@ -1,14 +1,23 @@
+<% content_for(:title_tag) do %>
+  Your Photos - Meteor
+<% end %>
+
 <div class="wrapper-black">
+  <div class="wrapper-black-empty"></div>
   <div class="edit-photo-image" style="background-image: url( <%= @photo.url %> )">
   </div>
-  <div class="edit-dropdown-content">
-    <div class="dropdown edit-dropdown dropup">
-      <i class="fa fa-pencil-square-o dropdown-toggle" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right">
-        <li><%= link_to "Default photo", profile_user_image_path(@user, @photo), method: :patch %></li>
-        <li><%= link_to "Delete photo",  profile_user_image_path(@user, @photo), method: :delete %></li>
-        <li><%= link_to "Change photo",  edit_profile_user_image_path(@user), method: :get %></li>
-      </ul>
+  <div class="edit-box-image" data-toggle="dropdown">
+    <div class="edit-dropdown-content">
+      <div class="dropdown edit-dropdown dropup">
+      <div class="dropdown-thing" data-toggle="dropdown">
+        <p > Edit <p>
+        <i class="fa fa-pencil-square-o dropdown-toggle icon-edit-image"></i>
+      </div>
+        <ul class="dropdown-menu dropdown-menu-right">
+          <li><%= link_to "Change photo",  edit_profile_user_image_path(@user), method: :get %></li>
+          <li><%= link_to "Delete photo",  profile_user_image_path(@user, @photo), method: :delete %></li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

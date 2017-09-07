@@ -30,12 +30,12 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.includes(:user_images).find(params[:id])
     authorize @user
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.includes(:user_images).find(params[:id])
     authorize @user
   end
 

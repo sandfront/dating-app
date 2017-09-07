@@ -1,3 +1,7 @@
+<% content_for(:title_tag) do %>
+  Landing Page - Meteor
+<% end %>
+
 <div class="banner" style="background: #4CA1AF;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to bottom, #C4E0E5, #4CA1AF);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to bottom, #C4E0E5, #4CA1AF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */">
@@ -5,7 +9,31 @@ background: linear-gradient(to bottom, #C4E0E5, #4CA1AF); /* W3C, IE 10+/ Edge, 
     <div class="landing-container">
       <img src="http://mmsullivan.com/content/images/2014/May/meteor-icon.png" alt="" height="40px">
       <h3 class="val-prop">Create a custom dating app for your university in 20 seconds</h3>
-      <button class="btn btn-primary btn-lg">Get started</button>
+      <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#create_community">Get started</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="create_community" tabindex="-1" role="dialog" aria-labelledby="Create a community" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalLabel">Add your university</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for @community, :url => communities_path, :method => :post do |f| %>
+        <%= f.input :title, label: "What's your university?" %>
+        <%= f.input :brand_color, label: "What's your colour?" %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <%= f.button :submit, "Create", class: 'btn btn-primary show-navbar' %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
