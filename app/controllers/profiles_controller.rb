@@ -24,7 +24,7 @@ class ProfilesController < ApplicationController
 
     users_allowed = User.find_by_sql([ query, { current_user_id: current_user.id, gender_preferences: current_user.gender_preferences, current_user_community_id: current_user.community.id }])
     number = Date.today.to_time.to_i + current_user.id.to_i
-    @users = users_allowed.sample(12, random: Random.new(number))
+    @users = users_allowed #.sample(12, random: Random.new(number))
     ActiveRecord::Associations::Preloader.new.preload(@users, :user_images)
     @user = current_user
   end
@@ -36,6 +36,7 @@ class ProfilesController < ApplicationController
 
   def edit
     @user = User.includes(:user_images).find(params[:id])
+    @user_images = @user.user_images.order({id: :asc})
     authorize @user
   end
 

@@ -3,10 +3,10 @@
 <% end %>
 
 <div class="edit-box-for-cards">
-  <div class="hidden-md hidden-lg">
+  <div>
     <div class="swiper-container swiper-edit">
         <div class="swiper-wrapper">
-        <% @user.user_images.each do |photo| %>
+        <% @user_images.each do |photo| %>
             <div class="swiper-slide avatar-photo" style="background-image: url(<%= photo.small_url %>)">
              <%= link_to "", profile_user_image_path(@user,photo), class: "link-image-edit" %> </div>
         <% end %>
