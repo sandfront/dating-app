@@ -8,6 +8,11 @@ form do |f|
       f.input :last_name
       f.input :email
       f.input :password
+      f.input :what_im_into
+      f.input :looking_for
+      f.input :college
+      f.input :course
+      f.input :birthday
     end
     f.inputs "Admin" do
       f.input :admin
@@ -15,7 +20,7 @@ form do |f|
     f.actions
   end
 
-  permit_params :first_name, :last_name, :email, :password, :admin
+  permit_params :first_name, :last_name, :email, :password, :admin, :what_im_into, :looking_for, :college, :course, :birthday
 
 index do
     selectable_column
