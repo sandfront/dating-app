@@ -68,3 +68,16 @@ var onboardSwiper = new Swiper('.swiper-container.swiper-onboard', {
   // Navigation arrows
   nextButton: '.swiper-button-next.onboard-next',
 });
+
+var showSwiper = new Swiper ('.swiper-container.swiper-show-card', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: false,
+  preventClicks: true,
+  keyboardControl: true,
+  slidesPerView: slidesView,
+  slidesPerColumn: slidesCol,
+  slidesPerGroup: perView,
+  // If we need pagination
+  pagination: '.swiper-pagination.swiper-show-card',
+});
