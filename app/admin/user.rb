@@ -12,7 +12,7 @@ form do |f|
       f.input :college
       f.input :course
       f.input :birthday
-      f.input :gender_preferences
+      f.input :facebook_picture_url
     end
     f.inputs "Admin" do
       f.input :admin
@@ -20,7 +20,7 @@ form do |f|
     f.actions
   end
 
-  permit_params :first_name, :last_name, :email, :admin, :what_im_into, :looking_for, :college, :course, :birthday, :gender_preferences
+  permit_params :first_name, :last_name, :email, :admin, :what_im_into, :looking_for, :college, :course, :birthday, :facebook_picture_url
 
 index do
     selectable_column
