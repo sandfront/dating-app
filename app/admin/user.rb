@@ -20,7 +20,7 @@ form do |f|
     f.actions
   end
 
-  permit_params :first_name, :last_name, :email, :admin, :what_im_into, :looking_for, :college, :course, :birthday
+  permit_params :first_name, :last_name, :email, :admin, :what_im_into, :looking_for, :college, :course, :birthday, :gender_preferences
 
 index do
     selectable_column
